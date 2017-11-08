@@ -27,8 +27,13 @@ function checkKqctimes(request) {
   const subTitle = request.body.sub_title
   const publisher = request.body.publisher
   const body = request.body.body
+  const year = request.body.year
 
-  if (title === undefined || subTitle === undefined || publisher === undefined || body === undefined) {
+  if (title === undefined ||
+    subTitle === undefined ||
+    publisher === undefined ||
+    body === undefined ||
+    year === undefined) {
     return false
   } else {
     return true
