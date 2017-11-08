@@ -54,7 +54,7 @@ exports.information = functions.https.onRequest((request, response) => {
 })
 
 function getInformation(request, response) {
-
+  response.status(200).send('GET request')
 }
 
 function postInformation(request, response) {
