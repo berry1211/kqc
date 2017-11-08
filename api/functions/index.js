@@ -18,7 +18,7 @@ function postKqctimes(request, response) {
   if (checkKqctimes(request) === false) {
     response.status(400).send({ message : 'Bad Request'})
   } else {
-    response.status(201).send({ message : 'KQCTimes created'})  
+    response.status(201).send({ message : 'KQCTimes created'})
   }
 }
 
