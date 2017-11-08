@@ -40,8 +40,42 @@ function getKqctimes(request, response) {
 }
 
 exports.information = functions.https.onRequest((request, response) => {
-
+  switch (request.method) {
+    case 'GET':
+      getInformation(request, response)
+      break
+    case 'POST':
+      postInformation(request, response)
+      break
+    default:
+      response.status(400).send({ error: 'Something blew up!' })
+      break
+  }
 })
+
+function getInformation(request, response) {
+
+}
+
+function postInformation(request, response) {
+  if (checkInformation(request) === false) {
+    response.status(400).send({ message : 'Bad Request'})
+  } else {
+    response.status(201).send({ message : 'Information created'})
+  }
+}
+
+function checkInformation(request) {
+  const title = request.body.title
+  const publisher = request.body.publisher
+  const body = request.body.body
+
+  if (title === undefined || publisher === undefined || body === undefined) {
+    return false
+  } else {
+    return true
+  }
+}
 
 exports.login = functions.https.onRequest((request, response) => {
 
