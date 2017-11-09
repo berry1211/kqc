@@ -43,6 +43,7 @@ function checkKqctimes(request) {
 }
 
 function getKqctimes(request, response) {
+  // return values of Kqctimes. The number of Kqctimes return is 10
   response.status(200).send('GET request')
 }
 
@@ -61,6 +62,7 @@ exports.information = functions.https.onRequest((request, response) => {
 })
 
 function getInformation(request, response) {
+  // return values of Information. The number of Information return is 10
   response.status(200).send('GET request')
 }
 
@@ -85,5 +87,19 @@ function checkInformation(request) {
 }
 
 exports.login = functions.https.onRequest((request, response) => {
-
+  // In this endpoint, cheack user name and password, and return 200 Success or
+  // 404 Not Found. In this application, the kind of users KQC-Web use is three.
+  //
+  // Users
+  // 1. Common KQC members.
+  //   this user can use only for the purpose of visiting contents of Kqctimes or
+  //   Informations. They can not create, delete the Kqctimes, but they can create
+  //   or delete Information. Because in private page (I call it MEMBERS PAGE),
+  //   all contents except KQCtimes is public for all members
+  // 2. Manager
+  //   this user can not only visiting contents KQC-Web has, also create or delete
+  //   contents contains KQCtimes. This user has no authority to change system
+  //   program, but can order developpers to create or fix this application
+  // 3. Developper
+  //    this user has authority to develop this application
 })
