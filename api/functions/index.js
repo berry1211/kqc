@@ -44,7 +44,7 @@ function checkKqctimes(request) {
 
 function getKqctimes(request, response) {
   // return values of Kqctimes. The number of Kqctimes return is 10
-  response.status(200).send('GET request')
+  response.status(200).send({ message : 'GET request' })
 }
 
 exports.information = functions.https.onRequest((request, response) => {
@@ -63,7 +63,7 @@ exports.information = functions.https.onRequest((request, response) => {
 
 function getInformation(request, response) {
   // return values of Information. The number of Information return is 10
-  response.status(200).send('GET request')
+  response.status(200).send({ message : 'GET request' })
 }
 
 function postInformation(request, response) {
