@@ -20,7 +20,27 @@ function postKqctimes (request, response) {
   if (checkKqctimes(request) === false) {
     response.status(400).send({ message: 'Bad Request' })
   } else {
-    response.status(201).send({ message: 'KQCTimes created' })
+    const title = request.body.title
+    const subTitle = request.body.sub_title
+    const publisher = request.body.publisher
+    const body = request.body.body
+    const year = request.body.year
+
+    let jsonStr = {
+      'id': genKqctimesId(),
+      'title': title,
+      'sub_title': subTitle,
+      'publisher': publisher,
+      'body': body,
+      'year': year
+    }
+    admin.database().ref('/development/kqctimes')
+      .push(jsonStr).then(snapshot => {
+        response.status(201).send({ message: 'KqcTimes created' })
+      })
+      .catch(error => {
+        response.status(418).send({ 'error': error })
+      })
   }
 }
 
@@ -44,7 +64,14 @@ function checkKqctimes (request) {
 
 function getKqctimes (request, response) {
     // return values of Kqctimes. The number of Kqctimes return is 10
-  response.status(200).send({ message: 'GET request' })
+  admin.database().ref('/development/kqctimes')
+    .once('value', function(data) {
+      response.status(200).send(data)
+    }, {
+      function(errorObject) {
+        response.status(404).send({ message: 'Not Found' })
+      }
+    })
 }
 
 exports.information = functions.https.onRequest((request, response) => {
@@ -63,7 +90,12 @@ exports.information = functions.https.onRequest((request, response) => {
 
 function getInformation (request, response) {
     // return values of Information. The number of Information return is 10
-  response.status(200).send({ message: 'GET request' })
+  admin.database().ref('/development/information')
+    .once('value', function(data) {
+      response.status(200).send(data)
+    }, function(errorObject) {
+      response.status(404).send({ message: 'Not Found' })
+    })
 }
 
 function postInformation (request, response) {
@@ -80,13 +112,12 @@ function postInformation (request, response) {
       'publisher': publisher,
       'body': body
     }
-    const jsonObject = JSON.parse(jsonStr)
     admin.database().ref('/development/information')
-      .push(jsonObject).then(snapshot => {
+      .push(jsonStr).then(snapshot => {
         response.status(201).send({ message: 'Information created' })
       })
       .catch(error => {
-        response.status(418).send(error)
+        response.status(418).send({ 'error': error })
       })
   }
 }
@@ -108,12 +139,11 @@ function genInformationId () {
   return id + 'info'
 }
 
-/*
+
 function genKqctimesId () {
   let id = getUniqueId
   return id + 'kqct'
 }
-*/
 
 // generate UniqueId for information and Kqctimes
 function getUniqueId () {
