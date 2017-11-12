@@ -177,4 +177,22 @@ exports.login = functions.https.onRequest((request, response) => {
     //   program, but can order developpers to create or fix this application
     // 3. Developper
     //    this user has authority to develop this application
+  switch (request.method) {
+    case 'GET':
+      getUserAuth(request, response)
+      break
+    case 'PATH':
+      patchUserAuth(request, response)
+      break
+    default:
+      break
+  }
 })
+
+function patchUserAuth (request, response) {
+
+}
+
+function getUserAuth (request, response) {
+
+}
