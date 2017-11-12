@@ -11,11 +11,19 @@
 
       <div class="content-wrapper">
         <div id="main-content-wrapper">
-          <router-link to='/members/information' class="member-link">インフォメーション</router-link>
-          <router-link to='/members/rules' class="member-link">規約</router-link>
-          <router-link to='/members/kqc-times' class="member-link">KQCTimes</router-link>
-          <router-link to='/members/hunting-job-list' class="member-link">就活情報</router-link>
-          <router-link to='/developer' class="member-link">開発担当よりお知らせ</router-link>
+          <ul>
+            <li>
+              <router-link to='/members/information' class="member-link">インフォメーション</router-link>
+            </li>
+            <li>
+              <router-link to='/members/kqc-times' class="member-link">KQCTimes</router-link>
+            </li>
+            <li>
+              <router-link to='/developer' class="member-link">開発担当よりお知らせ</router-link>
+            </li>
+          </ul>
+          <!-- <router-link to='/members/rules' class="member-link">規約</router-link> -->
+          <!-- <router-link to='/members/hunting-job-list' class="member-link">就活情報</router-link> -->
         </div>
       </div>
 
@@ -33,7 +41,7 @@ export default {
   data () {
     return {
       msg: 'Welcome to KQC',
-      msg_sub: 'For KQC Mmebers',
+      msg_sub: 'For KQC Members',
       msg_sub1: 'KQC会員専用ページです'
     }
   },
@@ -60,10 +68,6 @@ export default {
 }
 
 @media screen and (min-width: 480px) {
-  h1, h2 {
-    font-weight: normal;
-  }
-
   #club-members{
     height: auto;
   }
@@ -80,7 +84,9 @@ export default {
     color: #ffffff;
     font-weight: bold;
     text-align: center;
-    display: block;
+    display: inline-block;
+    margin-right: auto;
+    margin-left: auto;
   }
   .sub-h1{
     position: absolute;

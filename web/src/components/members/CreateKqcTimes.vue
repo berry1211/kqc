@@ -101,7 +101,7 @@ h1, h2 {
 .sub-title-input::-webkit-input-placeholder{
   color: #bdbdbd;
 }
-.submit-kqctimes{
+.submit-kqctimes {
   width: 200px;
   height: 48px;
   margin-left: auto;
@@ -114,6 +114,7 @@ h1, h2 {
   font-weight: bold;
   cursor: pointer;
 }
+
 .content-textarea{
   width: 944px;
   height: 600px;
@@ -133,7 +134,7 @@ h1, h2 {
   margin-left: auto;
   margin-right: auto;
   margin-top: 16px;
-  background: #1E88E5;
+  background: #158ded;
   border-radius: 4px;
   color: #fff;
   font-size: 20px;

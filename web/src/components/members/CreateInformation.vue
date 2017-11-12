@@ -3,9 +3,9 @@
     <div id="create-wrapper">
       <h1>{{ message }}</h1>
       <form accept-charset="UTF-8">
-        <input type="text" name="title" id="title" placeholder="タイトルを入力してください" class="title-input"/>
-        <input type="text" name="sub_title" id="sub_title" placeholder="サブタイトルを入力してください" class="sub-title-input"/>
-        <input type="text" name="publisher" id="publisher" placeholder="投稿者名を入力してください" class="publisher-input"/>
+        <input type="text" name="title" id="title" placeholder="タイトル" class="title-input"/>
+        <input type="text" name="sub_title" id="sub_title" placeholder="サブタイトル" class="sub-title-input"/>
+        <input type="text" name="publisher" id="publisher" placeholder="投稿者名" class="publisher-input"/>
         <textarea name="content" id="content" class="content-textarea"></textarea>
       </form>
     </div>
