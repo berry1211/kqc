@@ -19,10 +19,11 @@
                 <router-link :to="{ name: 'kqctimes-detail', params: { id: '!'+kqctimes.id }}" class="kqctimes-link"><h3>{{ kqctimes.title }}</h3></router-link>
                 <p class="sub-title">〜{{ kqctimes.sub_title }}〜</p>
                 <div class="content-summary-wrapper">
-                  <p>{{ kqctimes.content }}</p>
+                  <p class="kqctimes-list-content" v-html="kqctimes.body">...</p>
                 </div>
               </div>
             </li>
+            <div style="height: 32px;"></div>
           </ul>
         </div>
 
@@ -63,16 +64,20 @@ export default {
       errors: []
     }
   },
-  created: function(){
-    document.title = 'KQCTimes | KQC会員用'
-  },
-
-  created: function (){
+  created: function () {
+    let date = new Date()
+    this.this_year = date.getFullYear() + '年'
     let baseUrl = 'https://us-central1-kqc-web-staging.cloudfunctions.net'
     axios.get(baseUrl + '/kqctimes')
       .then(response => {
         console.log(response);
+        this.kqctimeslist = response.data
       })
+  },
+  methods: {
+    limitContent: function (str) {
+      return str
+    }
   }
 }
 </script>
@@ -199,7 +204,7 @@ export default {
     margin-left: 32px;
     margin-right: auto;
     margin-top: 32px;
-    margin-bottom: 64px;
+    margin-bottom: 48px;
   }
   .kqctimes-list-item{
     color: inherit;
@@ -320,6 +325,11 @@ export default {
     margin-right: auto;
   }
 
+  .kqctimes-list-content {
+    display: block;
+    height: 120px;
+    overflow: hidden;
+  }
 
   /*スペースのコンポーネント*/
   #space{

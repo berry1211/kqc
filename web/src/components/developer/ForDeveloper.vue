@@ -15,18 +15,15 @@
           <h2>お知らせ</h2>
           <div class="list-wrapper">
             <ul>
-              <li>
+              <li v-for="item in introductionStr">
                 <div class="list-container">
-                  <h3>KQCWeb 開発にご協力ください!</h3>
-                  <p class="date-announced">
-                    2017年7月6日
-                  </p>
-                  <p class="history-content-wrapper">
-                    KQCWeb開発担当、31期の堀井です。この度、KQCWeb β版を開発中です!!いろいろと便利なサイトにしていきたいので、皆が気になったことはどんどんフィードバックを貰えればと思います!!
-                  </p>
+                  <h3>{{ item.title }}</h3>
+                  <p class="date-announced">{{ item.date }}</p>
+                  <div class="history-content-wrapper" v-html='item.body'></div>
                 </div>
               </li>
             </ul>
+            <div style="height: 32px;"></div>
           </div>
         </div>
 
@@ -46,11 +43,30 @@ export default {
       msg_sub: 'Dear All KQC members!!',
       msg_sub1: '開発担当よりお知らせ',
       this_year: '2017年',
-      kqctimes_list: []
+      kqctimes_list: [],
+      introductionStr: [{
+        title: "KQCのサイトを新しくします",
+        body: "　31期の堀井といいます。どうぞお見知りおきください。<br>この度KQCのWebサイトを新しくしようとおもいます。<br><br>いまのサイトは19期さんが作られたものですが、"
+          + "それからいままでほとんど補修されることなく運用されてきたようです。Web担当の負担などを考慮して、サイトを改修しようとおもいます"
+          + "<br><br>この改修で改善されるのは以下の３つです<br><br>　1. サイトの知識の少ないWeb担当でも、楽に管理ができるようにする。"
+          + "<br>　2. サイトの安全性を高める<br>　3. サイトのデザインを（少しでも）高める"
+          + "<br><br /> サイトに不満があるなど、「改善したい！」という提案は大歓迎です。31期堀井保徳までご連絡ください"
+          + "<br><br> 31期 堀井保徳 horiiortho5@gmail.com",
+        date: '2017年11月12日'
+      }, {
+        title: "KQCWeb α版の公開",
+        body: "　KQCのサイトα版を公開しました。まだ一部不具合のある部分もありますので、これから改善していきます。",
+        date: '2017年12月1日'
+      }]
     }
   },
   created: function(){
     document.title = 'Dear KQC members | KQC会員用'
+  },
+  computed: {
+    introduction: function () {
+      return marked(this.introductionStr, { sanitize: true })
+    }
   }
 }
 </script>
@@ -215,7 +231,7 @@ export default {
     margin-left: 32px;
     margin-right: 32px;
     margin-top: 32px;
-    margin-bottom: 64px;
+    margin-bottom: 32px;
   }
   .sub-h1{
     position: absolute;
@@ -245,6 +261,15 @@ export default {
   .history-content-wrapper{
     margin-top: 16px;
     margin-left: 16px;
+    display: inline-block;
+    height: 100%;
+    vertical-align: top;
+    box-sizing: border-box;
+    padding: 0 20px;
+  }
+  .history-content-wrapper h2 {
+    padding-top: 16px;
+    padding-bottom: 16px;
   }
 
   /*スペースのコンポーネント*/

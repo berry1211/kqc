@@ -17,6 +17,7 @@
 </template>
 
 <script>
+import router from '../../router'
 export default {
   name: 'create-kqctimes',
   data () {
@@ -47,6 +48,7 @@ export default {
       axios.post(baseUrl + '/kqctimes', params)
         .then(response => {
           console.log(response);
+          router.push({path: '/members/kqc-times'})
         })
     }
   }
