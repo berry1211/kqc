@@ -181,10 +181,11 @@ exports.login = functions.https.onRequest((request, response) => {
     case 'GET':
       getUserAuth(request, response)
       break
-    case 'PATH':
+    case 'PATCH':
       patchUserAuth(request, response)
       break
     default:
+      response.status(400).send({ error: 'Something blew up!' })
       break
   }
 })
