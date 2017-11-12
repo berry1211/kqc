@@ -1,14 +1,25 @@
 const functions = require('firebase-functions')
 const admin = require('firebase-admin')
+const cors = require('cors')({origin: true});
 admin.initializeApp(functions.config().firebase)
 
 exports.kqctimes = functions.https.onRequest((request, response) => {
   switch (request.method) {
+    case 'OPTIONS':
+      response.set('Access-Control-Allow-Origin', '*')
+              .set('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
+              .set('Access-Control-Allow-Methods', 'GET, POST')
+              .status(200).send('OK')
+      break
     case 'GET':
-      getKqctimes(request, response)
+      cors(request, response, function() {
+        getKqctimes(request, response)
+      })
       break
     case 'POST':
-      postKqctimes(request, response)
+      cors(request, response, function() {
+        postKqctimes(request, response)
+      })
       break
     default:
       response.status(400).send({ error: 'Something blew up!' })
@@ -139,9 +150,8 @@ function genInformationId () {
   return id + 'info'
 }
 
-
 function genKqctimesId () {
-  let id = getUniqueId
+  let id = getUniqueId()
   return id + 'kqct'
 }
 

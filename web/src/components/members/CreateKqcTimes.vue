@@ -29,34 +29,25 @@ export default {
   },
   methods: {
     submit: function (event){
-      var title = document.getElementById('title').value;
-      var sub_title = document.getElementById('sub_title').value;
-      var content = document.getElementById('content').value;
-      var date = new Date();
-      var year = date.getFullYear();
-      var month = date.getMonth() + 1;
-      var params = [
-        {
+      console.log("Submit called")
+      const title = document.getElementById('title').value
+      const sub_title = document.getElementById('sub_title').value
+      const content = document.getElementById('content').value
+      const date = new Date()
+      const year = date.getFullYear()
+      const params = {
           "title": title,
           "sub_title": sub_title,
-          "content": content,
-          "year": year,
-          "month": month
-        }
-      ];
-      console.log(params);
-      axios({
-        method: 'post',
-        url: 'https://api-kqc.herokuapp.com/kqc-times/',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        data: params
-      }).then(response => {
-        console.log(response.data);
-      }).catch(error =>{
-        console.log(error.status);
-      });
+          "publisher": "内務",
+          "body": content,
+          "year": year
+      }
+      console.log("Before Axios called")
+      const baseUrl = 'https://us-central1-kqc-web-staging.cloudfunctions.net'
+      axios.post(baseUrl + '/kqctimes', params)
+        .then(response => {
+          console.log(response);
+        })
     }
   }
 }

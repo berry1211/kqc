@@ -68,18 +68,10 @@ export default {
   },
 
   created: function (){
-    var date = new Date();
-    var year = date.getFullYear();
-    this.this_year = year + '年'
-    var baseUrl = 'https://api-kqc.herokuapp.com/kqc-times/'
-    var paramOpe = '?year='
-    axios.get(baseUrl + paramOpe + year)
+    let baseUrl = 'https://us-central1-kqc-web-staging.cloudfunctions.net'
+    axios.get(baseUrl + '/kqctimes')
       .then(response => {
-        this.kqctimeslist = response.data
-        console.log(response.data);
-      })
-      .catch(e => {
-        this.errors.push(e)
+        console.log(response);
       })
   }
 }
