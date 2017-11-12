@@ -87,11 +87,21 @@ function getKqctimes (request, response) {
 
 exports.information = functions.https.onRequest((request, response) => {
   switch (request.method) {
+    case 'OPTIONS':
+      response.set('Access-Control-Allow-Origin', '*')
+            .set('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
+            .set('Access-Control-Allow-Methods', 'GET, POST')
+            .status(200).send('OK')
+      break
     case 'GET':
-      getInformation(request, response)
+      cors(request, response, function() {
+        getInformation(request, response)
+      })
       break
     case 'POST':
-      postInformation(request, response)
+      cors(request, response, function () {
+        postInformation(request, response)
+      })
       break
     default:
       response.status(400).send({ error: 'Something blew up!' })

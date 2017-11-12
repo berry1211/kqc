@@ -157,7 +157,6 @@ export default {
     margin-left: 32px;
     padding-top: 24px;
     margin-right: 32px;
-    padding-bottom: 24px;
   }
   #kqctimes-container{
     height: 100%;
