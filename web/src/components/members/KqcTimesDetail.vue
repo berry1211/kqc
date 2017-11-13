@@ -10,7 +10,7 @@
             <h3>{{ kqctimes.title }}</h3>
             <p class="sub-title">〜{{ kqctimes.sub_title }}〜</p>
             <div class="content-summary-wrapper">
-              <p>{{ kqctimes.content }}</p>
+              <p>{{ kqctimes.body }}</p>
             </div>
           </div>
 
@@ -50,21 +50,16 @@ export default {
     document.title = 'KQCTimes | KQC会員用'
   },
   created: function (){
-    var href = window.location.href;
-    var idNum;
-    if (href.indexOf("!") >= 0) {
-      idNum = href.substring(href.indexOf("!")+1, href.length)
-    }
-    console.log(idNum);
-    axios.get('https://api-kqc.herokuapp.com/kqc-times/'+idNum)
+    var tmp = location.href.replace(/\?.*$/, '').split('/')
+    // その中で、最後にくる数字を取得。これがイベントID
+    var id = tmp[tmp.length - 1]
+    console.log(id)
+    let baseUrl = 'https://us-central1-kqc-web-staging.cloudfunctions.net'
+    axios.get(baseUrl + '/kqctimes/' + id)
       .then(response => {
-        this.kqctimes = response.data
-        console.log(response.data);
-        console.log('List:', kqctimes);
+        console.log(response);
+        this.kqctimes = response.data[0]
       })
-      .catch(error => {
-        console.log(error);
-      });
   },
   watch: {
     $route: function() {

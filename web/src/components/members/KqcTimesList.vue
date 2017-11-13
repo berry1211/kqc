@@ -16,7 +16,7 @@
           <ul>
             <li v-for="kqctimes of kqctimeslist">
               <div class="times-model-wrapper">
-                <router-link :to="{ name: 'kqctimes-detail', params: { id: '!'+kqctimes.id }}" class="kqctimes-link"><h3>{{ kqctimes.title }}</h3></router-link>
+                <router-link :to="{ name: 'kqctimes-detail', params: { id: kqctimes.id }}" class="kqctimes-link"><h3>{{ kqctimes.title }}</h3></router-link>
                 <p class="sub-title">〜{{ kqctimes.sub_title }}〜</p>
                 <div class="content-summary-wrapper">
                   <p class="kqctimes-list-content" v-html="kqctimes.body">...</p>
