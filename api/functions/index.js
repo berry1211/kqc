@@ -74,15 +74,28 @@ function checkKqctimes (request) {
 }
 
 function getKqctimes (request, response) {
-    // return values of Kqctimes. The number of Kqctimes return is 10
-  admin.database().ref('/development/kqctimes')
-    .once('value', function(data) {
-      response.status(200).send(data)
-    }, {
-      function(errorObject) {
-        response.status(404).send({ message: 'Not Found' })
-      }
-    })
+  // return values of Kqctimes. The number of Kqctimes return is 10
+  if (request.query.year !== undefined) {
+    // if query has contained, search data matched to query
+    admin.database().ref('/development/kqctimes')
+      .orderByChild('year').equalTo(parseInt(request.query.year, 10))
+      .once('value', function(data) {
+        response.status(200).send(data)
+      }, {
+        function(errorObject) {
+          response.status(404).send({ message: 'Not Found' })
+        }
+      })
+  } else {
+    admin.database().ref('/development/kqctimes')
+      .once('value', function(data) {
+        response.status(200).send(data)
+      }, {
+        function(errorObject) {
+          response.status(404).send({ message: 'Not Found' })
+        }
+      })
+  }
 }
 
 exports.information = functions.https.onRequest((request, response) => {
