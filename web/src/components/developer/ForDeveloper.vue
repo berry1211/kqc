@@ -1,6 +1,6 @@
 <template>
   <div id="develper">
-    <span id="forkongithub"><a href="https://github.com/HALU5071/kqc-web" target="_blank">Fork me on GitHub</a></span>
+    <span id="forkongithub"><a href="https://github.com/HALU5071/kqc" target="_blank">Fork me on GitHub</a></span>
     <div class="developer-wrapper">
       <div class="cover-image-wrapper">
         <div class="cover-image-container">
@@ -45,6 +45,10 @@ export default {
       this_year: '2017年',
       kqctimes_list: [],
       introductionStr: [{
+        title: "KQCWeb α版の公開",
+        body: "　KQCのサイトα版を公開しました。まだ一部不具合のある部分もありますので、これから改善していきます。",
+        date: '2017年12月1日'
+      }, {
         title: "KQCのサイトを新しくします",
         body: "　31期の堀井といいます。どうぞお見知りおきください。<br>この度KQCのWebサイトを新しくしようとおもいます。<br><br>いまのサイトは19期さんが作られたものですが、"
           + "それからいままでほとんど補修されることなく運用されてきたようです。Web担当の負担などを考慮して、サイトを改修しようとおもいます"
@@ -53,10 +57,6 @@ export default {
           + "<br><br /> サイトに不満があるなど、「改善したい！」という提案は大歓迎です。31期堀井保徳までご連絡ください"
           + "<br><br> 31期 堀井保徳 horiiortho5@gmail.com",
         date: '2017年11月12日'
-      }, {
-        title: "KQCWeb α版の公開",
-        body: "　KQCのサイトα版を公開しました。まだ一部不具合のある部分もありますので、これから改善していきます。",
-        date: '2017年12月1日'
       }]
     }
   },
@@ -231,7 +231,7 @@ export default {
     margin-left: 32px;
     margin-right: 32px;
     margin-top: 32px;
-    margin-bottom: 32px;
+    margin-bottom: 48px;
   }
   .sub-h1{
     position: absolute;

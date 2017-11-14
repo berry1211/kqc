@@ -12,7 +12,7 @@
                 <h3>{{ kqctimes.title }}</h3>
                 <p class="sub-title">〜{{ kqctimes.sub_title }}〜</p>
                 <div class="content-summary-wrapper">
-                  <p v-html="kqctimes.body.replace(/\n/g, '<br>')"></p>
+                  <p v-html="kqctimes.body.replace(/\n/g, '<br>')" style="font-size: 18px;"></p>
                 </div>
               </li>
             </ul>
@@ -182,7 +182,7 @@ export default {
     float: left;
   }
   .times-model-wrapper{
-    width: 700px;
+    width: 800px;
     margin-left: 8px;
     margin-right: auto;
     margin-top: 32px;
