@@ -86,6 +86,16 @@ function getKqctimes (request, response) {
           response.status(404).send({ message: 'Not Found' })
         }
       })
+  } else if (request.params[0] !== "") {
+    admin.database().ref('/development/kqctimes')
+      .orderByChild('id').equalTo(request.params[0].slice(1))
+      .once('value')
+      .then(snapshot => {
+        response.status(200).send(snapshot)
+      })
+      .catch(error => {
+        response.status(404).send({ message: 'Not Found' })
+      })
   } else {
     admin.database().ref('/development/kqctimes')
       .once('value', function(data) {
