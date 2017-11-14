@@ -924,6 +924,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'kqctimes',
@@ -933,30 +937,23 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       msg_sub: 'KQC Times',
       msg_sub1: '練習・合宿・コンパなどの情報をお伝えします',
       this_year: '2017年',
-      kqctimes: []
+      kqctimesList: []
     };
   },
   created: function () {
-    document.title = 'KQCTimes | KQC会員用';
+    this.getKqctimes();
   },
-  created: function () {
-    var href = window.location.href;
-    var idNum;
-    if (href.indexOf("!") >= 0) {
-      idNum = href.substring(href.indexOf("!") + 1, href.length);
-    }
-    console.log(idNum);
-    axios.get('https://api-kqc.herokuapp.com/kqc-times/' + idNum).then(response => {
-      this.kqctimes = response.data;
-      console.log(response.data);
-      console.log('List:', kqctimes);
-    }).catch(error => {
-      console.log(error);
-    });
-  },
-  watch: {
-    $route: function () {
-      window.scrollTo(0, 0);
+  methods: {
+    getKqctimes: function (event) {
+      let tmp = location.href.replace(/\?.*$/, '').split('/'
+      // その中で、最後にくる数字を取得。これがイベントID
+      );var id = tmp[tmp.length - 1];
+      console.log(id);
+      let baseUrl = 'https://us-central1-kqc-web-staging.cloudfunctions.net';
+      axios.get(baseUrl + '/kqctimes/' + id).then(response => {
+        console.log(response);
+        this.kqctimesList = response.data;
+      });
     }
   }
 });
@@ -2009,7 +2006,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         "to": {
           name: 'kqctimes-detail',
           params: {
-            id: '!' + kqctimes.id
+            id: kqctimes.id
           }
         }
       }
@@ -2495,11 +2492,17 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "main-content-wrapper"
   }, [_c('h2', [_vm._v(_vm._s(_vm.this_year))]), _vm._v(" "), _c('div', {
     staticClass: "times-model-wrapper"
-  }, [_c('h3', [_vm._v(_vm._s(_vm.kqctimes.title))]), _vm._v(" "), _c('p', {
-    staticClass: "sub-title"
-  }, [_vm._v("〜" + _vm._s(_vm.kqctimes.sub_title) + "〜")]), _vm._v(" "), _c('div', {
-    staticClass: "content-summary-wrapper"
-  }, [_c('p', [_vm._v(_vm._s(_vm.kqctimes.content))])])])]), _vm._v(" "), _vm._m(0), _vm._v(" "), _c('div', {
+  }, [_c('ul', _vm._l((_vm.kqctimesList), function(kqctimes) {
+    return _c('li', [_c('h3', [_vm._v(_vm._s(kqctimes.title))]), _vm._v(" "), _c('p', {
+      staticClass: "sub-title"
+    }, [_vm._v("〜" + _vm._s(kqctimes.sub_title) + "〜")]), _vm._v(" "), _c('div', {
+      staticClass: "content-summary-wrapper"
+    }, [_c('p', {
+      domProps: {
+        "innerHTML": _vm._s(kqctimes.body.replace(/\n/g, '<br>'))
+      }
+    })])])
+  }))])]), _vm._v(" "), _vm._m(0), _vm._v(" "), _c('div', {
     attrs: {
       "id": "space"
     }
@@ -2516,4 +2519,4 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 
 /***/ })
 ],[25]);
-//# sourceMappingURL=app.056b3ac7b7cae50988fd.js.map
+//# sourceMappingURL=app.2bd39767d2dfa0fff9d0.js.map
