@@ -134,12 +134,25 @@ exports.information = functions.https.onRequest((request, response) => {
 
 function getInformation (request, response) {
     // return values of Information. The number of Information return is 10
-  admin.database().ref('/development/information')
-    .once('value', function(data) {
-      response.status(200).send(data)
-    }, function(errorObject) {
-      response.status(404).send({ message: 'Not Found' })
-    })
+  if (request.params[0] !== "") {
+    // request parametar is exist
+    admin.database().ref('/development/information')
+      .orderByChild('id').equalTo(request.params[0].slice(1))
+      .once('value')
+      .then(snapshot => {
+        response.status(200).send(snapshot.val())
+      })
+      .catch(error => {
+        response.status(404).send({ message: 'Not Found' })
+      })
+  } else {
+    admin.database().ref('/development/information')
+      .once('value', function(data) {
+        response.status(200).send(data)
+      }, function(errorObject) {
+        response.status(404).send({ message: 'Not Found' })
+      })
+  }
 }
 
 function postInformation (request, response) {
