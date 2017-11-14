@@ -6,12 +6,16 @@
         <div class="main-content-wrapper">
           <h2>{{ this_year }}</h2>
 
-          <div class="times-model-wrapper" v-for="kqctimes in kqctimeslist">
-            <h3>{{ kqctimes.title }}</h3>
-            <p class="sub-title">〜{{ kqctimes.sub_title }}〜</p>
-            <div class="content-summary-wrapper">
-              <p>{{ kqctimes.body }}</p>
-            </div>
+          <div class="times-model-wrapper">
+            <ul>
+              <li v-for="kqctimes in kqctimesList">
+                <h3>{{ kqctimes.title }}</h3>
+                <p class="sub-title">〜{{ kqctimes.sub_title }}〜</p>
+                <div class="content-summary-wrapper">
+                  <p v-html="kqctimes.body.replace(/\n/g, '<br>')"></p>
+                </div>
+              </li>
+            </ul>
           </div>
 
         </div>
@@ -46,26 +50,23 @@ export default {
       kqctimesList: []
     }
   },
-  created: function(){
-    document.title = 'KQCTimes | KQC会員用'
+  created: function () {
+    this.getKqctimes()
   },
-  created: function (){
-    var tmp = location.href.replace(/\?.*$/, '').split('/')
-    // その中で、最後にくる数字を取得。これがイベントID
-    var id = tmp[tmp.length - 1]
-    console.log(id)
-    let baseUrl = 'https://us-central1-kqc-web-staging.cloudfunctions.net'
-    axios.get(baseUrl + '/kqctimes/' + id)
-      .then(response => {
-        console.log(response)
-        this.kqctimeslist = response.data
-      })
-  },
-  watch: {
-    $route: function() {
-        window.scrollTo(0,0);
+  methods: {
+    getKqctimes: function (event) {
+      let tmp = location.href.replace(/\?.*$/, '').split('/')
+      // その中で、最後にくる数字を取得。これがイベントID
+      var id = tmp[tmp.length - 1]
+      console.log(id)
+      let baseUrl = 'https://us-central1-kqc-web-staging.cloudfunctions.net'
+      axios.get(baseUrl + '/kqctimes/' + id)
+        .then(response => {
+          console.log(response)
+          this.kqctimesList = response.data
+        })
     }
-}
+  }
 }
 </script>
 
