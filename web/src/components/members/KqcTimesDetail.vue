@@ -6,7 +6,7 @@
         <div class="main-content-wrapper">
           <h2>{{ this_year }}</h2>
 
-          <div class="times-model-wrapper">
+          <div class="times-model-wrapper" v-for="kqctimes in kqctimeslist">
             <h3>{{ kqctimes.title }}</h3>
             <p class="sub-title">〜{{ kqctimes.sub_title }}〜</p>
             <div class="content-summary-wrapper">
@@ -43,7 +43,7 @@ export default {
       msg_sub: 'KQC Times',
       msg_sub1: '練習・合宿・コンパなどの情報をお伝えします',
       this_year: '2017年',
-      kqctimes: []
+      kqctimesList: []
     }
   },
   created: function(){
@@ -57,8 +57,8 @@ export default {
     let baseUrl = 'https://us-central1-kqc-web-staging.cloudfunctions.net'
     axios.get(baseUrl + '/kqctimes/' + id)
       .then(response => {
-        console.log(response);
-        this.kqctimes = response.data[0]
+        console.log(response)
+        this.kqctimeslist = response.data
       })
   },
   watch: {

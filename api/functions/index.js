@@ -91,7 +91,7 @@ function getKqctimes (request, response) {
       .orderByChild('id').equalTo(request.params[0].slice(1))
       .once('value')
       .then(snapshot => {
-        response.status(200).send(snapshot)
+        response.status(200).send(snapshot.val())
       })
       .catch(error => {
         response.status(404).send({ message: 'Not Found' })
