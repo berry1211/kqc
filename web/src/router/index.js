@@ -198,5 +198,8 @@ export default new Router({
         header: HeaderForMembers
       }
     }
-  ]
+  ],
+  scrollBehavior (to, from, savedPosition) {
+    return {x: 0, y: 0}
+  }
 })

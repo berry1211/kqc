@@ -69,7 +69,7 @@ export default {
     axios.get(baseUrl + '/information')
     .then(response => {
       this.information_list = response.data
-      console.log(response.data);
+      console.log(response);
     })
     .catch(e => {
       this.errors.push(e)
@@ -123,13 +123,16 @@ h2 {
   padding-bottom: 24px;
 }
 h3{
-  font-size: 32px;
-  float: left;
-  font-weight: normal;
+  font-size: 26px;
+  font-weight: bold;
 }
-.kqctimes-link{
+.info-link{
+  display: inline-block;
   text-decoration: none;
   color: #2c3e50;
+}
+.info-link :hover {
+  text-decoration: underline;
 }
 .cover-image-wrapper{
   width: 100%;
