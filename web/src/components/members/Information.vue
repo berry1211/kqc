@@ -16,10 +16,10 @@
           <ul>
             <li v-for="info of information_list">
               <div class="info-model-wrapper">
-                <h3>{{ info.title }}</h3>
-                <p class="sub-title">〜{{ info.sub_title }}〜</p>
+                <router-link :to="{ name: 'info-detail', params: { id: info.id }}" class="info-link"><h3>{{ info.title }}</h3></router-link>
+                <p>{{ info.publisher }}</p>
                 <div class="content-summary-wrapper">
-                  <p>{{ info.content }}</p>
+                  <p>{{ info.body }}</p>
                 </div>
               </div>
             </li>
@@ -65,8 +65,8 @@ export default {
     document.title = 'インフォメーション | 会員用'
   },
   created: function(){
-    var baseUrl = 'https://api-kqc.herokuapp.com/information/';
-    axios.get(baseUrl)
+    var baseUrl = 'https://us-central1-kqc-web-staging.cloudfunctions.net'
+    axios.get(baseUrl + '/information')
     .then(response => {
       this.information_list = response.data
       console.log(response.data);
@@ -122,6 +122,15 @@ h2 {
   margin-right: 32px;
   padding-bottom: 24px;
 }
+h3{
+  font-size: 32px;
+  float: left;
+  font-weight: normal;
+}
+.kqctimes-link{
+  text-decoration: none;
+  color: #2c3e50;
+}
 .cover-image-wrapper{
   width: 100%;
   height: 292px;
@@ -170,6 +179,8 @@ h2 {
   margin-right: auto;
   margin-top: 12px;
   clear: left;
+  height: 120px;
+  overflow: hidden;
 }
 .content-summary-wrapper p{
   font-size: 16px;

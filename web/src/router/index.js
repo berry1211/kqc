@@ -4,6 +4,7 @@ import Hello from '@/components/common/Hello'
 
 // 会員用
 import Information from '@/components/members/Information'
+import InformationDetail from '@/components/members/InformationDetail'
 import Rules from '@/components/members/Rules'
 import KqcTimesList from '@/components/members/KqcTimesList'
 import KqcTimesDetail from '@/components/members/KqcTimesDetail'
@@ -63,6 +64,15 @@ export default new Router({
       name: 'Information',
       components: {
         default: Information,
+        footer: Footer,
+        header: HeaderForMembers
+      }
+    },
+    {
+      path: '/members/infomation/:id',
+      name: 'info-detail',
+      components: {
+        default: InformationDetail,
         footer: Footer,
         header: HeaderForMembers
       }
