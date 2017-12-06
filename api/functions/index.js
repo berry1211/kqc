@@ -1,6 +1,7 @@
 const functions = require('firebase-functions')
 const admin = require('firebase-admin')
 const cors = require('cors')({origin: true});
+const Base64 = require('js-base64').Base64
 admin.initializeApp(functions.config().firebase)
 
 exports.kqctimes = functions.https.onRequest((request, response) => {
@@ -234,8 +235,17 @@ exports.login = functions.https.onRequest((request, response) => {
     // 3. Developper
     //    this user has authority to develop this application
   switch (request.method) {
+    case 'OPTIONS':
+      response.set('Access-Control-Allow-Origin', '*')
+              .set('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
+              .set('Access-Control-Allow-Methods', 'GET, POST')
+              .status(200).send('OK')
+      break
     case 'GET':
       getUserAuth(request, response)
+      break
+    case 'POST':
+      postUserAuth(request, response)
       break
     case 'PATCH':
       patchUserAuth(request, response)
@@ -250,6 +260,91 @@ function patchUserAuth (request, response) {
 
 }
 
-function getUserAuth (request, response) {
+function postUserAuth(request, response) {
+  if (checkAuth(request) === false) {
+    response.status(400).send({ message: 'Bad Request' })
+  } else {
+    const name = request.body.name
+    const password = request.body.password
 
+    let json = {}
+    json.name = name
+    json.password = password
+
+    let jsonString = generateJson(json)
+    let encodedToken = generateBase64Token(jsonString)
+
+    response.status(200).send(encodedToken)
+  }
+}
+
+function getUserAuth (request, response) {
+  response.status(200).send({ message: 'Request called' })
+}
+
+function checkAuth(request) {
+  const name = request.body.name
+  const password = request.body.password
+
+  if (name == undefined || password == undefined) {
+    return false
+  } else {
+    return true
+  }
+}
+
+function generateJson(string) {
+  return JSON.stringify(string)
+}
+
+function generateBase64Token(json) {
+  return Base64.encode(json)
+}
+
+exports.jobs = functions.https.onRequest((request, response) => {
+  switch (request.method) {
+    case 'OPTIONS':
+      response.set('Access-Control-Allow-Origin', '*')
+              .set('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
+              .set('Access-Control-Allow-Methods', 'GET, POST, PATCH')
+              .status(200).send('OK')
+      break
+    case 'GET':
+      getJobs(request, response)
+      break
+    case 'POST':
+      postJobs(request, response)
+      break
+    case 'PATCH':
+      updateJobs(request, response)
+      break
+    default:
+      response.status(400).send({ error: 'Something blew up!' })
+      break
+  }
+})
+
+function getJobs(request, response) {
+  response.status(200).send({ message: 'Hello GET Jobs' })
+}
+
+function postJobs(request, response) {
+  response.status(200).send({ message: 'Hello POST Jobs' })
+}
+
+function updateJobs(request, response) {
+  response.status(200).send({ message: 'Hello PATCH Jobs' })
+}
+
+function checkGETJobs(request) {
+  const title = request.body.title
+  const publisher = request.body.publisher
+  const body = request.body.body
+  const password = request.body.password
+
+  if (title == undefined || publisher == undefined || body == undefined || password == undefined) {
+    return false
+  } else {
+    return true
+  }
 }

@@ -1,0 +1,38 @@
+[debug] [2017-12-06T10:05:00.051Z] ----------------------------------------------------------------------
+[debug] [2017-12-06T10:05:00.053Z] Command:       /usr/local/Cellar/node/8.5.0/bin/node /usr/local/bin/firebase serve --only functions
+[debug] [2017-12-06T10:05:00.054Z] CLI Version:   3.12.0
+[debug] [2017-12-06T10:05:00.054Z] Platform:      darwin
+[debug] [2017-12-06T10:05:00.054Z] Node Version:  v8.5.0
+[debug] [2017-12-06T10:05:00.054Z] Time:          Wed Dec 06 2017 19:05:00 GMT+0900 (JST)
+[debug] [2017-12-06T10:05:00.054Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-12-06T10:05:00.067Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-12-06T10:05:00.067Z] > authorizing via signed-in user
+[debug] [2017-12-06T10:05:00.069Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2017-12-06T10:05:00.069Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token { refresh_token: '1/AlBZyEUJXtvQfBdu5ONB_mkPdINHxw6azQiLhVUUcUo',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Wed Dec 06 2017 19:05:00 GMT+0900 (JST)
+[debug] [2017-12-06T10:05:00.268Z] <<< HTTP RESPONSE 200
+[debug] [2017-12-06T10:05:00.311Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/kqc-web-staging  
+ Wed Dec 06 2017 19:05:00 GMT+0900 (JST)
+[debug] [2017-12-06T10:05:01.129Z] <<< HTTP RESPONSE 200
+[debug] [2017-12-06T10:05:01.129Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/kqc-web-staging/tokens  
+ Wed Dec 06 2017 19:05:01 GMT+0900 (JST)
+[debug] [2017-12-06T10:05:02.049Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/horiiyasunori/Desktop/kqc/api'...
+[info] 
+[info] i  functions: Preparing to emulate functions.
+[debug] [2017-12-06T10:05:02.348Z] >>> HTTP REQUEST GET https://appengine.googleapis.com/v1/apps/kqc-web-staging  
+ Wed Dec 06 2017 19:05:02 GMT+0900 (JST)
+[debug] [2017-12-06T10:05:02.348Z] >>> HTTP REQUEST GET https://apikeys.googleapis.com/v1/projects/kqc-web-staging/apiKeys  
+ Wed Dec 06 2017 19:05:02 GMT+0900 (JST)
+[debug] [2017-12-06T10:05:03.337Z] <<< HTTP RESPONSE 200
+[debug] [2017-12-06T10:05:03.351Z] <<< HTTP RESPONSE 200
+[info] ✔  functions: jobs: http://localhost:5000/kqc-web-staging/us-central1/jobs
+[info] ✔  functions: kqctimes: http://localhost:5000/kqc-web-staging/us-central1/kqctimes
+[info] ✔  functions: information: http://localhost:5000/kqc-web-staging/us-central1/information
+[info] ✔  functions: login: http://localhost:5000/kqc-web-staging/us-central1/login
