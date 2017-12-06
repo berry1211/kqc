@@ -202,6 +202,11 @@ function genKqctimesId () {
   return id + 'kqct'
 }
 
+function genJobsId() {
+  let id = getUniqueId()
+  return id + 'jobs'
+}
+
 // generate UniqueId for information and Kqctimes
 function getUniqueId () {
   // 使用文字の定義
@@ -329,14 +334,36 @@ function getJobs(request, response) {
 }
 
 function postJobs(request, response) {
-  response.status(200).send({ message: 'Hello POST Jobs' })
+  if (checkPOSTJobs(request) === false) {
+    response.status(400).send({ error: 'Bad Request' })
+  } else {
+    const title = request.body.title
+    const publisher = request.body.publisher
+    const body = request.body.body
+    const password = request.body.password
+
+    let jsonStr = {
+      'id': genJobsId(),
+      'title': title,
+      'publisher': publisher,
+      'body': body,
+      'password': password
+    }
+    admin.database().ref('/development/jobs')
+      .push(jsonStr).then(snapshot => {
+        response.status(201).send({ message: 'Jobs created' })
+      })
+      .catch(error => {
+        response.status(418).send({ 'error': error })
+      })
+  }
 }
 
 function updateJobs(request, response) {
   response.status(200).send({ message: 'Hello PATCH Jobs' })
 }
 
-function checkGETJobs(request) {
+function checkPOSTJobs(request) {
   const title = request.body.title
   const publisher = request.body.publisher
   const body = request.body.body
