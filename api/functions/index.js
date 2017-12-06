@@ -330,7 +330,25 @@ exports.jobs = functions.https.onRequest((request, response) => {
 })
 
 function getJobs(request, response) {
-  response.status(200).send({ message: 'Hello GET Jobs' })
+  if (request.params[0] !== "") {
+    // request parametar is exist
+    admin.database().ref('/development/jobs')
+      .orderByChild('id').equalTo(request.params[0].slice(1))
+      .once('value')
+      .then(snapshot => {
+        response.status(200).send(snapshot.val())
+      })
+      .catch(error => {
+        response.status(404).send({ message: 'Not Found' })
+      })
+  } else {
+    admin.database().ref('/development/jobs')
+      .once('value', function(data) {
+        response.status(200).send(data)
+      }, function(errorObject) {
+        response.status(404).send({ message: 'Not Found' })
+      })
+  }
 }
 
 function postJobs(request, response) {
