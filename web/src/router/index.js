@@ -13,6 +13,7 @@ import HuntingJobDetail from '@/components/members/HuntingJobDetail'
 import CreateKqcTimes from '@/components/members/CreateKqcTimes'
 import CreateInformation from '@/components/members/CreateInformation'
 import RecordList from '@/components/members/RecordList'
+import CreateRecord from '@/components/members/CreateRecord'
 
 // デベロッパーページ
 import Developer from '@/components/developer/ForDeveloper'
@@ -128,6 +129,15 @@ export default new Router({
       name: RecordList,
       components: {
         default: RecordList,
+        footer: Footer,
+        header: HeaderForMembers
+      }
+    },
+    {
+      path: '/members/create-record',
+      name: CreateRecord,
+      components: {
+        default: CreateRecord,
         footer: Footer,
         header: HeaderForMembers
       }
