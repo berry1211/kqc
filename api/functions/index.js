@@ -163,12 +163,14 @@ function postInformation (request, response) {
     const title = request.body.title
     const publisher = request.body.publisher
     const body = request.body.body
+    const password = request.body.password
 
     let jsonStr = {
       'id': genInformationId(),
       'title': title,
       'publisher': publisher,
-      'body': body
+      'body': body,
+      'password': password
     }
     admin.database().ref('/development/information')
       .push(jsonStr).then(snapshot => {
@@ -184,8 +186,9 @@ function checkInformation (request) {
   const title = request.body.title
   const publisher = request.body.publisher
   const body = request.body.body
+  const password = request.body.password
 
-  if (title === undefined || publisher === undefined || body === undefined) {
+  if (title === undefined || publisher === undefined || body === undefined || password == undefined) {
     return false
   } else {
     return true
