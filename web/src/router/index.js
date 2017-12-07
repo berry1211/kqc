@@ -12,6 +12,7 @@ import HuntingJobList from '@/components/members/HuntingJobList'
 import HuntingJobDetail from '@/components/members/HuntingJobDetail'
 import CreateKqcTimes from '@/components/members/CreateKqcTimes'
 import CreateInformation from '@/components/members/CreateInformation'
+import RecordList from '@/components/members/RecordList'
 
 // デベロッパーページ
 import Developer from '@/components/developer/ForDeveloper'
@@ -118,6 +119,15 @@ export default new Router({
       name: 'CreateKqcTimes',
       components: {
         default: CreateKqcTimes,
+        footer: Footer,
+        header: HeaderForMembers
+      }
+    },
+    {
+      path: '/members/record',
+      name: RecordList,
+      components: {
+        default: RecordList,
         footer: Footer,
         header: HeaderForMembers
       }
