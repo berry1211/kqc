@@ -315,16 +315,24 @@ exports.jobs = functions.https.onRequest((request, response) => {
               .status(200).send('OK')
       break
     case 'GET':
-      getJobs(request, response)
+      cors(request, response, function() {
+        getJobs(request, response)
+      })
       break
     case 'POST':
-      postJobs(request, response)
+      cors(request, response, function() {
+        postJobs(request, response)
+      })
       break
     case 'PATCH':
-      updateJobs(request, response)
+      cors(request, response, function() {
+        updateJobs(request, response)
+      })
       break
     case 'DELETE':
-      removeJobs(request, response)
+      cors(request, response, function() {
+        removeJobs(request, response)
+      })
       break
     default:
       response.status(400).send({ error: 'Something blew up!' })
@@ -449,6 +457,168 @@ function checkPOSTJobs(request) {
   const grade = request.body.grade
 
   if (title == undefined || publisher == undefined || body == undefined || password == undefined || grade == undefined) {
+    return false
+  } else {
+    return true
+  }
+}
+
+exports.record = functions.https.onRequest((request, response) => {
+  switch (request.method) {
+    case 'OPTIONS':
+      response.set('Access-Control-Allow-Origin', '*')
+              .set('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
+              .set('Access-Control-Allow-Methods', 'GET, POST, PATCH, DELETE')
+              .status(200).send('OK')
+      break
+    case 'GET':
+      cors(request, response, function() {
+        getRecord(request, response)
+      })
+      break
+    case 'POST':
+      cors(request, response, function() {
+        postRecord(request, response)
+      })
+      break
+    case 'PATCH':
+      cors(request, response, function() {
+        updateRecord(request, response)
+      })
+      break
+    case 'DELETE':
+      cors(request, response, function() {
+        removeRecord(request, response)
+      })
+      break
+    default:
+      response.status(400).send({ error: 'Something blew up!' })
+      break
+  }
+})
+
+function getRecord(request, response) {
+  if (request.query.year !== undefined) {
+    // if query has contained, search data matched to query
+    admin.database().ref('/development/record')
+      .orderByChild('year').equalTo(parseInt(request.query.year, 10))
+      .once('value', function(data) {
+        response.status(200).send(data)
+      }, {
+        function(errorObject) {
+          response.status(404).send({ message: 'Not Found' })
+        }
+      })
+  } else if (request.params[0] !== "") {
+    // request parametar is exist
+    admin.database().ref('/development/record')
+      .orderByChild('id').equalTo(request.params[0].slice(1))
+      .once('value')
+      .then(snapshot => {
+        response.status(200).send(snapshot.val())
+      })
+      .catch(error => {
+        response.status(404).send({ message: 'Not Found' })
+      })
+  } else {
+    admin.database().ref('/development/record')
+      .once('value', function(data) {
+        response.status(200).send(data)
+      }, function(errorObject) {
+        response.status(404).send({ message: 'Not Found' })
+      })
+  }
+}
+
+function postRecord(request, response) {
+  if (checkPOSTRecord(request) === false) {
+    response.status(400).send({ error: 'Bad Request' })
+  } else {
+    const title = request.body.title
+    const year = request.body.year
+    const month = request.body.month
+    const day = request.body.day
+    const body = request.body.body
+
+    let jsonStr = {
+      'id': geneRecordId(),
+      'title': title,
+      'year': year,
+      'body': body,
+      'month': month,
+      'day': day
+    }
+    admin.database().ref('/development/record')
+      .push(jsonStr).then(snapshot => {
+        response.status(201).send({ message: 'Record created' })
+      })
+      .catch(error => {
+        response.status(418).send({ 'error': error })
+      })
+  }
+}
+
+function updateRecord(request, response) {
+  if (request.params[0] !== "") {
+    // request parametar is exist
+    const body = request.body.body
+    admin.database().ref('/development/record')
+      .orderByChild('id').equalTo(request.params[0].slice(1))
+      .once('value')
+      .then(snapshots => {
+        snapshots.forEach(function(snapshot) {
+          let ref = snapshot.ref
+          let value = {
+            'body': body
+          }
+          ref.update(value, function(object) {
+            response.status(200).send({ message: 'Successfully updated' })
+          })
+        })
+      })
+      .catch(error => {
+        response.status(404).send({ error: 'Noooo Resource Found' })
+      })
+  } else {
+    response.status(404).send({ error: 'Not Found' })
+  }
+}
+
+function removeRecord(request, response) {
+  if (request.params[0] !== "") {
+    // request parametar is exist
+    admin.database().ref('/development/record')
+      .orderByChild('id').equalTo(request.params[0].slice(1))
+      .once('value')
+      .then(snapshots => {
+        snapshots.forEach(function(snapshot) {
+          let ref = snapshot.ref
+          ref.remove(function(object) {
+            response.status(204).send({ message: 'Successfully deleted' })
+          })
+        })
+      })
+      .catch(error => {
+        response.status(404).send({ error: 'Not Resource Found' })
+      })
+  } else {
+    response.status(404).send({ error: 'Not Found' })
+  }
+}
+
+function geneRecordId(){
+  let id = getUniqueId()
+  return id + 'reco'
+}
+
+function checkPOSTRecord(request) {
+  const title = request.body.title
+  const year = request.body.year
+  const month = request.body.month
+  const day = request.body.day
+  const body = request.body.body
+
+  if (title == undefined || year == undefined || month == undefined || day == undefined || body == undefined) {
     return false
   } else {
     return true
