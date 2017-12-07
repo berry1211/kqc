@@ -333,7 +333,18 @@ exports.jobs = functions.https.onRequest((request, response) => {
 })
 
 function getJobs(request, response) {
-  if (request.params[0] !== "") {
+  if (request.query.grade !== undefined) {
+    // if query has contained, search data matched to query
+    admin.database().ref('/development/jobs')
+      .orderByChild('grade').equalTo(parseInt(request.query.grade, 10))
+      .once('value', function(data) {
+        response.status(200).send(data)
+      }, {
+        function(errorObject) {
+          response.status(404).send({ message: 'Not Found' })
+        }
+      })
+  } else if (request.params[0] !== "") {
     // request parametar is exist
     admin.database().ref('/development/jobs')
       .orderByChild('id').equalTo(request.params[0].slice(1))
@@ -361,6 +372,7 @@ function postJobs(request, response) {
     const title = request.body.title
     const publisher = request.body.publisher
     const body = request.body.body
+    const grade = request.body.grade
     const password = request.body.password
 
     let jsonStr = {
@@ -368,7 +380,8 @@ function postJobs(request, response) {
       'title': title,
       'publisher': publisher,
       'body': body,
-      'password': password
+      'password': password,
+      'grade': grade
     }
     admin.database().ref('/development/jobs')
       .push(jsonStr).then(snapshot => {
@@ -433,8 +446,9 @@ function checkPOSTJobs(request) {
   const publisher = request.body.publisher
   const body = request.body.body
   const password = request.body.password
+  const grade = request.body.grade
 
-  if (title == undefined || publisher == undefined || body == undefined || password == undefined) {
+  if (title == undefined || publisher == undefined || body == undefined || password == undefined || grade == undefined) {
     return false
   } else {
     return true
