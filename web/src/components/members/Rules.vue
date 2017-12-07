@@ -1,6 +1,6 @@
 <template>
   <div id="rules">
-    <p v-html="ourRule.replace(/\n/g, '<br>')"></p>
+    <p v-html="compiledMarkdown"></p>
   </div>
 </template>
 
@@ -22,6 +22,11 @@ export default {
       })
       .catch(error => {
       })
+  },
+  computed: {
+    compiledMarkdown: function () {
+      return marked(this.ourRule, { sanitize: true })
+    }
   }
 }
 </script>
