@@ -1,7 +1,6 @@
 <template>
   <div id="rules">
-    <h1>{{ msg }}</h1>
-    <h2>{{ msg_sub }}</h2>
+    <p v-html="compiledMarkdown"></p>
   </div>
 </template>
 
@@ -11,21 +10,23 @@ export default {
   data () {
     return {
       msg: 'Welcome to KQC',
-      msg_sub: 'Rules'
+      msg_sub: 'Rules',
+      ourRule: 'ほげほげ'
     }
   },
-  created: function(){
-    document.title = '規約 | KQC会員用'
-  },
-
   created: function () {
-    axios.get('http://127.0.0.1:8000/info')
-      .then(function (response) {
-        console.log(response);
+    let baseUrl = 'https://us-central1-kqc-web-staging.cloudfunctions.net'
+    axios.get(baseUrl + '/rule')
+      .then(response => {
+        this.ourRule = response.data.body
       })
-      .catch(function (error) {
-        console.log(error);
+      .catch(error => {
       })
+  },
+  computed: {
+    compiledMarkdown: function () {
+      return marked(this.ourRule, { sanitize: true })
+    }
   }
 }
 </script>
