@@ -19,6 +19,12 @@
               <router-link to='/members/kqc-times' class="member-link">KQCTimes</router-link>
             </li>
             <li>
+              <router-link to='/members/record' class="member-link">議事録</router-link>
+            </li>
+            <li>
+              <router-link to='/members/rules' class="member-link">同好会規則</router-link>
+            </li>
+            <li>
               <router-link to='/developer' class="member-link">開発担当よりお知らせ</router-link>
             </li>
           </ul>

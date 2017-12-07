@@ -16,7 +16,7 @@
           <ul>
             <li v-for="record of recordList">
               <div class="times-model-wrapper">
-                <router-link :to="{ name: 'CreateRecord'}" class="kqctimes-link"><h3>{{ record.title }}（ {{ record.year }}/{{ record.month }}/{{ record.day }}）</h3></router-link>
+                <router-link :to="{ name: 'RecordDetail', params: { id: record.id }}" class="kqctimes-link"><h3>{{ record.title }}（ {{ record.year }}/{{ record.month }}/{{ record.day }}）</h3></router-link>
               </div>
               <div class="content-summary-wrapper">
               </div>
