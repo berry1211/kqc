@@ -1,6 +1,7 @@
 const functions = require('firebase-functions')
 const admin = require('firebase-admin')
 const cors = require('cors')({origin: true});
+const Base64 = require('js-base64').Base64
 admin.initializeApp(functions.config().firebase)
 
 exports.kqctimes = functions.https.onRequest((request, response) => {
@@ -201,6 +202,11 @@ function genKqctimesId () {
   return id + 'kqct'
 }
 
+function genJobsId() {
+  let id = getUniqueId()
+  return id + 'jobs'
+}
+
 // generate UniqueId for information and Kqctimes
 function getUniqueId () {
   // 使用文字の定義
@@ -234,8 +240,17 @@ exports.login = functions.https.onRequest((request, response) => {
     // 3. Developper
     //    this user has authority to develop this application
   switch (request.method) {
+    case 'OPTIONS':
+      response.set('Access-Control-Allow-Origin', '*')
+              .set('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
+              .set('Access-Control-Allow-Methods', 'GET, POST')
+              .status(200).send('OK')
+      break
     case 'GET':
       getUserAuth(request, response)
+      break
+    case 'POST':
+      postUserAuth(request, response)
       break
     case 'PATCH':
       patchUserAuth(request, response)
@@ -250,6 +265,192 @@ function patchUserAuth (request, response) {
 
 }
 
-function getUserAuth (request, response) {
+function postUserAuth(request, response) {
+  if (checkAuth(request) === false) {
+    response.status(400).send({ message: 'Bad Request' })
+  } else {
+    const name = request.body.name
+    const password = request.body.password
 
+    let json = {}
+    json.name = name
+    json.password = password
+
+    let jsonString = generateJson(json)
+    let encodedToken = generateBase64Token(jsonString)
+
+    response.status(200).send(encodedToken)
+  }
+}
+
+function getUserAuth (request, response) {
+  response.status(200).send({ message: 'Request called' })
+}
+
+function checkAuth(request) {
+  const name = request.body.name
+  const password = request.body.password
+
+  if (name == undefined || password == undefined) {
+    return false
+  } else {
+    return true
+  }
+}
+
+function generateJson(string) {
+  return JSON.stringify(string)
+}
+
+function generateBase64Token(json) {
+  return Base64.encode(json)
+}
+
+exports.jobs = functions.https.onRequest((request, response) => {
+  switch (request.method) {
+    case 'OPTIONS':
+      response.set('Access-Control-Allow-Origin', '*')
+              .set('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
+              .set('Access-Control-Allow-Methods', 'GET, POST, PATCH, DELETE')
+              .status(200).send('OK')
+      break
+    case 'GET':
+      getJobs(request, response)
+      break
+    case 'POST':
+      postJobs(request, response)
+      break
+    case 'PATCH':
+      updateJobs(request, response)
+      break
+    case 'DELETE':
+      removeJobs(request, response)
+      break
+    default:
+      response.status(400).send({ error: 'Something blew up!' })
+      break
+  }
+})
+
+function getJobs(request, response) {
+  if (request.query.grade !== undefined) {
+    // if query has contained, search data matched to query
+    admin.database().ref('/development/jobs')
+      .orderByChild('grade').equalTo(parseInt(request.query.grade, 10))
+      .once('value', function(data) {
+        response.status(200).send(data)
+      }, {
+        function(errorObject) {
+          response.status(404).send({ message: 'Not Found' })
+        }
+      })
+  } else if (request.params[0] !== "") {
+    // request parametar is exist
+    admin.database().ref('/development/jobs')
+      .orderByChild('id').equalTo(request.params[0].slice(1))
+      .once('value')
+      .then(snapshot => {
+        response.status(200).send(snapshot.val())
+      })
+      .catch(error => {
+        response.status(404).send({ message: 'Not Found' })
+      })
+  } else {
+    admin.database().ref('/development/jobs')
+      .once('value', function(data) {
+        response.status(200).send(data)
+      }, function(errorObject) {
+        response.status(404).send({ message: 'Not Found' })
+      })
+  }
+}
+
+function postJobs(request, response) {
+  if (checkPOSTJobs(request) === false) {
+    response.status(400).send({ error: 'Bad Request' })
+  } else {
+    const title = request.body.title
+    const publisher = request.body.publisher
+    const body = request.body.body
+    const grade = request.body.grade
+    const password = request.body.password
+
+    let jsonStr = {
+      'id': genJobsId(),
+      'title': title,
+      'publisher': publisher,
+      'body': body,
+      'password': password,
+      'grade': grade
+    }
+    admin.database().ref('/development/jobs')
+      .push(jsonStr).then(snapshot => {
+        response.status(201).send({ message: 'Jobs created' })
+      })
+      .catch(error => {
+        response.status(418).send({ 'error': error })
+      })
+  }
+}
+
+function updateJobs(request, response) {
+  if (request.params[0] !== "") {
+    // request parametar is exist
+    const body = request.body.body
+    admin.database().ref('/development/jobs')
+      .orderByChild('id').equalTo(request.params[0].slice(1))
+      .once('value')
+      .then(snapshots => {
+        snapshots.forEach(function(snapshot) {
+          let ref = snapshot.ref
+          let value = {
+            'body': body
+          }
+          ref.update(value, function(object) {
+            response.status(200).send({ message: 'Successfully updated' })
+          })
+        })
+      })
+      .catch(error => {
+        response.status(404).send({ error: 'Noooo Resource Found' })
+      })
+  } else {
+    response.status(404).send({ error: 'Not Found' })
+  }
+}
+
+function removeJobs(request, response) {
+  if (request.params[0] !== "") {
+    // request parametar is exist
+    admin.database().ref('/development/jobs')
+      .orderByChild('id').equalTo(request.params[0].slice(1))
+      .once('value')
+      .then(snapshots => {
+        snapshots.forEach(function(snapshot) {
+          let ref = snapshot.ref
+          ref.remove(function(object) {
+            response.status(204).send({ message: 'Successfully deleted' })
+          })
+        })
+      })
+      .catch(error => {
+        response.status(404).send({ error: 'Not Resource Found' })
+      })
+  } else {
+    response.status(404).send({ error: 'Not Found' })
+  }
+}
+
+function checkPOSTJobs(request) {
+  const title = request.body.title
+  const publisher = request.body.publisher
+  const body = request.body.body
+  const password = request.body.password
+  const grade = request.body.grade
+
+  if (title == undefined || publisher == undefined || body == undefined || password == undefined || grade == undefined) {
+    return false
+  } else {
+    return true
+  }
 }
