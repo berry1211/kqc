@@ -311,7 +311,7 @@ exports.jobs = functions.https.onRequest((request, response) => {
     case 'OPTIONS':
       response.set('Access-Control-Allow-Origin', '*')
               .set('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
-              .set('Access-Control-Allow-Methods', 'GET, POST, PATCH')
+              .set('Access-Control-Allow-Methods', 'GET, POST, PATCH, DELETE')
               .status(200).send('OK')
       break
     case 'GET':
@@ -381,7 +381,29 @@ function postJobs(request, response) {
 }
 
 function updateJobs(request, response) {
-  response.status(200).send({ message: 'Hello PATCH Jobs' })
+  if (request.params[0] !== "") {
+    // request parametar is exist
+    const body = request.body.body
+    admin.database().ref('/development/jobs')
+      .orderByChild('id').equalTo(request.params[0].slice(1))
+      .once('value')
+      .then(snapshots => {
+        snapshots.forEach(function(snapshot) {
+          let ref = snapshot.ref
+          let value = {
+            'body': body
+          }
+          ref.update(value, function(object) {
+            response.status(200).send({ message: 'Successfully updated' })
+          })
+        })
+      })
+      .catch(error => {
+        response.status(404).send({ error: 'Noooo Resource Found' })
+      })
+  } else {
+    response.status(404).send({ error: 'Not Found' })
+  }
 }
 
 function removeJobs(request, response) {
@@ -393,7 +415,9 @@ function removeJobs(request, response) {
       .then(snapshots => {
         snapshots.forEach(function(snapshot) {
           let ref = snapshot.ref
-          ref.remove()
+          ref.remove(function(object) {
+            response.status(204).send({ message: 'Successfully deleted' })
+          })
         })
       })
       .catch(error => {
