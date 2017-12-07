@@ -624,3 +624,55 @@ function checkPOSTRecord(request) {
     return true
   }
 }
+
+exports.rule = functions.https.onRequest((request, response) => {
+  switch (request.method) {
+    case 'OPTIONS':
+      response.set('Access-Control-Allow-Origin', '*')
+              .set('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
+              .set('Access-Control-Allow-Methods', 'GET, PATCH')
+              .status(200).send('OK')
+      break
+    case 'GET':
+      cors(request, response, function() {
+        getRule(request, response)
+      })
+      break
+    case 'PATCH':
+      cors(request, response, function() {
+        updateRule(request, response)
+      })
+      break
+    default:
+      response.status(400).send({ error: 'Something blew up!' })
+      break
+  }
+})
+
+function getRule(request, response) {
+  admin.database().ref('/development/rule')
+    .once('value', function(data) {
+      response.status(200).send(data)
+    }, function(errorObject) {
+      response.status(404).send({ message: 'Not Found' })
+    })
+}
+
+function updateRule(request, response) {
+    // request parametar is exist
+  const body = request.body.body
+  admin.database().ref('/development/rule')
+    .once('value')
+    .then(snapshots => {
+      let ref = snapshots.ref
+      let value = {
+        'body': body
+      }
+      ref.update(value, function(object) {
+        response.status(200).send({ message: 'Successfully updated' })
+      })
+    })
+    .catch(error => {
+      response.status(404).send({ error: 'Noooo Resource Found' })
+    })
+}
