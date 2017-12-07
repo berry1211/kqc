@@ -36,3 +36,138 @@
 [info] ✔  functions: kqctimes: http://localhost:5000/kqc-web-staging/us-central1/kqctimes
 [info] ✔  functions: information: http://localhost:5000/kqc-web-staging/us-central1/information
 [info] ✔  functions: login: http://localhost:5000/kqc-web-staging/us-central1/login
+[debug] [2017-12-07T02:08:45.639Z] ----------------------------------------------------------------------
+[debug] [2017-12-07T02:08:45.641Z] Command:       /usr/local/Cellar/node/8.5.0/bin/node /usr/local/bin/firebase deploy --only functions:jobs
+[debug] [2017-12-07T02:08:45.641Z] CLI Version:   3.12.0
+[debug] [2017-12-07T02:08:45.641Z] Platform:      darwin
+[debug] [2017-12-07T02:08:45.641Z] Node Version:  v8.5.0
+[debug] [2017-12-07T02:08:45.642Z] Time:          Thu Dec 07 2017 11:08:45 GMT+0900 (JST)
+[debug] [2017-12-07T02:08:45.642Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-12-07T02:08:45.655Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-12-07T02:08:45.656Z] > authorizing via signed-in user
+[debug] [2017-12-07T02:08:45.657Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2017-12-07T02:08:45.657Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token { refresh_token: '1/AlBZyEUJXtvQfBdu5ONB_mkPdINHxw6azQiLhVUUcUo',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Thu Dec 07 2017 11:08:45 GMT+0900 (JST)
+[debug] [2017-12-07T02:08:45.829Z] <<< HTTP RESPONSE 200
+[debug] [2017-12-07T02:08:45.843Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/kqc-web-staging  
+ Thu Dec 07 2017 11:08:45 GMT+0900 (JST)
+[debug] [2017-12-07T02:08:46.835Z] <<< HTTP RESPONSE 200
+[debug] [2017-12-07T02:08:46.835Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/kqc-web-staging/tokens  
+ Thu Dec 07 2017 11:08:46 GMT+0900 (JST)
+[debug] [2017-12-07T02:08:47.579Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'kqc-web-staging'...
+[info] 
+[info] i  deploying functions
+[debug] [2017-12-07T02:08:48.341Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "dependencies": {
+    "cors": "^2.8.1",
+    "express": "^4.16.2",
+    "firebase-admin": "~5.2.1",
+    "firebase-functions": "^0.6.3",
+    "js-base64": "^2.4.0"
+  },
+  "private": true
+}
+[info] i  functions: ensuring necessary APIs are enabled...
+[info] i  runtimeconfig: ensuring necessary APIs are enabled...
+[debug] [2017-12-07T02:08:48.343Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/cloudfunctions.googleapis.com/projectSettings/kqc-web-staging?view=CONSUMER_VIEW  
+ Thu Dec 07 2017 11:08:48 GMT+0900 (JST)
+[debug] [2017-12-07T02:08:48.343Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/runtimeconfig.googleapis.com/projectSettings/kqc-web-staging?view=CONSUMER_VIEW  
+ Thu Dec 07 2017 11:08:48 GMT+0900 (JST)
+[debug] [2017-12-07T02:08:49.467Z] <<< HTTP RESPONSE 200
+[info] ✔  functions: all necessary APIs are enabled
+[debug] [2017-12-07T02:08:49.477Z] <<< HTTP RESPONSE 200
+[info] ✔  runtimeconfig: all necessary APIs are enabled
+[debug] [2017-12-07T02:08:49.478Z] >>> HTTP REQUEST GET https://appengine.googleapis.com/v1/apps/kqc-web-staging  
+ Thu Dec 07 2017 11:08:49 GMT+0900 (JST)
+[debug] [2017-12-07T02:08:49.479Z] >>> HTTP REQUEST GET https://apikeys.googleapis.com/v1/projects/kqc-web-staging/apiKeys  
+ Thu Dec 07 2017 11:08:49 GMT+0900 (JST)
+[debug] [2017-12-07T02:08:50.459Z] <<< HTTP RESPONSE 200
+[debug] [2017-12-07T02:08:50.487Z] <<< HTTP RESPONSE 200
+[info] i  functions: preparing functions directory for uploading...
+[debug] [2017-12-07T02:08:53.291Z] >>> HTTP REQUEST GET https://runtimeconfig.googleapis.com/v1beta1/projects/kqc-web-staging/configs  
+ Thu Dec 07 2017 11:08:53 GMT+0900 (JST)
+[debug] [2017-12-07T02:08:53.773Z] <<< HTTP RESPONSE 200
+[info] i  functions: packaged functions (18.07 KB) for uploading
+[debug] [2017-12-07T02:08:55.007Z] >>> HTTP REQUEST GET https://www.googleapis.com/storage/v1/b/staging.kqc-web-staging.appspot.com  
+ Thu Dec 07 2017 11:08:55 GMT+0900 (JST)
+[debug] [2017-12-07T02:08:55.226Z] <<< HTTP RESPONSE 200
+[debug] [2017-12-07T02:08:55.227Z] >>> HTTP REQUEST POST https://www.googleapis.com/upload/storage/v1/b/staging.kqc-web-staging.appspot.com/o?uploadType=media&name=firebase-functions-source ReadStream {
+  _readableState: 
+   ReadableState {
+     objectMode: false,
+     highWaterMark: 65536,
+     buffer: BufferList { head: [Object], tail: [Object], length: 1 },
+     length: 18500,
+     pipes: null,
+     pipesCount: 0,
+     flowing: null,
+     ended: true,
+     endEmitted: false,
+     reading: false,
+     sync: false,
+     needReadable: false,
+     emittedReadable: true,
+     readableListening: false,
+     resumeScheduled: false,
+     destroyed: false,
+     defaultEncoding: 'utf8',
+     awaitDrain: 0,
+     readingMore: false,
+     decoder: null,
+     encoding: null },
+  readable: true,
+  domain: null,
+  _events: { end: [Function] },
+  _eventsCount: 1,
+  _maxListeners: undefined,
+  path: '/var/folders/3t/81x2y5b948q42wxvft80p5km0000gn/T/firebase-functions-35617vkCvOVMgeXwB.zip',
+  fd: 19,
+  flags: 'r',
+  mode: 438,
+  start: undefined,
+  end: undefined,
+  autoClose: true,
+  pos: undefined,
+  bytesRead: 18500 } 
+ Thu Dec 07 2017 11:08:55 GMT+0900 (JST)
+[debug] [2017-12-07T02:08:55.691Z] <<< HTTP RESPONSE 200
+[info] ✔  functions: functions folder uploaded successfully
+[info] i  starting release process (may take several minutes)...
+[debug] [2017-12-07T02:08:55.693Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1beta2/projects/kqc-web-staging/locations/us-central1/functions  
+ Thu Dec 07 2017 11:08:55 GMT+0900 (JST)
+[debug] [2017-12-07T02:08:56.126Z] <<< HTTP RESPONSE 200
+[debug] [2017-12-07T02:08:56.128Z] > [functions] filtering triggers to: [
+  "jobs"
+]
+[info] i  functions: current functions in project: information, jobs, kqctimes, login, route
+[info] i  functions: uploading functions in project: jobs
+[info] i  functions: updating function jobs...
+[debug] [2017-12-07T02:08:56.132Z] Trigger is: 
+[debug] [2017-12-07T02:08:56.132Z] >>> HTTP REQUEST PUT https://cloudfunctions.googleapis.com/v1beta2/projects/kqc-web-staging/locations/us-central1/functions/jobs { sourceArchiveUrl: 'gs://staging.kqc-web-staging.appspot.com/firebase-functions-source',
+  name: 'projects/kqc-web-staging/locations/us-central1/functions/jobs',
+  entryPoint: 'jobs',
+  timeout: '60s',
+  availableMemoryMb: 256,
+  httpsTrigger: {} } 
+ Thu Dec 07 2017 11:08:56 GMT+0900 (JST)
+[debug] [2017-12-07T02:08:56.513Z] <<< HTTP RESPONSE 200
+[debug] [2017-12-07T02:08:56.514Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1beta2/projects/kqc-web-staging/locations/us-central1/functions  
+ Thu Dec 07 2017 11:08:56 GMT+0900 (JST)
+[debug] [2017-12-07T02:08:56.514Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1beta2/operations/a3FjLXdlYi1zdGFnaW5nL3VzLWNlbnRyYWwxL2pvYnMvT0duNnN3RTZCeU0  
+ Thu Dec 07 2017 11:08:56 GMT+0900 (JST)
+[debug] [2017-12-07T02:08:56.806Z] <<< HTTP RESPONSE 200
+[debug] [2017-12-07T02:08:56.808Z] <<< HTTP RESPONSE 200
+[debug] [2017-12-07T02:08:56.809Z] [functions] operation poll: jobs: update operations/a3FjLXdlYi1zdGFnaW5nL3VzLWNlbnRyYWwxL2pvYnMvT0duNnN3RTZCeU0 is not done.
+[debug] [2017-12-07T02:09:01.812Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1beta2/operations/a3FjLXdlYi1zdGFnaW5nL3VzLWNlbnRyYWwxL2pvYnMvT0duNnN3RTZCeU0  
+ Thu Dec 07 2017 11:09:01 GMT+0900 (JST)
+[debug] [2017-12-07T02:09:02.148Z] <<< HTTP RESPONSE 200
+[debug] [2017-12-07T02:09:02.148Z] [functions] operation poll: jobs: update operations/a3FjLXdlYi1zdGFnaW5nL3VzLWNlbnRyYWwxL2pvYnMvT0duNnN3RTZCeU0 is not done.

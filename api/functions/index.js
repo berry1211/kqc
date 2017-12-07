@@ -323,6 +323,8 @@ exports.jobs = functions.https.onRequest((request, response) => {
     case 'PATCH':
       updateJobs(request, response)
       break
+    case 'DELETE':
+      removeJobs(request, response)
     default:
       response.status(400).send({ error: 'Something blew up!' })
       break
@@ -379,6 +381,17 @@ function postJobs(request, response) {
 
 function updateJobs(request, response) {
   response.status(200).send({ message: 'Hello PATCH Jobs' })
+}
+
+function remove(request, response) {
+  if (request.params[0] !== "") {
+    // request parametar is exist
+    admin.database().ref('/development/jobs')
+      .orderByChild('id').equalTo(request.params[0].slice(1))
+      .remove()
+  } else {
+    response.status(404).send({ error: 'Not Found' })
+  }
 }
 
 function checkPOSTJobs(request) {
