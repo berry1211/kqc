@@ -325,6 +325,7 @@ exports.jobs = functions.https.onRequest((request, response) => {
       break
     case 'DELETE':
       removeJobs(request, response)
+      break
     default:
       response.status(400).send({ error: 'Something blew up!' })
       break
@@ -383,12 +384,21 @@ function updateJobs(request, response) {
   response.status(200).send({ message: 'Hello PATCH Jobs' })
 }
 
-function remove(request, response) {
+function removeJobs(request, response) {
   if (request.params[0] !== "") {
     // request parametar is exist
     admin.database().ref('/development/jobs')
       .orderByChild('id').equalTo(request.params[0].slice(1))
-      .remove()
+      .once('value')
+      .then(snapshots => {
+        snapshots.forEach(function(snapshot) {
+          let ref = snapshot.ref
+          ref.remove()
+        })
+      })
+      .catch(error => {
+        response.status(404).send({ error: 'Not Resource Found' })
+      })
   } else {
     response.status(404).send({ error: 'Not Found' })
   }
