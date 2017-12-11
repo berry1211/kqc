@@ -1,7 +1,7 @@
 <template>
   <div id="hello">
     <div class="main-contents-wrapper">
-      <video ref="videoRef" type="video/mov" muted></video>
+      <video ref="videoRef" type="video/mov" src="../../assets/sample.mp4" muted></video>
       <p>ほげほげ</p>
     </div>
   </div>
@@ -20,8 +20,8 @@ export default {
     document.title = 'KQC'
   },
   mounted: function() {
-    this.$refs.videoRef.src = "http://iandevlin.github.io/mdn/video-player/video/tears-of-steel-battle-clip-medium.mp4"
-    this.$refs.videoRef.play()
+    // this.$refs.videoRef.src = "https://github.com/HALU5071/kqc/blob/feature-22/web/src/assets/sample.mov"
+    // this.$refs.videoRef.play()
   }
 }
 </script>
