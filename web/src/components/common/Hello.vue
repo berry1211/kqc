@@ -1,8 +1,10 @@
 <template>
   <div id="hello">
     <div class="main-contents-wrapper">
-      <video ref="videoRef" type="video/mov" src="../../assets/sample.mp4" muted></video>
-      <p>ほげほげ</p>
+      <p class="title">KQC</p>
+      <p class="sub_title">慶應義塾大学唯一の弓道サークル</p>
+      <video ref="videoRef" class="video_top" type="video/mp4" muted autoplay loop></video>
+      <p>ああああああああああああああああああああああああああああああああああああああああああああああああああああああああ</p>
     </div>
   </div>
 </template>
@@ -20,8 +22,8 @@ export default {
     document.title = 'KQC'
   },
   mounted: function() {
-    // this.$refs.videoRef.src = "https://github.com/HALU5071/kqc/blob/feature-22/web/src/assets/sample.mov"
-    // this.$refs.videoRef.play()
+    this.$refs.videoRef.src = "https://firebasestorage.googleapis.com/v0/b/kqc-web-staging.appspot.com/o/VID_20171209_150547.mp4?alt=media&token=fb2feb95-ff8c-45ea-8d9d-18794af45362"
+    this.$refs.videoRef.play()
   }
 }
 </script>
@@ -34,11 +36,30 @@ h1, h2 {
 
 #hello{
   width: 100%;
-  height: 800px;
 }
 
+.title {
+  width: 100%;
+  color: #fff;
+  font-size: 800%;
+  font-weight: bold;
+  position: absolute;
+  text-align: center;
+  top: 200px;
+  z-index: 1;
+}
+.sub_title {
+  width: 100%;
+  color: #fff;
+  font-size: 115%;
+  font-weight: bold;
+  position: absolute;
+  text-align: center;
+  top: 340px;
+  z-index: 1;
+}
 .video_top {
-  width: 400px;
+  width: 100%;
   height: auto;
 }
 
