@@ -27,7 +27,6 @@ import Oops from '@/components/common/Ooooops'
 
 // グローバルメニュー(常に表示されているメニュー)要素
 import Schedule from '@/components/menu/Schedule'
-import Intro from '@/components/menu/Introduction'
 import ClubMembers from '@/components/members/ClubMember'
 import Links from '@/components/menu/Links'
 import ContestResult from '@/components/menu/ContestResult'
@@ -189,15 +188,6 @@ export default new Router({
       name: 'Schedule',
       components: {
         default: Schedule,
-        footer: Footer,
-        header: Header
-      }
-    },
-    {
-      path: '/intro',
-      name: 'Introduction',
-      components: {
-        default: Intro,
         footer: Footer,
         header: Header
       }
