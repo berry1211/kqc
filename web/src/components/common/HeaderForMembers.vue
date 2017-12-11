@@ -9,7 +9,7 @@
 
       <div class="global-bar-wrapper">
         <div class="global-bar-container">
-          <router-link to="/intro" class="bar-content"><p>紹介</p></router-link>
+          <router-link to="/" class="bar-content"><p>紹介</p></router-link>
           <router-link to="/schedule" class="bar-content"><p>予定</p></router-link>
           <router-link to="/contest-result" class="bar-content"><p>試合結果</p></router-link>
           <router-link to="/links" class="bar-content"><p>リンク</p></router-link>

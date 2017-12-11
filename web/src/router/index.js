@@ -12,6 +12,9 @@ import HuntingJobList from '@/components/members/HuntingJobList'
 import HuntingJobDetail from '@/components/members/HuntingJobDetail'
 import CreateKqcTimes from '@/components/members/CreateKqcTimes'
 import CreateInformation from '@/components/members/CreateInformation'
+import RecordList from '@/components/members/RecordList'
+import RecordDetail from '@/components/members/RecordDetail'
+import CreateRecord from '@/components/members/CreateRecord'
 
 // デベロッパーページ
 import Developer from '@/components/developer/ForDeveloper'
@@ -24,7 +27,6 @@ import Oops from '@/components/common/Ooooops'
 
 // グローバルメニュー(常に表示されているメニュー)要素
 import Schedule from '@/components/menu/Schedule'
-import Intro from '@/components/menu/Introduction'
 import ClubMembers from '@/components/members/ClubMember'
 import Links from '@/components/menu/Links'
 import ContestResult from '@/components/menu/ContestResult'
@@ -123,6 +125,33 @@ export default new Router({
       }
     },
     {
+      path: '/members/record',
+      name: RecordList,
+      components: {
+        default: RecordList,
+        footer: Footer,
+        header: HeaderForMembers
+      }
+    },
+    {
+      path: '/members/record/:id',
+      name: 'RecordDetail',
+      components: {
+        default: RecordDetail,
+        Footer: Footer,
+        header: HeaderForMembers
+      }
+    },
+    {
+      path: '/members/create-record',
+      name: CreateRecord,
+      components: {
+        default: CreateRecord,
+        footer: Footer,
+        header: HeaderForMembers
+      }
+    },
+    {
       path: '/members/hunting-job-list',
       name: 'HuntingJobList',
       components: {
@@ -159,15 +188,6 @@ export default new Router({
       name: 'Schedule',
       components: {
         default: Schedule,
-        footer: Footer,
-        header: Header
-      }
-    },
-    {
-      path: '/intro',
-      name: 'Introduction',
-      components: {
-        default: Intro,
         footer: Footer,
         header: Header
       }

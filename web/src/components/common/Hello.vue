@@ -1,8 +1,10 @@
 <template>
   <div id="hello">
     <div class="main-contents-wrapper">
-      <h1>{{ msg }}</h1>
-      <h2>{{ msg_sub }}</h2>
+      <p class="title">KQC</p>
+      <p class="sub_title">慶應義塾大学唯一の弓道サークル</p>
+      <video ref="videoRef" class="video_top" type="video/mp4" muted autoplay loop></video>
+      <p>ああああああああああああああああああああああああああああああああああああああああああああああああああああああああ</p>
     </div>
   </div>
 </template>
@@ -18,6 +20,10 @@ export default {
   },
   created: function(){
     document.title = 'KQC'
+  },
+  mounted: function() {
+    this.$refs.videoRef.src = "https://firebasestorage.googleapis.com/v0/b/kqc-web-staging.appspot.com/o/VID_20171209_150547.mp4?alt=media&token=fb2feb95-ff8c-45ea-8d9d-18794af45362"
+    this.$refs.videoRef.play()
   }
 }
 </script>
@@ -29,10 +35,37 @@ h1, h2 {
 }
 
 #hello{
-  height: 800px;
+  width: 100%;
+}
+
+.title {
+  width: 100%;
+  color: #fff;
+  font-size: 800%;
+  font-weight: bold;
+  position: absolute;
+  text-align: center;
+  top: 200px;
+  z-index: 1;
+}
+.sub_title {
+  width: 100%;
+  color: #fff;
+  font-size: 115%;
+  font-weight: bold;
+  position: absolute;
+  text-align: center;
+  top: 340px;
+  z-index: 1;
+}
+.video_top {
+  width: 100%;
+  height: auto;
 }
 
 .main-contents-wrapper{
+  width: 100%;
+  height: 100%;
 }
 a {
   color: #424242;
