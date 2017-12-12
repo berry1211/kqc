@@ -1,7 +1,7 @@
 <template>
   <div id="hello">
     <div class="main-contents-wrapper">
-      <div>
+      <div id="video_header">
         <p class="title">K.Q.C</p>
         <p class="sub_title">慶應義塾大学唯一の弓道サークル</p>
         <video ref="videoRef" class="video_top" type="video/mp4" muted autoplay loop></video>
@@ -41,6 +41,7 @@ h1, h2 {
 
 #hello{
   width: 100%;
+  height: 100%;
 }
 
 .title {
@@ -63,13 +64,17 @@ h1, h2 {
   top: 440px;
   z-index: 1;
 }
+#video_header {
+  width: 100%;
+  height: 100%;
+}
 .video_top {
   width: 100%;
   height: auto;
 }
 .main-content {
-  width: 960px;
-  height: 960px;
+  width: 100%;
+  height: 100%;
   margin-top: 32px;
   margin-left: auto;
   margin-right: auto;
