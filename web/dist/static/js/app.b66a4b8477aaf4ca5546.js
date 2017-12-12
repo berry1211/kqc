@@ -10240,6 +10240,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'hello',
@@ -10251,6 +10258,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   },
   created: function () {
     document.title = 'KQC';
+  },
+  mounted: function () {
+    this.$refs.videoRef.src = "https://firebasestorage.googleapis.com/v0/b/kqc-web-staging.appspot.com/o/VID_20171209_150547.mp4?alt=media&token=fb2feb95-ff8c-45ea-8d9d-18794af45362";
+    this.$refs.videoRef.play();
   }
 });
 
@@ -11990,23 +12001,30 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _vm._m(0)
-},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     attrs: {
       "id": "hello"
     }
   }, [_c('div', {
     staticClass: "main-contents-wrapper"
-  }, [_c('video', {
+  }, [_c('div', [_c('p', {
+    staticClass: "title"
+  }, [_vm._v("K.Q.C")]), _vm._v(" "), _c('p', {
+    staticClass: "sub_title"
+  }, [_vm._v("慶應義塾大学唯一の弓道サークル")]), _vm._v(" "), _c('video', {
+    ref: "videoRef",
     staticClass: "video_top",
     attrs: {
-      "src": "./assets/sample.mov",
+      "type": "video/mp4",
+      "muted": "",
       "autoplay": "",
-      "loop": "",
-      "muted": ""
+      "loop": ""
     }
-  }), _vm._v(" "), _c('p', [_vm._v("ほげほげ")])])])
+  })]), _vm._v(" "), _vm._m(0)])])
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "main-content"
+  }, [_c('h1', [_vm._v("K.Q.C")]), _vm._v(" "), _c('p', [_vm._v("ああああああああああああああああああああああああああああああああああああああああああああああああああああああああ")])])
 }]}
 
 /***/ }),
@@ -15379,4 +15397,4 @@ module.exports = g;
 
 /***/ })
 ],[6]);
-//# sourceMappingURL=app.f11bbe9f1bc4521d888f.js.map
+//# sourceMappingURL=app.b66a4b8477aaf4ca5546.js.map

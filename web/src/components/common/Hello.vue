@@ -1,10 +1,15 @@
 <template>
   <div id="hello">
     <div class="main-contents-wrapper">
-      <p class="title">KQC</p>
-      <p class="sub_title">慶應義塾大学唯一の弓道サークル</p>
-      <video ref="videoRef" class="video_top" type="video/mp4" muted autoplay loop></video>
-      <p>ああああああああああああああああああああああああああああああああああああああああああああああああああああああああ</p>
+      <div>
+        <p class="title">K.Q.C</p>
+        <p class="sub_title">慶應義塾大学唯一の弓道サークル</p>
+        <video ref="videoRef" class="video_top" type="video/mp4" muted autoplay loop></video>
+      </div>
+      <div class="main-content">
+        <h1>K.Q.C</h1>
+        <p>ああああああああああああああああああああああああああああああああああああああああああああああああああああああああ</p>
+      </div>
     </div>
   </div>
 </template>
@@ -45,7 +50,7 @@ h1, h2 {
   font-weight: bold;
   position: absolute;
   text-align: center;
-  top: 200px;
+  top: 300px;
   z-index: 1;
 }
 .sub_title {
@@ -55,14 +60,20 @@ h1, h2 {
   font-weight: bold;
   position: absolute;
   text-align: center;
-  top: 340px;
+  top: 440px;
   z-index: 1;
 }
 .video_top {
   width: 100%;
   height: auto;
 }
-
+.main-content {
+  width: 960px;
+  height: 960px;
+  margin-top: 32px;
+  margin-left: auto;
+  margin-right: auto;
+}
 .main-contents-wrapper{
   width: 100%;
   height: 100%;
