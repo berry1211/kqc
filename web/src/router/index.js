@@ -8,8 +8,8 @@ import InformationDetail from '@/components/members/InformationDetail'
 import Rules from '@/components/members/Rules'
 import KqcTimesList from '@/components/members/KqcTimesList'
 import KqcTimesDetail from '@/components/members/KqcTimesDetail'
-import HuntingJobList from '@/components/members/HuntingJobList'
-import HuntingJobDetail from '@/components/members/HuntingJobDetail'
+import JobList from '@/components/members/JobList'
+import JobDetail from '@/components/members/JobDetail'
 import CreateKqcTimes from '@/components/members/CreateKqcTimes'
 import CreateInformation from '@/components/members/CreateInformation'
 import RecordList from '@/components/members/RecordList'
@@ -152,19 +152,19 @@ export default new Router({
       }
     },
     {
-      path: '/members/hunting-job-list',
+      path: '/members/job',
       name: 'HuntingJobList',
       components: {
-        default: HuntingJobList,
+        default: JobList,
         footer: Footer,
         header: HeaderForMembers
       }
     },
     {
-      path: '/members/hunting-job-detail',
+      path: '/members/job/:id',
       name: 'HuntingJobDetail',
       components: {
-        default: HuntingJobDetail,
+        default: JobDetail,
         footer: Footer,
         header: HeaderForMembers
       }
