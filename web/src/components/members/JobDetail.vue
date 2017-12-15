@@ -8,11 +8,14 @@
 
           <div class="times-model-wrapper">
             <ul>
-              <li v-for="kqctimes in kqctimesList">
-                <h3>{{ kqctimes.title }}</h3>
-                <p class="sub-title">〜{{ kqctimes.sub_title }}〜</p>
+              <li v-for="job in jobList">
+                <h3>{{ job.title }}</h3>
+                <div class="delete-content-wrapper" v-on:click="deleteJob">
+                  <img src="../../assets/ic_delete_black_24dp.png" width="20" height="20" style="float: left;"/>
+                  <p class="delete-content">この投稿を削除</p>
+                </div>
                 <div class="content-summary-wrapper">
-                  <p v-html="kqctimes.body.replace(/\n/g, '<br>')" style="font-size: 18px;"></p>
+                  <p v-html="compiledMarkdown(job.body)" style="font-size: 18px;"></p>
                 </div>
               </li>
             </ul>
@@ -47,7 +50,8 @@ export default {
       msg_sub: 'KQC Times',
       msg_sub1: '練習・合宿・コンパなどの情報をお伝えします',
       this_year: '2017年',
-      kqctimesList: []
+      id: '',
+      jobList: []
     }
   },
   created: function () {
@@ -58,13 +62,33 @@ export default {
       let tmp = location.href.replace(/\?.*$/, '').split('/')
       // その中で、最後にくる数字を取得。これがイベントID
       var id = tmp[tmp.length - 1]
+      this.id = id
       console.log(id)
       let baseUrl = 'https://us-central1-kqc-web-staging.cloudfunctions.net'
-      axios.get(baseUrl + '/kqctimes/' + id)
+      axios.get(baseUrl + '/jobs/' + id)
         .then(response => {
           console.log(response)
-          this.kqctimesList = response.data
+          this.jobList = response.data
+          // for(var elem in response.data) {
+          //   let key = elem.key
+          //   console.log(elem[key].title);
+          // }
         })
+    },
+    deleteJob: function(event) {
+       let myPassWord = prompt("本当に就活情報を削除しますか？\nパスワードを入力してください","")
+       for(var elem in this.jobList) {
+         if (myPassWord === this.jobList[elem].password) {
+           let baseUrl = 'https://us-central1-kqc-web-staging.cloudfunctions.net'
+           axios.delete(baseUrl + '/jobs/' + this.jobList[elem].id)
+           this.$router.push({ path: '/members/job' })
+         } else {
+           alert('パスワードが間違っています')
+         }
+      }
+    },
+    compiledMarkdown: function (text) {
+      return marked(text, { sanitize: true })
     }
   }
 }
@@ -182,9 +206,9 @@ export default {
     float: left;
   }
   .times-model-wrapper{
-    width: 800px;
+    width: 780px;
     margin-left: 8px;
-    margin-right: auto;
+    margin-right: 8px;
     margin-top: 32px;
     margin-bottom: 64px;
   }
@@ -223,7 +247,7 @@ export default {
   }
 
   .sub-content-wrapper{
-    margin-left: 740px;
+    margin-left: 800px;
     margin-top: 32px;
     width: auto;
     height: 100px;
@@ -236,6 +260,30 @@ export default {
   }
   .sub-content-title{
     font-size: 16px;
+  }
+
+  .delete-content-wrapper {
+    width: 104px;
+    height: 20px;
+    margin-right: 8px;
+    margin-left: auto;
+    border-radius: 4px;
+    text-align: center;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 4px;
+    color: #424242;
+    font-weight: bold;
+  }
+  .delete-content-wrapper :hover {
+    cursor: pointer;
+  }
+  .delete-content {
+    display: inline-block;
+    font-size: 12px;
+    line-height: 20px;
+    margin-top: auto;
+    margin-bottom: auto;
   }
 
   /*スペースのコンポーネント*/

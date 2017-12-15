@@ -153,7 +153,7 @@ export default new Router({
     },
     {
       path: '/members/job',
-      name: 'HuntingJobList',
+      name: 'JobList',
       components: {
         default: JobList,
         footer: Footer,
@@ -162,7 +162,7 @@ export default new Router({
     },
     {
       path: '/members/job/:id',
-      name: 'HuntingJobDetail',
+      name: 'JobDetail',
       components: {
         default: JobDetail,
         footer: Footer,

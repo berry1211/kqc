@@ -3,7 +3,7 @@
     <div id="kqctimes-container">
       <div class="cover-image-wrapper">
         <div class="cover-image-container">
-          <img src="../../assets/newspaper.png" class="cover-image"/>
+          <img src="../../assets/job.png" class="cover-image"/>
           <h1>{{ msg_sub }}</h1>
           <h1 class="sub-h1">{{ msg_sub1 }}</h1>
         </div>
@@ -16,7 +16,7 @@
           <ul>
             <li v-for="job of jobList">
               <div class="times-model-wrapper">
-                <router-link :to="{ name: 'kqctimes-detail', params: { id: job.id }}" class="kqctimes-link"><h3>{{ job.title }}</h3></router-link>
+                <router-link :to="{ name: 'JobDetail', params: { id: job.id }}" class="kqctimes-link"><h3>{{ job.title }}</h3></router-link>
                 <div class="content-summary-wrapper">
                   <p class="kqctimes-list-content" v-html="job.body">...</p>
                 </div>
@@ -56,7 +56,7 @@ export default {
   data () {
     return {
       msg: 'Welcome to KQC',
-      msg_sub: 'KQC Times',
+      msg_sub: '就活掲示板',
       msg_sub1: '練習・合宿・コンパなどの情報をお伝えします',
       this_year: '',
       jobList: [],
