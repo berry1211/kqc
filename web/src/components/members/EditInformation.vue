@@ -44,7 +44,7 @@ export default {
       ];
       console.log(params);
       axios({
-        method: 'post',
+        method: 'patch',
         url: 'https://api-kqc.herokuapp.com/info',
         data: params
       }).then(function (response){

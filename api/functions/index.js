@@ -114,7 +114,7 @@ exports.information = functions.https.onRequest((request, response) => {
     case 'OPTIONS':
       response.set('Access-Control-Allow-Origin', '*')
             .set('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
-            .set('Access-Control-Allow-Methods', 'GET, POST', 'PATCH')
+            .set('Access-Control-Allow-Methods', 'GET, POST', 'PATCH', 'DELETE')
             .status(200).send('OK')
       break
     case 'GET':
@@ -130,6 +130,11 @@ exports.information = functions.https.onRequest((request, response) => {
     case 'PATCH':
       cors(request, response, function () {
         patchInformation(request, response)
+      })
+      break
+    case 'DELETE':
+      cors(request, response, function () {
+        deleteInformation(request, response)
       })
       break
     default:
@@ -209,6 +214,28 @@ function patchInformation(request, response) {
       .catch(error => {
         response.status(404).send({ error: 'Noooo Resource Found' })
       })
+  }
+}
+
+function deleteInformation(request, response) {
+  if (request.params[0] !== "") {
+    // request parametar is exist
+    admin.database().ref('/development/information')
+      .orderByChild('id').equalTo(request.params[0].slice(1))
+      .once('value')
+      .then(snapshots => {
+        snapshots.forEach(function(snapshot) {
+          let ref = snapshot.ref
+          ref.remove(function(object) {
+            response.status(204).send({ message: 'Successfully deleted' })
+          })
+        })
+      })
+      .catch(error => {
+        response.status(404).send({ error: 'Not Resource Found' })
+      })
+  } else {
+    response.status(404).send({ error: 'Not Found' })
   }
 }
 

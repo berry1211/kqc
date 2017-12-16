@@ -13,6 +13,7 @@ import JobDetail from '@/components/members/JobDetail'
 import JobEdit from '@/components/members/JobEditDetail'
 import CreateKqcTimes from '@/components/members/CreateKqcTimes'
 import CreateInformation from '@/components/members/CreateInformation'
+import EditInformation from '@/components/members/EditInformation'
 import RecordList from '@/components/members/RecordList'
 import RecordDetail from '@/components/members/RecordDetail'
 import CreateRecord from '@/components/members/CreateRecord'
@@ -76,6 +77,15 @@ export default new Router({
       name: 'info-detail',
       components: {
         default: InformationDetail,
+        footer: Footer,
+        header: HeaderForMembers
+      }
+    },
+    {
+      path: '/members/infomation/:id/edit',
+      name: 'EditInformation',
+      components: {
+        default: EditInformation,
         footer: Footer,
         header: HeaderForMembers
       }
