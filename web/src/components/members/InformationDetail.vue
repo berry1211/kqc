@@ -93,7 +93,7 @@ export default {
       for(var elem in this.informationList) {
         if (myPassWord === this.informationList[elem].password) {
           let infoId = this.informationList[elem].id
-          this.$router.push({ path: `/members/information/${infoId}/edit` })
+          this.$router.push({ path: `/members/infomation/${infoId}/edit` })
         } else {
           alert('パスワードが間違っています')
         }

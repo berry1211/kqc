@@ -3,16 +3,20 @@
     <div id="edit-wrapper">
       <h1>{{ message }}</h1>
       <form accept-charset="UTF-8">
-        <input type="text" name="title" id="title" placeholder="タイトル" class="title-input"/>
-        <input type="text" name="sub_title" id="sub_title" placeholder="サブタイトル" class="sub-title-input"/>
-        <input type="text" name="publisher" id="publisher" placeholder="投稿者名" class="publisher-input"/>
-        <input type="password" name="password" id="password" placeholder="パスワード" class="publisher-input"/>
-        <textarea name="content" id="content" class="content-textarea"></textarea>
+        <input type="text" name="title" id="title" placeholder="タイトル" class="title-input" :value="information.title"/>
+        <input type="text" name="publisher" id="publisher" placeholder="投稿者名" class="publisher-input" :value="information.publisher"/>
+        <textarea name="content" id="body" class="content-textarea" :value="information.body"></textarea>
       </form>
     </div>
 
-    <div class="submit-information" v-on:click="submit">
-      <p class="submit-value">投稿</p>
+    <div style="display: flex">
+      <div class="cancel-information" v-on:click="cancel">
+        <p class="submit-value">キャンセル</p>
+      </div>
+
+      <div class="submit-information" v-on:click="submit">
+        <p class="submit-value">変更を投稿する</p>
+      </div>
     </div>
 
   </div>
@@ -23,35 +27,43 @@ export default {
   name: 'edit-kqctimes',
   data () {
     return {
-      'message': 'Informationを編集'
+      'message': 'Informationを編集',
+      information: ''
     }
   },
   created: function(){
     document.title = 'インフォメーションを作成 | KQC会員用'
+    this.getInformation()
   },
   methods: {
     submit: function (event){
-      var content = document.getElementById('content').value;
-      var params = [
-        {
-          "title": title,
-          "sub_title": sub_title,
-          "content": content,
-          "password": password,
-          "year": year,
-          "month": month
-        }
-      ];
-      console.log(params);
-      axios({
-        method: 'patch',
-        url: 'https://api-kqc.herokuapp.com/info',
-        data: params
-      }).then(function (response){
-        console.log(response.data);
-      }).catch(function (error){
-        console.log(error.status);
-      });
+      let id = this.information.id
+      let baseUrl = 'https://us-central1-kqc-web-staging.cloudfunctions.net'
+      let body = document.getElementById('body').value;
+      let params = {
+        "body": body
+      }
+      axios.patch(baseUrl + '/information/' + id, params)
+        .then(response => {
+          this.$router.push({ path: '/members/information' })
+        })
+    },
+    cancel: function (event){
+      this.$router.push({ path: '/members/information' })
+    },
+    getInformation: function(event) {
+      let tmp = location.href.replace(/\?.*$/, '').split('/')
+      // その中で、最後にくる数字を取得。これがイベントID
+      var id = tmp[tmp.length - 2]
+      console.log(id)
+      let baseUrl = 'https://us-central1-kqc-web-staging.cloudfunctions.net'
+      axios.get(baseUrl + '/information/' + id)
+        .then(response => {
+          let data = response.data
+          for(let elem in data) {
+            this.information = data[elem]
+          }
+        })
     }
   }
 }
@@ -118,6 +130,20 @@ h1, h2 {
 .publisher-input::-webkit-input-placeholder{
   color: #bdbdbd;
 }
+.cancel-information{
+  display: block;
+  width: 200px;
+  height: 48px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 16px;
+  background: #E0E0E0;
+  border-radius: 4px;
+  color: #424242;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
 .submit-information{
   display: block;
   width: 200px;
@@ -144,19 +170,6 @@ h1, h2 {
 .submit-value{
   text-align: center;
   line-height: 48px;
-}
-.submit-information :hover{
-  width: 200px;
-  height: 48px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 16px;
-  background: #1E88E5;
-  border-radius: 4px;
-  color: #fff;
-  font-size: 20px;
-  font-weight: bold;
-  cursor: pointer;
 }
 a {
   color: #42b983;
