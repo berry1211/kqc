@@ -1,6 +1,6 @@
 <template>
-  <div id="create-information">
-    <div id="create-wrapper">
+  <div id="edit-information">
+    <div id="edit-wrapper">
       <h1>{{ message }}</h1>
       <form accept-charset="UTF-8">
         <input type="text" name="title" id="title" placeholder="タイトル" class="title-input"/>
@@ -20,10 +20,10 @@
 
 <script>
 export default {
-  name: 'create-kqctimes',
+  name: 'edit-kqctimes',
   data () {
     return {
-      'message': 'Informationを作成'
+      'message': 'Informationを編集'
     }
   },
   created: function(){
@@ -31,18 +31,12 @@ export default {
   },
   methods: {
     submit: function (event){
-      var title = document.getElementById('title').value;
-      var sub_title = document.getElementById('sub_title').value;
-      var body = document.getElementById('content').value;
-      var password = document.getElementById('password').value;
-      var date = new Date();
-      var year = date.getFullYear();
-      var month = date.getMonth() + 1;
+      var content = document.getElementById('content').value;
       var params = [
         {
           "title": title,
           "sub_title": sub_title,
-          "body": body,
+          "content": content,
           "password": password,
           "year": year,
           "month": month
@@ -69,14 +63,14 @@ h1, h2 {
   font-weight: normal;
 }
 
-#create-information{
+#edit-information{
   height: 100%;
   width: 960px;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 32px;
 }
-#create-wrapper{
+#edit-wrapper{
   margin-top: 32px;
 }
 .title-input{
