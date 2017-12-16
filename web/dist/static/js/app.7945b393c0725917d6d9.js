@@ -9735,7 +9735,7 @@ Vue$3.compile = compileToFunctions;
 
 /* harmony default export */ __webpack_exports__["a"] = (Vue$3);
 
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(104)))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(114)))
 
 /***/ }),
 /* 2 */
@@ -9743,56 +9743,62 @@ Vue$3.compile = compileToFunctions;
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_router__ = __webpack_require__(103);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_common_Hello__ = __webpack_require__(61);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_router__ = __webpack_require__(113);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_common_Hello__ = __webpack_require__(67);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_common_Hello___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_common_Hello__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_members_Information__ = __webpack_require__(70);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_members_Information__ = __webpack_require__(75);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_members_Information___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_members_Information__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_members_InformationDetail__ = __webpack_require__(71);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_members_InformationDetail__ = __webpack_require__(76);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_members_InformationDetail___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__components_members_InformationDetail__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_members_Rules__ = __webpack_require__(76);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_members_Rules__ = __webpack_require__(84);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_members_Rules___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__components_members_Rules__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_members_KqcTimesList__ = __webpack_require__(73);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_members_KqcTimesList__ = __webpack_require__(81);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_members_KqcTimesList___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__components_members_KqcTimesList__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_members_KqcTimesDetail__ = __webpack_require__(72);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_members_KqcTimesDetail__ = __webpack_require__(80);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_members_KqcTimesDetail___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__components_members_KqcTimesDetail__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_members_HuntingJobList__ = __webpack_require__(69);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_members_HuntingJobList___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__components_members_HuntingJobList__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_members_HuntingJobDetail__ = __webpack_require__(68);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_members_HuntingJobDetail___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__components_members_HuntingJobDetail__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_members_CreateKqcTimes__ = __webpack_require__(66);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_members_CreateKqcTimes___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__components_members_CreateKqcTimes__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_members_CreateInformation__ = __webpack_require__(65);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_members_CreateInformation___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__components_members_CreateInformation__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_members_RecordList__ = __webpack_require__(75);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_members_RecordList___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12__components_members_RecordList__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_members_RecordDetail__ = __webpack_require__(74);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_members_RecordDetail___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13__components_members_RecordDetail__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_members_CreateRecord__ = __webpack_require__(67);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_members_CreateRecord___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14__components_members_CreateRecord__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_developer_ForDeveloper__ = __webpack_require__(63);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_developer_ForDeveloper___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15__components_developer_ForDeveloper__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_common_Footer__ = __webpack_require__(58);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_common_Footer___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_16__components_common_Footer__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_common_Header__ = __webpack_require__(59);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_common_Header___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_17__components_common_Header__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_common_HeaderForMembers__ = __webpack_require__(60);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_common_HeaderForMembers___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_18__components_common_HeaderForMembers__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__components_common_Ooooops__ = __webpack_require__(62);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__components_common_Ooooops___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_19__components_common_Ooooops__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__components_menu_Schedule__ = __webpack_require__(79);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__components_menu_Schedule___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_20__components_menu_Schedule__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__components_members_ClubMember__ = __webpack_require__(64);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__components_members_ClubMember___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_21__components_members_ClubMember__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__components_menu_Links__ = __webpack_require__(78);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__components_menu_Links___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_22__components_menu_Links__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__components_menu_ContestResult__ = __webpack_require__(77);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__components_menu_ContestResult___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_23__components_menu_ContestResult__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_members_JobList__ = __webpack_require__(79);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_members_JobList___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__components_members_JobList__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_members_JobDetail__ = __webpack_require__(77);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_members_JobDetail___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__components_members_JobDetail__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_members_JobEditDetail__ = __webpack_require__(78);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_members_JobEditDetail___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__components_members_JobEditDetail__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_members_CreateKqcTimes__ = __webpack_require__(72);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_members_CreateKqcTimes___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__components_members_CreateKqcTimes__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_members_CreateInformation__ = __webpack_require__(71);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_members_CreateInformation___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12__components_members_CreateInformation__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_members_EditInformation__ = __webpack_require__(74);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_members_EditInformation___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13__components_members_EditInformation__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_members_RecordList__ = __webpack_require__(83);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_members_RecordList___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14__components_members_RecordList__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_members_RecordDetail__ = __webpack_require__(82);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_members_RecordDetail___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15__components_members_RecordDetail__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_members_CreateRecord__ = __webpack_require__(73);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_members_CreateRecord___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_16__components_members_CreateRecord__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_developer_ForDeveloper__ = __webpack_require__(69);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_developer_ForDeveloper___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_17__components_developer_ForDeveloper__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_common_Footer__ = __webpack_require__(64);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_common_Footer___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_18__components_common_Footer__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__components_common_Header__ = __webpack_require__(65);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__components_common_Header___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_19__components_common_Header__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__components_common_HeaderForMembers__ = __webpack_require__(66);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__components_common_HeaderForMembers___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_20__components_common_HeaderForMembers__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__components_common_Ooooops__ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__components_common_Ooooops___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_21__components_common_Ooooops__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__components_menu_Schedule__ = __webpack_require__(87);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__components_menu_Schedule___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_22__components_menu_Schedule__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__components_members_ClubMember__ = __webpack_require__(70);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__components_members_ClubMember___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_23__components_members_ClubMember__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__components_menu_Links__ = __webpack_require__(86);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__components_menu_Links___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_24__components_menu_Links__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__components_menu_ContestResult__ = __webpack_require__(85);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__components_menu_ContestResult___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_25__components_menu_ContestResult__);
 
 
 
 
 // 会員用
+
+
 
 
 
@@ -9846,148 +9852,164 @@ __WEBPACK_IMPORTED_MODULE_0_vue__["a" /* default */].use(__WEBPACK_IMPORTED_MODU
     name: 'Hello',
     components: {
       default: __WEBPACK_IMPORTED_MODULE_2__components_common_Hello___default.a,
-      footer: __WEBPACK_IMPORTED_MODULE_16__components_common_Footer___default.a,
-      header: __WEBPACK_IMPORTED_MODULE_17__components_common_Header___default.a
+      footer: __WEBPACK_IMPORTED_MODULE_18__components_common_Footer___default.a,
+      header: __WEBPACK_IMPORTED_MODULE_19__components_common_Header___default.a
     }
   }, {
     path: '/members/information',
     name: 'Information',
     components: {
       default: __WEBPACK_IMPORTED_MODULE_3__components_members_Information___default.a,
-      footer: __WEBPACK_IMPORTED_MODULE_16__components_common_Footer___default.a,
-      header: __WEBPACK_IMPORTED_MODULE_18__components_common_HeaderForMembers___default.a
+      footer: __WEBPACK_IMPORTED_MODULE_18__components_common_Footer___default.a,
+      header: __WEBPACK_IMPORTED_MODULE_20__components_common_HeaderForMembers___default.a
     }
   }, {
     path: '/members/infomation/:id',
     name: 'info-detail',
     components: {
       default: __WEBPACK_IMPORTED_MODULE_4__components_members_InformationDetail___default.a,
-      footer: __WEBPACK_IMPORTED_MODULE_16__components_common_Footer___default.a,
-      header: __WEBPACK_IMPORTED_MODULE_18__components_common_HeaderForMembers___default.a
+      footer: __WEBPACK_IMPORTED_MODULE_18__components_common_Footer___default.a,
+      header: __WEBPACK_IMPORTED_MODULE_20__components_common_HeaderForMembers___default.a
+    }
+  }, {
+    path: '/members/infomation/:id/edit',
+    name: 'EditInformation',
+    components: {
+      default: __WEBPACK_IMPORTED_MODULE_13__components_members_EditInformation___default.a,
+      footer: __WEBPACK_IMPORTED_MODULE_18__components_common_Footer___default.a,
+      header: __WEBPACK_IMPORTED_MODULE_20__components_common_HeaderForMembers___default.a
     }
   }, {
     path: '/members/information/create',
     name: 'CreateInformation',
     components: {
-      default: __WEBPACK_IMPORTED_MODULE_11__components_members_CreateInformation___default.a,
-      footer: __WEBPACK_IMPORTED_MODULE_16__components_common_Footer___default.a,
-      header: __WEBPACK_IMPORTED_MODULE_18__components_common_HeaderForMembers___default.a
+      default: __WEBPACK_IMPORTED_MODULE_12__components_members_CreateInformation___default.a,
+      footer: __WEBPACK_IMPORTED_MODULE_18__components_common_Footer___default.a,
+      header: __WEBPACK_IMPORTED_MODULE_20__components_common_HeaderForMembers___default.a
     }
   }, {
     path: '/members/rules',
     name: 'Rules',
     components: {
       default: __WEBPACK_IMPORTED_MODULE_5__components_members_Rules___default.a,
-      footer: __WEBPACK_IMPORTED_MODULE_16__components_common_Footer___default.a,
-      header: __WEBPACK_IMPORTED_MODULE_18__components_common_HeaderForMembers___default.a
+      footer: __WEBPACK_IMPORTED_MODULE_18__components_common_Footer___default.a,
+      header: __WEBPACK_IMPORTED_MODULE_20__components_common_HeaderForMembers___default.a
     }
   }, {
     path: '/members/kqc-times',
     name: 'KQCTimes',
     components: {
       default: __WEBPACK_IMPORTED_MODULE_6__components_members_KqcTimesList___default.a,
-      footer: __WEBPACK_IMPORTED_MODULE_16__components_common_Footer___default.a,
-      header: __WEBPACK_IMPORTED_MODULE_18__components_common_HeaderForMembers___default.a
+      footer: __WEBPACK_IMPORTED_MODULE_18__components_common_Footer___default.a,
+      header: __WEBPACK_IMPORTED_MODULE_20__components_common_HeaderForMembers___default.a
     }
   }, {
     path: '/members/kqc-times/:id',
     name: 'kqctimes-detail',
     components: {
       default: __WEBPACK_IMPORTED_MODULE_7__components_members_KqcTimesDetail___default.a,
-      footer: __WEBPACK_IMPORTED_MODULE_16__components_common_Footer___default.a,
-      header: __WEBPACK_IMPORTED_MODULE_18__components_common_HeaderForMembers___default.a
+      footer: __WEBPACK_IMPORTED_MODULE_18__components_common_Footer___default.a,
+      header: __WEBPACK_IMPORTED_MODULE_20__components_common_HeaderForMembers___default.a
     }
   }, {
     path: '/members/create-kqctimes',
     name: 'CreateKqcTimes',
     components: {
-      default: __WEBPACK_IMPORTED_MODULE_10__components_members_CreateKqcTimes___default.a,
-      footer: __WEBPACK_IMPORTED_MODULE_16__components_common_Footer___default.a,
-      header: __WEBPACK_IMPORTED_MODULE_18__components_common_HeaderForMembers___default.a
+      default: __WEBPACK_IMPORTED_MODULE_11__components_members_CreateKqcTimes___default.a,
+      footer: __WEBPACK_IMPORTED_MODULE_18__components_common_Footer___default.a,
+      header: __WEBPACK_IMPORTED_MODULE_20__components_common_HeaderForMembers___default.a
     }
   }, {
     path: '/members/record',
-    name: __WEBPACK_IMPORTED_MODULE_12__components_members_RecordList___default.a,
+    name: __WEBPACK_IMPORTED_MODULE_14__components_members_RecordList___default.a,
     components: {
-      default: __WEBPACK_IMPORTED_MODULE_12__components_members_RecordList___default.a,
-      footer: __WEBPACK_IMPORTED_MODULE_16__components_common_Footer___default.a,
-      header: __WEBPACK_IMPORTED_MODULE_18__components_common_HeaderForMembers___default.a
+      default: __WEBPACK_IMPORTED_MODULE_14__components_members_RecordList___default.a,
+      footer: __WEBPACK_IMPORTED_MODULE_18__components_common_Footer___default.a,
+      header: __WEBPACK_IMPORTED_MODULE_20__components_common_HeaderForMembers___default.a
     }
   }, {
     path: '/members/record/:id',
     name: 'RecordDetail',
     components: {
-      default: __WEBPACK_IMPORTED_MODULE_13__components_members_RecordDetail___default.a,
-      Footer: __WEBPACK_IMPORTED_MODULE_16__components_common_Footer___default.a,
-      header: __WEBPACK_IMPORTED_MODULE_18__components_common_HeaderForMembers___default.a
+      default: __WEBPACK_IMPORTED_MODULE_15__components_members_RecordDetail___default.a,
+      Footer: __WEBPACK_IMPORTED_MODULE_18__components_common_Footer___default.a,
+      header: __WEBPACK_IMPORTED_MODULE_20__components_common_HeaderForMembers___default.a
     }
   }, {
     path: '/members/create-record',
-    name: __WEBPACK_IMPORTED_MODULE_14__components_members_CreateRecord___default.a,
+    name: __WEBPACK_IMPORTED_MODULE_16__components_members_CreateRecord___default.a,
     components: {
-      default: __WEBPACK_IMPORTED_MODULE_14__components_members_CreateRecord___default.a,
-      footer: __WEBPACK_IMPORTED_MODULE_16__components_common_Footer___default.a,
-      header: __WEBPACK_IMPORTED_MODULE_18__components_common_HeaderForMembers___default.a
+      default: __WEBPACK_IMPORTED_MODULE_16__components_members_CreateRecord___default.a,
+      footer: __WEBPACK_IMPORTED_MODULE_18__components_common_Footer___default.a,
+      header: __WEBPACK_IMPORTED_MODULE_20__components_common_HeaderForMembers___default.a
     }
   }, {
-    path: '/members/hunting-job-list',
-    name: 'HuntingJobList',
+    path: '/members/job',
+    name: 'JobList',
     components: {
-      default: __WEBPACK_IMPORTED_MODULE_8__components_members_HuntingJobList___default.a,
-      footer: __WEBPACK_IMPORTED_MODULE_16__components_common_Footer___default.a,
-      header: __WEBPACK_IMPORTED_MODULE_18__components_common_HeaderForMembers___default.a
+      default: __WEBPACK_IMPORTED_MODULE_8__components_members_JobList___default.a,
+      footer: __WEBPACK_IMPORTED_MODULE_18__components_common_Footer___default.a,
+      header: __WEBPACK_IMPORTED_MODULE_20__components_common_HeaderForMembers___default.a
     }
   }, {
-    path: '/members/hunting-job-detail',
-    name: 'HuntingJobDetail',
+    path: '/members/job/:id',
+    name: 'JobDetail',
     components: {
-      default: __WEBPACK_IMPORTED_MODULE_9__components_members_HuntingJobDetail___default.a,
-      footer: __WEBPACK_IMPORTED_MODULE_16__components_common_Footer___default.a,
-      header: __WEBPACK_IMPORTED_MODULE_18__components_common_HeaderForMembers___default.a
+      default: __WEBPACK_IMPORTED_MODULE_9__components_members_JobDetail___default.a,
+      footer: __WEBPACK_IMPORTED_MODULE_18__components_common_Footer___default.a,
+      header: __WEBPACK_IMPORTED_MODULE_20__components_common_HeaderForMembers___default.a
+    }
+  }, {
+    path: '/members/job/:id/edit',
+    name: 'JobEdit',
+    components: {
+      default: __WEBPACK_IMPORTED_MODULE_10__components_members_JobEditDetail___default.a,
+      footer: __WEBPACK_IMPORTED_MODULE_18__components_common_Footer___default.a,
+      header: __WEBPACK_IMPORTED_MODULE_20__components_common_HeaderForMembers___default.a
     }
   }, {
     path: '/members',
     name: 'Members',
     components: {
-      default: __WEBPACK_IMPORTED_MODULE_21__components_members_ClubMember___default.a,
-      footer: __WEBPACK_IMPORTED_MODULE_16__components_common_Footer___default.a,
-      header: __WEBPACK_IMPORTED_MODULE_18__components_common_HeaderForMembers___default.a
+      default: __WEBPACK_IMPORTED_MODULE_23__components_members_ClubMember___default.a,
+      footer: __WEBPACK_IMPORTED_MODULE_18__components_common_Footer___default.a,
+      header: __WEBPACK_IMPORTED_MODULE_20__components_common_HeaderForMembers___default.a
     }
   }, {
     path: '/ooops',
     name: 'Ooops',
-    component: __WEBPACK_IMPORTED_MODULE_19__components_common_Ooooops___default.a
+    component: __WEBPACK_IMPORTED_MODULE_21__components_common_Ooooops___default.a
   }, {
     path: '/schedule',
     name: 'Schedule',
     components: {
-      default: __WEBPACK_IMPORTED_MODULE_20__components_menu_Schedule___default.a,
-      footer: __WEBPACK_IMPORTED_MODULE_16__components_common_Footer___default.a,
-      header: __WEBPACK_IMPORTED_MODULE_17__components_common_Header___default.a
+      default: __WEBPACK_IMPORTED_MODULE_22__components_menu_Schedule___default.a,
+      footer: __WEBPACK_IMPORTED_MODULE_18__components_common_Footer___default.a,
+      header: __WEBPACK_IMPORTED_MODULE_19__components_common_Header___default.a
     }
   }, {
     path: '/links',
     name: 'Links',
     components: {
-      default: __WEBPACK_IMPORTED_MODULE_22__components_menu_Links___default.a,
-      footer: __WEBPACK_IMPORTED_MODULE_16__components_common_Footer___default.a,
-      header: __WEBPACK_IMPORTED_MODULE_17__components_common_Header___default.a
+      default: __WEBPACK_IMPORTED_MODULE_24__components_menu_Links___default.a,
+      footer: __WEBPACK_IMPORTED_MODULE_18__components_common_Footer___default.a,
+      header: __WEBPACK_IMPORTED_MODULE_19__components_common_Header___default.a
     }
   }, {
     path: '/contest-result',
     name: 'ContestResult',
     components: {
-      default: __WEBPACK_IMPORTED_MODULE_23__components_menu_ContestResult___default.a,
-      footer: __WEBPACK_IMPORTED_MODULE_16__components_common_Footer___default.a,
-      header: __WEBPACK_IMPORTED_MODULE_17__components_common_Header___default.a
+      default: __WEBPACK_IMPORTED_MODULE_25__components_menu_ContestResult___default.a,
+      footer: __WEBPACK_IMPORTED_MODULE_18__components_common_Footer___default.a,
+      header: __WEBPACK_IMPORTED_MODULE_19__components_common_Header___default.a
     }
   }, {
     path: '/developer',
     name: 'ForDeveloper',
     components: {
-      default: __WEBPACK_IMPORTED_MODULE_15__components_developer_ForDeveloper___default.a,
-      footer: __WEBPACK_IMPORTED_MODULE_16__components_common_Footer___default.a,
-      header: __WEBPACK_IMPORTED_MODULE_18__components_common_HeaderForMembers___default.a
+      default: __WEBPACK_IMPORTED_MODULE_17__components_developer_ForDeveloper___default.a,
+      footer: __WEBPACK_IMPORTED_MODULE_18__components_common_Footer___default.a,
+      header: __WEBPACK_IMPORTED_MODULE_20__components_common_HeaderForMembers___default.a
     }
   }],
   scrollBehavior(to, from, savedPosition) {
@@ -10003,23 +10025,35 @@ module.exports = __webpack_require__.p + "static/img/kqc.68c38a6.png";
 
 /***/ }),
 /* 4 */
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAQAAAD9CzEMAAAAW0lEQVR4Ae3QwQmAMBAF0akmWGY6ClqYCPEeG/CQjcSDzuz9P1jMXirTbi5Pm39OtMHrTuAntdh9FhAQEBAQEBAQOEPzlXBbCCiEWzi653cSjBArteM5hcTEzC7tXB4g8ukZdAAAAABJRU5ErkJggg=="
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAQAAAD9CzEMAAAApUlEQVR4Ae3RuwkCYRBF4QNbh4+1FzGwGsEObEGswFZM7WB9FCEsJgpmAzuJ3IvCzv3z78D8/MVqtZYzTw40WLbgzuvzjjQ23pAIvC2xDbglsRtI7DXHWaWJh+b2PeskcRJ9bZLomEj4JNExlfCDCQHfEvmY2Dj4mNDyIbF08obbh1f87Xf8Zdz8vPjv+dmYedw8bj4PXDU8bh43j5vHzSPgDavV3qRrsQhO25JyAAAAAElFTkSuQmCC"
+
+/***/ }),
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "static/img/newspaper.6e4da83.png";
 
 /***/ }),
-/* 5 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
 /* styles */
-__webpack_require__(50)
+__webpack_require__(55)
 
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(7),
+  __webpack_require__(9),
   /* template */
-  __webpack_require__(100),
+  __webpack_require__(109),
   /* scopeId */
   null,
   /* cssModules */
@@ -10030,13 +10064,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 6 */
+/* 8 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__App__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__App__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__App___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__App__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__router__ = __webpack_require__(2);
 // The Vue build version to load with the `import` command
@@ -10059,7 +10093,7 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue__["a" /* default */]({
 });
 
 /***/ }),
-/* 7 */
+/* 9 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -10101,7 +10135,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 8 */
+/* 10 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -10127,7 +10161,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 9 */
+/* 11 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -10180,7 +10214,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 10 */
+/* 12 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -10226,11 +10260,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 11 */
+/* 13 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
 //
 //
 //
@@ -10251,11 +10287,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   },
   created: function () {
     document.title = 'KQC';
+  },
+  mounted: function () {
+    this.$refs.videoRef.src = "https://firebasestorage.googleapis.com/v0/b/kqc-web-staging.appspot.com/o/VID_20171209_150547.mp4?alt=media&token=fb2feb95-ff8c-45ea-8d9d-18794af45362";
+    this.$refs.videoRef.play();
   }
 });
 
 /***/ }),
-/* 12 */
+/* 14 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -10288,7 +10328,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 13 */
+/* 15 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -10361,11 +10401,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 14 */
+/* 16 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
 //
 //
 //
@@ -10425,7 +10468,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 15 */
+/* 17 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -10462,27 +10505,22 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   },
   methods: {
     submit: function (event) {
-      var title = document.getElementById('title').value;
-      var sub_title = document.getElementById('sub_title').value;
-      var content = document.getElementById('content').value;
-      var date = new Date();
-      var year = date.getFullYear();
-      var month = date.getMonth() + 1;
-      var params = [{
+      let title = document.getElementById('title').value;
+      let body = document.getElementById('content').value;
+      let password = document.getElementById('password').value;
+      let publisher = document.getElementById('publisher').value;
+      let params = {
         "title": title,
-        "sub_title": sub_title,
-        "content": content,
-        "year": year,
-        "month": month
-      }];
+        "body": body,
+        "password": password,
+        "publisher": publisher
+      };
       console.log(params);
-      axios({
-        method: 'post',
-        url: 'https://api-kqc.herokuapp.com/info',
-        data: params
-      }).then(function (response) {
+      let baseUrl = "https://us-central1-kqc-web-staging.cloudfunctions.net";
+      axios.post(baseUrl + '/information', params).then(response => {
         console.log(response.data);
-      }).catch(function (error) {
+        this.$router.push({ path: '/members/information' });
+      }).catch(error => {
         console.log(error.status);
       });
     }
@@ -10490,7 +10528,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 16 */
+/* 18 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -10552,7 +10590,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 17 */
+/* 19 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -10611,69 +10649,81 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 18 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'huntingjobdetail',
-  data() {
-    return {
-      msg: 'Welcome to KQC',
-      msg_sub: 'Hunting Job Detail'
-    };
-  },
-  created: function () {
-    document.title = '就活情報詳細 | KQC会員用';
-  }
-});
-
-/***/ }),
-/* 19 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'huntingjob',
-  data() {
-    return {
-      msg_sub: 'Hunting Job',
-      msg_sub1: '就活情報を配信します'
-    };
-  },
-  created: function () {
-    document.title = '就活情報 | KQC会員用';
-  }
-});
-
-/***/ }),
 /* 20 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'edit-kqctimes',
+  data() {
+    return {
+      'message': 'Informationを編集',
+      information: ''
+    };
+  },
+  created: function () {
+    document.title = 'インフォメーションを作成 | KQC会員用';
+    this.getInformation();
+  },
+  methods: {
+    submit: function (event) {
+      let id = this.information.id;
+      let baseUrl = 'https://us-central1-kqc-web-staging.cloudfunctions.net';
+      let body = document.getElementById('body').value;
+      let params = {
+        "body": body
+      };
+      axios.patch(baseUrl + '/information/' + id, params).then(response => {
+        this.$router.push({ path: '/members/information' });
+      });
+    },
+    cancel: function (event) {
+      this.$router.push({ path: '/members/information' });
+    },
+    getInformation: function (event) {
+      let tmp = location.href.replace(/\?.*$/, '').split('/'
+      // その中で、最後にくる数字を取得。これがイベントID
+      );var id = tmp[tmp.length - 2];
+      console.log(id);
+      let baseUrl = 'https://us-central1-kqc-web-staging.cloudfunctions.net';
+      axios.get(baseUrl + '/information/' + id).then(response => {
+        let data = response.data;
+        for (let elem in data) {
+          this.information = data[elem];
+        }
+      });
+    }
+  }
+});
+
+/***/ }),
+/* 21 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -10756,11 +10806,23 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -10823,15 +10885,307 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       console.log(id);
       let baseUrl = 'https://us-central1-kqc-web-staging.cloudfunctions.net';
       axios.get(baseUrl + '/information/' + id).then(response => {
-        console.log(response);
         this.informationList = response.data;
       });
+    },
+    deleteInformation: function (event) {
+      let myPassWord = prompt("本当にインフォーメーションを削除しますか？\nパスワードを入力してください", "");
+      for (var elem in this.informationList) {
+        if (myPassWord === this.informationList[elem].password) {
+          let baseUrl = 'https://us-central1-kqc-web-staging.cloudfunctions.net';
+          axios.delete(baseUrl + '/information/' + this.informationList[elem].id);
+          this.$router.push({ path: '/members/information' });
+        } else {
+          alert('パスワードが間違っています');
+        }
+      }
+    },
+    editInformation: function (event) {
+      let myPassWord = prompt("パスワードを入力してください", "");
+      for (var elem in this.informationList) {
+        if (myPassWord === this.informationList[elem].password) {
+          let infoId = this.informationList[elem].id;
+          this.$router.push({ path: `/members/infomation/${infoId}/edit` });
+        } else {
+          alert('パスワードが間違っています');
+        }
+      }
     }
   }
 });
 
 /***/ }),
-/* 22 */
+/* 23 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'kqctimes',
+  data() {
+    return {
+      msg: 'Welcome to KQC',
+      msg_sub: 'KQC Times',
+      msg_sub1: '練習・合宿・コンパなどの情報をお伝えします',
+      this_year: '2017年',
+      id: '',
+      jobList: []
+    };
+  },
+  created: function () {
+    this.getKqctimes();
+  },
+  methods: {
+    getKqctimes: function (event) {
+      let tmp = location.href.replace(/\?.*$/, '').split('/'
+      // その中で、最後にくる数字を取得。これがイベントID
+      );var id = tmp[tmp.length - 1];
+      this.id = id;
+      console.log(id);
+      let baseUrl = 'https://us-central1-kqc-web-staging.cloudfunctions.net';
+      axios.get(baseUrl + '/jobs/' + id).then(response => {
+        console.log(response);
+        this.jobList = response.data;
+        // for(var elem in response.data) {
+        //   let key = elem.key
+        //   console.log(elem[key].title);
+        // }
+      });
+    },
+    deleteJob: function (event) {
+      let myPassWord = prompt("本当に就活情報を削除しますか？\nパスワードを入力してください", "");
+      for (var elem in this.jobList) {
+        if (myPassWord === this.jobList[elem].password) {
+          let baseUrl = 'https://us-central1-kqc-web-staging.cloudfunctions.net';
+          axios.delete(baseUrl + '/jobs/' + this.jobList[elem].id);
+          this.$router.push({ path: '/members/job' });
+        } else {
+          alert('パスワードが間違っています');
+        }
+      }
+    },
+    editJob: function (event) {
+      let myPassWord = prompt("パスワードを入力してください", "");
+      for (var elem in this.jobList) {
+        if (myPassWord === this.jobList[elem].password) {
+          let jobId = this.jobList[elem].id;
+          this.$router.push({ path: `/members/job/${jobId}/edit` });
+        } else {
+          alert('パスワードが間違っています');
+        }
+      }
+    },
+    compiledMarkdown: function (text) {
+      return marked(text, { sanitize: true });
+    }
+  }
+});
+
+/***/ }),
+/* 24 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'edit-job',
+  data() {
+    return {
+      job: '',
+      jobBody: ''
+    };
+  },
+  created: function () {
+    this.getJobs();
+  },
+  computed: {
+    compiledMarkdown: function () {
+      return marked(this.jobBody, { sanitize: true });
+    }
+  },
+  methods: {
+    getJobs: function (event) {
+      let tmp = location.href.replace(/\?.*$/, '').split('/'
+      // その中で、最後にくる数字を取得。これがイベントID
+      );var id = tmp[tmp.length - 2];
+      this.id = id;
+      let baseUrl = 'https://us-central1-kqc-web-staging.cloudfunctions.net';
+      axios.get(baseUrl + '/jobs/' + id).then(response => {
+        console.log(response);
+        for (var elem in response.data) {
+          this.job = response.data[elem];
+        }
+        this.jobBody = this.job.body;
+      });
+    },
+    patchJobs: function (event) {
+      const body = document.getElementById('body').value;
+      const baseUrl = 'https://us-central1-kqc-web-staging.cloudfunctions.net';
+      let requestBody = {
+        "body": body
+      };
+      axios.patch(baseUrl + '/jobs');
+    },
+    update: function (event) {
+      this.jobBody = event.target.value;
+    }
+  }
+});
+
+/***/ }),
+/* 25 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'kqctimes',
+  data() {
+    return {
+      msg: 'Welcome to KQC',
+      msg_sub: '就活掲示板',
+      msg_sub1: '練習・合宿・コンパなどの情報をお伝えします',
+      this_year: '',
+      jobList: [],
+      errors: []
+    };
+  },
+  created: function () {
+    let date = new Date();
+    this.this_year = date.getFullYear() + '年';
+    let baseUrl = 'https://us-central1-kqc-web-staging.cloudfunctions.net';
+    axios.get(baseUrl + '/jobs').then(response => {
+      console.log(response);
+      this.jobList = response.data;
+    });
+  },
+  methods: {
+    limitContent: function (str) {
+      return str;
+    }
+  }
+});
+
+/***/ }),
+/* 26 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -10907,7 +11261,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 23 */
+/* 27 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -10996,7 +11350,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 24 */
+/* 28 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -11069,7 +11423,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 25 */
+/* 29 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -11156,7 +11510,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 26 */
+/* 30 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -11191,7 +11545,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 27 */
+/* 31 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -11218,7 +11572,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 28 */
+/* 32 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -11245,7 +11599,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 29 */
+/* 33 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -11270,30 +11624,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     document.title = '予定 | KQC';
   }
 });
-
-/***/ }),
-/* 30 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 31 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 32 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 33 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
 
 /***/ }),
 /* 34 */
@@ -11411,165 +11741,69 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 /* 53 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-module.exports = __webpack_require__.p + "static/img/developer.c07341c.png";
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 /* 54 */
 /***/ (function(module, exports) {
 
-module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAQAAAD/5HvMAAABf0lEQVRo3u3Wz0oCURSA8cGoJ6hdqbWJqIx6j1pmaD1AtIpC0QeoTT2GiEqt/bMOw2Vg25hEFxFEjS4Uh69lEKVzde618Pye4GPOPfeOZQkhhBBTjRXSVGjRo0eTCinCk4tZpoDLdy45QpPIOaLDb9rETeckGebM7NfxImbu7HQ8BTkEzQTl8SprZtFdz0GugX0jjYqk/qCKUlBJf1BLKaihP6inFNSdwqDmXxuZ2qEu6g9KKQUl9AeFFS7GvpHHg5znoIxlAiHannI+WLTMIO4pKGqZw/nQnFPLLGI4A4YVtcwjSPaHjeuTYcmaFEIkKdGgS5cGRRKG/hKFEMbXPcAGh1xSoIaNQ58+DjY18lwQZ52AqZQdUpQH3NJft3WZFNs6U7a45hlVNldE/E6Z4YB7xlFl37chsscjfqizO37MArf46Yb5cXIi2Pjtic1Rc9Z4RYcXVkfJmaOOLg/MqgedoNOxelBVa9CdetC71qA39SDNJEiCJEgIIYT4Jz4BBOZuB+sfPiQAAAAASUVORK5CYII="
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 /* 55 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-module.exports = __webpack_require__.p + "static/img/information.68c636d.png";
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 /* 56 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-module.exports = __webpack_require__.p + "static/img/job.21f9c0e.png";
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 /* 57 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-module.exports = __webpack_require__.p + "static/img/members.4cc8c37.png";
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 /* 58 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-
-/* styles */
-__webpack_require__(43)
-
-var Component = __webpack_require__(0)(
-  /* script */
-  __webpack_require__(8),
-  /* template */
-  __webpack_require__(93),
-  /* scopeId */
-  "data-v-6955214c",
-  /* cssModules */
-  null
-)
-
-module.exports = Component.exports
-
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 /* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
-
-/* styles */
-__webpack_require__(35)
-
-var Component = __webpack_require__(0)(
-  /* script */
-  __webpack_require__(9),
-  /* template */
-  __webpack_require__(85),
-  /* scopeId */
-  "data-v-26f05968",
-  /* cssModules */
-  null
-)
-
-module.exports = Component.exports
-
+module.exports = __webpack_require__.p + "static/img/developer.c07341c.png";
 
 /***/ }),
 /* 60 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-
-/* styles */
-__webpack_require__(44)
-
-var Component = __webpack_require__(0)(
-  /* script */
-  __webpack_require__(10),
-  /* template */
-  __webpack_require__(94),
-  /* scopeId */
-  "data-v-6bca567c",
-  /* cssModules */
-  null
-)
-
-module.exports = Component.exports
-
+module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAQAAAD/5HvMAAABf0lEQVRo3u3Wz0oCURSA8cGoJ6hdqbWJqIx6j1pmaD1AtIpC0QeoTT2GiEqt/bMOw2Vg25hEFxFEjS4Uh69lEKVzde618Pye4GPOPfeOZQkhhBBTjRXSVGjRo0eTCinCk4tZpoDLdy45QpPIOaLDb9rETeckGebM7NfxImbu7HQ8BTkEzQTl8SprZtFdz0GugX0jjYqk/qCKUlBJf1BLKaihP6inFNSdwqDmXxuZ2qEu6g9KKQUl9AeFFS7GvpHHg5znoIxlAiHannI+WLTMIO4pKGqZw/nQnFPLLGI4A4YVtcwjSPaHjeuTYcmaFEIkKdGgS5cGRRKG/hKFEMbXPcAGh1xSoIaNQ58+DjY18lwQZ52AqZQdUpQH3NJft3WZFNs6U7a45hlVNldE/E6Z4YB7xlFl37chsscjfqizO37MArf46Yb5cXIi2Pjtic1Rc9Z4RYcXVkfJmaOOLg/MqgedoNOxelBVa9CdetC71qA39SDNJEiCJEgIIYT4Jz4BBOZuB+sfPiQAAAAASUVORK5CYII="
 
 /***/ }),
 /* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
-
-/* styles */
-__webpack_require__(31)
-
-var Component = __webpack_require__(0)(
-  /* script */
-  __webpack_require__(11),
-  /* template */
-  __webpack_require__(81),
-  /* scopeId */
-  "data-v-114914e3",
-  /* cssModules */
-  null
-)
-
-module.exports = Component.exports
-
+module.exports = __webpack_require__.p + "static/img/information.68c636d.png";
 
 /***/ }),
 /* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
-
-/* styles */
-__webpack_require__(37)
-
-var Component = __webpack_require__(0)(
-  /* script */
-  __webpack_require__(12),
-  /* template */
-  __webpack_require__(87),
-  /* scopeId */
-  "data-v-3585b67a",
-  /* cssModules */
-  null
-)
-
-module.exports = Component.exports
-
+module.exports = __webpack_require__.p + "static/img/job.21f9c0e.png";
 
 /***/ }),
 /* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
-
-/* styles */
-__webpack_require__(51)
-
-var Component = __webpack_require__(0)(
-  /* script */
-  __webpack_require__(13),
-  /* template */
-  __webpack_require__(101),
-  /* scopeId */
-  "data-v-e16d4f4a",
-  /* cssModules */
-  null
-)
-
-module.exports = Component.exports
-
+module.exports = __webpack_require__.p + "static/img/members.4cc8c37.png";
 
 /***/ }),
 /* 64 */
@@ -11577,15 +11811,15 @@ module.exports = Component.exports
 
 
 /* styles */
-__webpack_require__(30)
+__webpack_require__(49)
 
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(14),
+  __webpack_require__(10),
   /* template */
-  __webpack_require__(80),
+  __webpack_require__(103),
   /* scopeId */
-  "data-v-0905215b",
+  "data-v-6955214c",
   /* cssModules */
   null
 )
@@ -11599,15 +11833,15 @@ module.exports = Component.exports
 
 
 /* styles */
-__webpack_require__(47)
+__webpack_require__(40)
 
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(15),
+  __webpack_require__(11),
   /* template */
-  __webpack_require__(97),
+  __webpack_require__(94),
   /* scopeId */
-  "data-v-7b9ba1f5",
+  "data-v-26f05968",
   /* cssModules */
   null
 )
@@ -11621,15 +11855,15 @@ module.exports = Component.exports
 
 
 /* styles */
-__webpack_require__(32)
+__webpack_require__(50)
 
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(16),
+  __webpack_require__(12),
   /* template */
-  __webpack_require__(82),
+  __webpack_require__(104),
   /* scopeId */
-  "data-v-13ecf110",
+  "data-v-6bca567c",
   /* cssModules */
   null
 )
@@ -11643,15 +11877,15 @@ module.exports = Component.exports
 
 
 /* styles */
-__webpack_require__(33)
+__webpack_require__(35)
 
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(17),
+  __webpack_require__(13),
   /* template */
-  __webpack_require__(83),
+  __webpack_require__(89),
   /* scopeId */
-  "data-v-149c8398",
+  "data-v-114914e3",
   /* cssModules */
   null
 )
@@ -11665,15 +11899,15 @@ module.exports = Component.exports
 
 
 /* styles */
-__webpack_require__(46)
+__webpack_require__(43)
 
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(18),
+  __webpack_require__(14),
   /* template */
-  __webpack_require__(96),
+  __webpack_require__(97),
   /* scopeId */
-  "data-v-6da1af2c",
+  "data-v-3585b67a",
   /* cssModules */
   null
 )
@@ -11687,15 +11921,15 @@ module.exports = Component.exports
 
 
 /* styles */
-__webpack_require__(39)
+__webpack_require__(56)
 
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(19),
+  __webpack_require__(15),
   /* template */
-  __webpack_require__(89),
+  __webpack_require__(110),
   /* scopeId */
-  "data-v-5bde5e77",
+  "data-v-e16d4f4a",
   /* cssModules */
   null
 )
@@ -11709,15 +11943,15 @@ module.exports = Component.exports
 
 
 /* styles */
-__webpack_require__(48)
+__webpack_require__(34)
 
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(20),
+  __webpack_require__(16),
   /* template */
-  __webpack_require__(98),
+  __webpack_require__(88),
   /* scopeId */
-  "data-v-969fff5e",
+  "data-v-0905215b",
   /* cssModules */
   null
 )
@@ -11731,15 +11965,15 @@ module.exports = Component.exports
 
 
 /* styles */
-__webpack_require__(42)
+__webpack_require__(52)
 
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(21),
+  __webpack_require__(17),
   /* template */
-  __webpack_require__(92),
+  __webpack_require__(106),
   /* scopeId */
-  "data-v-5def14fc",
+  "data-v-7b9ba1f5",
   /* cssModules */
   null
 )
@@ -11753,15 +11987,15 @@ module.exports = Component.exports
 
 
 /* styles */
-__webpack_require__(52)
+__webpack_require__(36)
 
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(22),
+  __webpack_require__(18),
   /* template */
-  __webpack_require__(102),
+  __webpack_require__(90),
   /* scopeId */
-  "data-v-e82f61b6",
+  "data-v-13ecf110",
   /* cssModules */
   null
 )
@@ -11775,15 +12009,15 @@ module.exports = Component.exports
 
 
 /* styles */
-__webpack_require__(36)
+__webpack_require__(37)
 
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(23),
+  __webpack_require__(19),
   /* template */
-  __webpack_require__(86),
+  __webpack_require__(91),
   /* scopeId */
-  "data-v-32d0101c",
+  "data-v-149c8398",
   /* cssModules */
   null
 )
@@ -11797,15 +12031,15 @@ module.exports = Component.exports
 
 
 /* styles */
-__webpack_require__(34)
+__webpack_require__(48)
 
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(24),
+  __webpack_require__(20),
   /* template */
-  __webpack_require__(84),
+  __webpack_require__(102),
   /* scopeId */
-  "data-v-14ced6a6",
+  "data-v-5eafb332",
   /* cssModules */
   null
 )
@@ -11819,15 +12053,15 @@ module.exports = Component.exports
 
 
 /* styles */
-__webpack_require__(49)
+__webpack_require__(53)
 
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(25),
+  __webpack_require__(21),
   /* template */
-  __webpack_require__(99),
+  __webpack_require__(107),
   /* scopeId */
-  "data-v-b5a8010c",
+  "data-v-969fff5e",
   /* cssModules */
   null
 )
@@ -11841,15 +12075,15 @@ module.exports = Component.exports
 
 
 /* styles */
-__webpack_require__(40)
+__webpack_require__(47)
 
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(26),
+  __webpack_require__(22),
   /* template */
-  __webpack_require__(90),
+  __webpack_require__(101),
   /* scopeId */
-  "data-v-5c21b748",
+  "data-v-5def14fc",
   /* cssModules */
   null
 )
@@ -11863,15 +12097,15 @@ module.exports = Component.exports
 
 
 /* styles */
-__webpack_require__(41)
+__webpack_require__(42)
 
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(27),
+  __webpack_require__(23),
   /* template */
-  __webpack_require__(91),
+  __webpack_require__(96),
   /* scopeId */
-  "data-v-5d0e30d4",
+  "data-v-331577d3",
   /* cssModules */
   null
 )
@@ -11885,15 +12119,15 @@ module.exports = Component.exports
 
 
 /* styles */
-__webpack_require__(38)
+__webpack_require__(58)
 
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(28),
+  __webpack_require__(24),
   /* template */
-  __webpack_require__(88),
+  __webpack_require__(112),
   /* scopeId */
-  "data-v-55de1404",
+  "data-v-f5f90f06",
   /* cssModules */
   null
 )
@@ -11907,13 +12141,189 @@ module.exports = Component.exports
 
 
 /* styles */
-__webpack_require__(45)
+__webpack_require__(39)
+
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(25),
+  /* template */
+  __webpack_require__(93),
+  /* scopeId */
+  "data-v-26b37420",
+  /* cssModules */
+  null
+)
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 80 */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+/* styles */
+__webpack_require__(57)
+
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(26),
+  /* template */
+  __webpack_require__(111),
+  /* scopeId */
+  "data-v-e82f61b6",
+  /* cssModules */
+  null
+)
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 81 */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+/* styles */
+__webpack_require__(41)
+
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(27),
+  /* template */
+  __webpack_require__(95),
+  /* scopeId */
+  "data-v-32d0101c",
+  /* cssModules */
+  null
+)
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 82 */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+/* styles */
+__webpack_require__(38)
+
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(28),
+  /* template */
+  __webpack_require__(92),
+  /* scopeId */
+  "data-v-14ced6a6",
+  /* cssModules */
+  null
+)
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 83 */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+/* styles */
+__webpack_require__(54)
 
 var Component = __webpack_require__(0)(
   /* script */
   __webpack_require__(29),
   /* template */
-  __webpack_require__(95),
+  __webpack_require__(108),
+  /* scopeId */
+  "data-v-b5a8010c",
+  /* cssModules */
+  null
+)
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 84 */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+/* styles */
+__webpack_require__(45)
+
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(30),
+  /* template */
+  __webpack_require__(99),
+  /* scopeId */
+  "data-v-5c21b748",
+  /* cssModules */
+  null
+)
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 85 */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+/* styles */
+__webpack_require__(46)
+
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(31),
+  /* template */
+  __webpack_require__(100),
+  /* scopeId */
+  "data-v-5d0e30d4",
+  /* cssModules */
+  null
+)
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 86 */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+/* styles */
+__webpack_require__(44)
+
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(32),
+  /* template */
+  __webpack_require__(98),
+  /* scopeId */
+  "data-v-55de1404",
+  /* cssModules */
+  null
+)
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 87 */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+/* styles */
+__webpack_require__(51)
+
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(33),
+  /* template */
+  __webpack_require__(105),
   /* scopeId */
   "data-v-6ce3c33c",
   /* cssModules */
@@ -11924,7 +12334,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 80 */
+/* 88 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -11943,7 +12353,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('img', {
     staticClass: "cover-image",
     attrs: {
-      "src": __webpack_require__(57)
+      "src": __webpack_require__(63)
     }
   }), _vm._v(" "), _c('h1', [_vm._v(_vm._s(_vm.msg_sub))]), _vm._v(" "), _c('h1', {
     staticClass: "sub-h1"
@@ -11966,6 +12376,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_vm._v("KQCTimes")])], 1), _vm._v(" "), _c('li', [_c('router-link', {
     staticClass: "member-link",
     attrs: {
+      "to": "/members/job"
+    }
+  }, [_vm._v("就活掲示板")])], 1), _vm._v(" "), _c('li', [_c('router-link', {
+    staticClass: "member-link",
+    attrs: {
       "to": "/members/record"
     }
   }, [_vm._v("議事録")])], 1), _vm._v(" "), _c('li', [_c('router-link', {
@@ -11986,31 +12401,34 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 },staticRenderFns: []}
 
 /***/ }),
-/* 81 */
+/* 89 */
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _vm._m(0)
-},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     attrs: {
       "id": "hello"
     }
   }, [_c('div', {
     staticClass: "main-contents-wrapper"
-  }, [_c('video', {
+  }, [_c('p', {
+    staticClass: "title"
+  }, [_vm._v("KQC")]), _vm._v(" "), _c('p', {
+    staticClass: "sub_title"
+  }, [_vm._v("慶應義塾大学唯一の弓道サークル")]), _vm._v(" "), _c('video', {
+    ref: "videoRef",
     staticClass: "video_top",
     attrs: {
-      "src": "./assets/sample.mov",
+      "type": "video/mp4",
+      "muted": "",
       "autoplay": "",
-      "loop": "",
-      "muted": ""
+      "loop": ""
     }
-  }), _vm._v(" "), _c('p', [_vm._v("ほげほげ")])])])
-}]}
+  }), _vm._v(" "), _c('p', [_vm._v("ああああああああああああああああああああああああああああああああああああああああああああああああああああああああ")])])])
+},staticRenderFns: []}
 
 /***/ }),
-/* 82 */
+/* 90 */
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -12061,7 +12479,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 }]}
 
 /***/ }),
-/* 83 */
+/* 91 */
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -12104,7 +12522,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 }]}
 
 /***/ }),
-/* 84 */
+/* 92 */
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -12149,7 +12567,90 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 }]}
 
 /***/ }),
-/* 85 */
+/* 93 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    attrs: {
+      "id": "kqctimes"
+    }
+  }, [_c('div', {
+    attrs: {
+      "id": "kqctimes-container"
+    }
+  }, [_c('div', {
+    staticClass: "cover-image-wrapper"
+  }, [_c('div', {
+    staticClass: "cover-image-container"
+  }, [_c('img', {
+    staticClass: "cover-image",
+    attrs: {
+      "src": __webpack_require__(62)
+    }
+  }), _vm._v(" "), _c('h1', [_vm._v(_vm._s(_vm.msg_sub))]), _vm._v(" "), _c('h1', {
+    staticClass: "sub-h1"
+  }, [_vm._v(_vm._s(_vm.msg_sub1))])])]), _vm._v(" "), _c('div', {
+    staticClass: "content-wrapper"
+  }, [_c('div', {
+    attrs: {
+      "id": "main-content-wrapper"
+    }
+  }, [_c('h2', [_vm._v(_vm._s(_vm.this_year))]), _vm._v(" "), _c('ul', [_vm._l((_vm.jobList), function(job) {
+    return _c('li', [_c('div', {
+      staticClass: "times-model-wrapper"
+    }, [_c('router-link', {
+      staticClass: "kqctimes-link",
+      attrs: {
+        "to": {
+          name: 'JobDetail',
+          params: {
+            id: job.id
+          }
+        }
+      }
+    }, [_c('h3', [_vm._v(_vm._s(job.title))])]), _vm._v(" "), _c('div', {
+      staticClass: "content-summary-wrapper"
+    }, [_c('p', {
+      staticClass: "kqctimes-list-content",
+      domProps: {
+        "innerHTML": _vm._s(job.body)
+      }
+    }, [_vm._v("...")])])], 1)])
+  }), _vm._v(" "), _c('div', {
+    staticStyle: {
+      "height": "32px"
+    }
+  })], 2)]), _vm._v(" "), _c('div', {
+    staticClass: "post-kqctimes-wrapper"
+  }, [_c('router-link', {
+    staticClass: "button-post",
+    attrs: {
+      "to": "/members/create-kqctimes"
+    }
+  }, [_vm._v("就活情報を投稿")])], 1), _vm._v(" "), _vm._m(0), _vm._v(" "), _c('div', {
+    attrs: {
+      "id": "space"
+    }
+  })])])])
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "sub-content-wrapper"
+  }, [_c('div', {
+    staticClass: "title-wrapper"
+  }, [_c('h3', {
+    staticClass: "sub-content-title"
+  }, [_vm._v("アーカイブ")]), _vm._v(" "), _c('ul', [_c('li', {
+    staticClass: "list-year"
+  }, [_vm._v("まだリンクはありません")]), _vm._v(" "), _c('li', {
+    staticClass: "list-year"
+  }, [_vm._v("2017年")]), _vm._v(" "), _c('li', {
+    staticClass: "list-year"
+  }, [_vm._v("2016年")])])])])
+}]}
+
+/***/ }),
+/* 94 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -12207,7 +12708,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 },staticRenderFns: []}
 
 /***/ }),
-/* 86 */
+/* 95 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -12226,7 +12727,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('img', {
     staticClass: "cover-image",
     attrs: {
-      "src": __webpack_require__(4)
+      "src": __webpack_require__(6)
     }
   }), _vm._v(" "), _c('h1', [_vm._v(_vm._s(_vm.msg_sub))]), _vm._v(" "), _c('h1', {
     staticClass: "sub-h1"
@@ -12292,7 +12793,86 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 }]}
 
 /***/ }),
-/* 87 */
+/* 96 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    attrs: {
+      "id": "kqctimes"
+    }
+  }, [_c('div', {
+    attrs: {
+      "id": "kqctimes-container"
+    }
+  }, [_c('div', {
+    staticClass: "content-wrapper"
+  }, [_c('div', {
+    staticClass: "main-content-wrapper"
+  }, [_c('h2', [_vm._v(_vm._s(_vm.this_year))]), _vm._v(" "), _c('div', {
+    staticClass: "times-model-wrapper"
+  }, [_c('ul', _vm._l((_vm.jobList), function(job) {
+    return _c('li', [_c('h3', [_vm._v(_vm._s(job.title))]), _vm._v(" "), _c('div', {
+      staticClass: "menu-wrapper"
+    }, [_c('div', {
+      staticClass: "edit-content-wrapper",
+      on: {
+        "click": _vm.editJob
+      }
+    }, [_c('img', {
+      staticStyle: {
+        "float": "left"
+      },
+      attrs: {
+        "src": __webpack_require__(5),
+        "width": "20",
+        "height": "20"
+      }
+    }), _vm._v(" "), _c('p', {
+      staticClass: "edit-content"
+    }, [_vm._v("編集")])]), _vm._v(" "), _c('div', {
+      staticClass: "delete-content-wrapper",
+      on: {
+        "click": _vm.deleteJob
+      }
+    }, [_c('img', {
+      staticStyle: {
+        "float": "left"
+      },
+      attrs: {
+        "src": __webpack_require__(4),
+        "width": "20",
+        "height": "20"
+      }
+    }), _vm._v(" "), _c('p', {
+      staticClass: "delete-content"
+    }, [_vm._v("この投稿を削除")])])]), _vm._v(" "), _c('div', {
+      staticClass: "content-summary-wrapper"
+    }, [_c('p', {
+      staticStyle: {
+        "font-size": "18px"
+      },
+      domProps: {
+        "innerHTML": _vm._s(_vm.compiledMarkdown(job.body))
+      }
+    })])])
+  }))])]), _vm._v(" "), _vm._m(0), _vm._v(" "), _c('div', {
+    attrs: {
+      "id": "space"
+    }
+  })])])])
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "sub-content-wrapper"
+  }, [_c('div', {
+    staticClass: "title-wrapper"
+  }, [_c('h3', {
+    staticClass: "sub-content-title"
+  }, [_vm._v("アーカイブ")]), _vm._v(" "), _c('ul', [_c('li', [_vm._v("2017年")]), _vm._v(" "), _c('li', [_vm._v("2016年")])])])])
+}]}
+
+/***/ }),
+/* 97 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -12313,7 +12893,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 },staticRenderFns: []}
 
 /***/ }),
-/* 88 */
+/* 98 */
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -12325,34 +12905,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 },staticRenderFns: []}
 
 /***/ }),
-/* 89 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    attrs: {
-      "id": "hunting-job-list"
-    }
-  }, [_c('div', {
-    staticClass: "cover-image-wrapper"
-  }, [_c('div', {
-    staticClass: "cover-image-container"
-  }, [_c('img', {
-    staticClass: "cover-image",
-    attrs: {
-      "src": __webpack_require__(56)
-    }
-  }), _vm._v(" "), _c('h1', [_vm._v(_vm._s(_vm.msg_sub))]), _vm._v(" "), _c('h1', {
-    staticClass: "sub-h1"
-  }, [_vm._v(_vm._s(_vm.msg_sub1))])])]), _vm._v(" "), _c('h1', [_vm._v(_vm._s(_vm.msg))]), _vm._v(" "), _c('h2', [_vm._v(_vm._s(_vm.msg_sub))]), _vm._v(" "), _c('router-link', {
-    attrs: {
-      "to": "/members/hunting-job-detail"
-    }
-  }, [_vm._v("詳細")])], 1)
-},staticRenderFns: []}
-
-/***/ }),
-/* 90 */
+/* 99 */
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -12368,7 +12921,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 },staticRenderFns: []}
 
 /***/ }),
-/* 91 */
+/* 100 */
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -12380,8 +12933,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 },staticRenderFns: []}
 
 /***/ }),
-/* 92 */
-/***/ (function(module, exports) {
+/* 101 */
+/***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
@@ -12400,6 +12953,40 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "times-model-wrapper"
   }, [_c('ul', _vm._l((_vm.informationList), function(information) {
     return _c('li', [_c('h3', [_vm._v(_vm._s(information.title))]), _vm._v(" "), _c('div', {
+      staticClass: "menu-wrapper"
+    }, [_c('div', {
+      staticClass: "edit-content-wrapper",
+      on: {
+        "click": _vm.editInformation
+      }
+    }, [_c('img', {
+      staticStyle: {
+        "float": "left"
+      },
+      attrs: {
+        "src": __webpack_require__(5),
+        "width": "20",
+        "height": "20"
+      }
+    }), _vm._v(" "), _c('p', {
+      staticClass: "edit-content"
+    }, [_vm._v("編集")])]), _vm._v(" "), _c('div', {
+      staticClass: "delete-content-wrapper",
+      on: {
+        "click": _vm.deleteInformation
+      }
+    }, [_c('img', {
+      staticStyle: {
+        "float": "left"
+      },
+      attrs: {
+        "src": __webpack_require__(4),
+        "width": "20",
+        "height": "20"
+      }
+    }), _vm._v(" "), _c('p', {
+      staticClass: "delete-content"
+    }, [_vm._v("この投稿を削除")])])]), _vm._v(" "), _c('div', {
       staticClass: "content-summary-wrapper"
     }, [_c('p', {
       domProps: {
@@ -12422,7 +13009,76 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 }]}
 
 /***/ }),
-/* 93 */
+/* 102 */
+/***/ (function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    attrs: {
+      "id": "edit-information"
+    }
+  }, [_c('div', {
+    attrs: {
+      "id": "edit-wrapper"
+    }
+  }, [_c('h1', [_vm._v(_vm._s(_vm.message))]), _vm._v(" "), _c('form', {
+    attrs: {
+      "accept-charset": "UTF-8"
+    }
+  }, [_c('input', {
+    staticClass: "title-input",
+    attrs: {
+      "type": "text",
+      "name": "title",
+      "id": "title",
+      "placeholder": "タイトル"
+    },
+    domProps: {
+      "value": _vm.information.title
+    }
+  }), _vm._v(" "), _c('input', {
+    staticClass: "publisher-input",
+    attrs: {
+      "type": "text",
+      "name": "publisher",
+      "id": "publisher",
+      "placeholder": "投稿者名"
+    },
+    domProps: {
+      "value": _vm.information.publisher
+    }
+  }), _vm._v(" "), _c('textarea', {
+    staticClass: "content-textarea",
+    attrs: {
+      "name": "content",
+      "id": "body"
+    },
+    domProps: {
+      "value": _vm.information.body
+    }
+  })])]), _vm._v(" "), _c('div', {
+    staticStyle: {
+      "display": "flex"
+    }
+  }, [_c('div', {
+    staticClass: "cancel-information",
+    on: {
+      "click": _vm.cancel
+    }
+  }, [_c('p', {
+    staticClass: "submit-value"
+  }, [_vm._v("キャンセル")])]), _vm._v(" "), _c('div', {
+    staticClass: "submit-information",
+    on: {
+      "click": _vm.submit
+    }
+  }, [_c('p', {
+    staticClass: "submit-value"
+  }, [_vm._v("変更を投稿する")])])])])
+},staticRenderFns: []}
+
+/***/ }),
+/* 103 */
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -12442,7 +13098,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 }]}
 
 /***/ }),
-/* 94 */
+/* 104 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -12501,13 +13157,13 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('img', {
     staticClass: "member-image",
     attrs: {
-      "src": __webpack_require__(54)
+      "src": __webpack_require__(60)
     }
   }), _vm._v(" "), _c('p', [_vm._v("Members")])])
 }]}
 
 /***/ }),
-/* 95 */
+/* 105 */
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -12519,19 +13175,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 },staticRenderFns: []}
 
 /***/ }),
-/* 96 */
-/***/ (function(module, exports) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    attrs: {
-      "id": "hunting-job-detail"
-    }
-  }, [_c('h1', [_vm._v(_vm._s(_vm.msg))]), _vm._v(" "), _c('h2', [_vm._v(_vm._s(_vm.msg_sub))])])
-},staticRenderFns: []}
-
-/***/ }),
-/* 97 */
+/* 106 */
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -12565,20 +13209,20 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "placeholder": "タイトル"
     }
   }), _vm._v(" "), _c('input', {
-    staticClass: "sub-title-input",
-    attrs: {
-      "type": "text",
-      "name": "sub_title",
-      "id": "sub_title",
-      "placeholder": "サブタイトル"
-    }
-  }), _vm._v(" "), _c('input', {
     staticClass: "publisher-input",
     attrs: {
       "type": "text",
       "name": "publisher",
       "id": "publisher",
       "placeholder": "投稿者名"
+    }
+  }), _vm._v(" "), _c('input', {
+    staticClass: "publisher-input",
+    attrs: {
+      "type": "password",
+      "name": "password",
+      "id": "password",
+      "placeholder": "パスワード"
     }
   }), _vm._v(" "), _c('textarea', {
     staticClass: "content-textarea",
@@ -12590,7 +13234,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 }]}
 
 /***/ }),
-/* 98 */
+/* 107 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -12609,7 +13253,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('img', {
     staticClass: "cover-image",
     attrs: {
-      "src": __webpack_require__(55)
+      "src": __webpack_require__(61)
     }
   }), _vm._v(" "), _c('h1', [_vm._v(_vm._s(_vm.msg_sub))]), _vm._v(" "), _c('h1', {
     staticClass: "sub-h1"
@@ -12662,7 +13306,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 }]}
 
 /***/ }),
-/* 99 */
+/* 108 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -12681,7 +13325,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('img', {
     staticClass: "cover-image",
     attrs: {
-      "src": __webpack_require__(4)
+      "src": __webpack_require__(6)
     }
   }), _vm._v(" "), _c('h1', [_vm._v(_vm._s(_vm.msg_sub))]), _vm._v(" "), _c('h1', {
     staticClass: "sub-h1"
@@ -12740,7 +13384,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 }]}
 
 /***/ }),
-/* 100 */
+/* 109 */
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -12770,7 +13414,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 },staticRenderFns: []}
 
 /***/ }),
-/* 101 */
+/* 110 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -12787,7 +13431,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('img', {
     staticClass: "cover-image",
     attrs: {
-      "src": __webpack_require__(53)
+      "src": __webpack_require__(59)
     }
   }), _vm._v(" "), _c('h1', [_vm._v(_vm._s(_vm.msg_sub))]), _vm._v(" "), _c('h1', {
     staticClass: "sub-h1"
@@ -12833,7 +13477,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 }]}
 
 /***/ }),
-/* 102 */
+/* 111 */
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -12880,7 +13524,43 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 }]}
 
 /***/ }),
-/* 103 */
+/* 112 */
+/***/ (function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    attrs: {
+      "id": "edit_job"
+    }
+  }, [_c('div', {
+    attrs: {
+      "id": "edit_job_container"
+    }
+  }, [_c('textarea', {
+    staticClass: "editting-area",
+    attrs: {
+      "id": "body"
+    },
+    domProps: {
+      "value": _vm.jobBody
+    },
+    on: {
+      "input": _vm.update
+    }
+  }), _vm._v(" "), _c('div', {
+    staticClass: "marked",
+    domProps: {
+      "innerHTML": _vm._s(_vm.compiledMarkdown)
+    }
+  })]), _vm._v(" "), _c('div', {
+    attrs: {
+      "id": "space"
+    }
+  })])
+},staticRenderFns: []}
+
+/***/ }),
+/* 113 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -15351,7 +16031,7 @@ if (inBrowser && window.Vue) {
 
 
 /***/ }),
-/* 104 */
+/* 114 */
 /***/ (function(module, exports) {
 
 var g;
@@ -15378,5 +16058,5 @@ module.exports = g;
 
 
 /***/ })
-],[6]);
-//# sourceMappingURL=app.f11bbe9f1bc4521d888f.js.map
+],[8]);
+//# sourceMappingURL=app.7945b393c0725917d6d9.js.map
