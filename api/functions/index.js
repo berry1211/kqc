@@ -114,7 +114,7 @@ exports.information = functions.https.onRequest((request, response) => {
     case 'OPTIONS':
       response.set('Access-Control-Allow-Origin', '*')
             .set('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
-            .set('Access-Control-Allow-Methods', 'GET, POST', 'PATCH', 'DELETE')
+            .set('Access-Control-Allow-Methods', 'GET, POST, PATCH, DELETE')
             .status(200).send('OK')
       break
     case 'GET':

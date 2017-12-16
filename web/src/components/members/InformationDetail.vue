@@ -73,7 +73,6 @@ export default {
       let baseUrl = 'https://us-central1-kqc-web-staging.cloudfunctions.net'
       axios.get(baseUrl + '/information/' + id)
         .then(response => {
-          console.log(response)
           this.informationList = response.data
         })
     },
@@ -82,9 +81,8 @@ export default {
        for(var elem in this.informationList) {
          if (myPassWord === this.informationList[elem].password) {
            let baseUrl = 'https://us-central1-kqc-web-staging.cloudfunctions.net'
-           console.log(this.informationList[elem].id);
            axios.delete(baseUrl + '/information/' + this.informationList[elem].id)
-          //  this.$router.push({ path: '/members/information' })
+           this.$router.push({ path: '/members/information' })
          } else {
            alert('パスワードが間違っています')
          }
