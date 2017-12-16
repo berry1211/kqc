@@ -303,11 +303,8 @@ exports.login = functions.https.onRequest((request, response) => {
     case 'OPTIONS':
       response.set('Access-Control-Allow-Origin', '*')
               .set('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
-              .set('Access-Control-Allow-Methods', 'GET, POST')
+              .set('Access-Control-Allow-Methods', 'PATCH, POST')
               .status(200).send('OK')
-      break
-    case 'GET':
-      getUserAuth(request, response)
       break
     case 'POST':
       postUserAuth(request, response)
@@ -328,30 +325,28 @@ function patchUserAuth (request, response) {
 function postUserAuth(request, response) {
   if (checkAuth(request) === false) {
     response.status(400).send({ message: 'Bad Request' })
+    return
   } else {
-    const name = request.body.name
     const password = request.body.password
 
-    let json = {}
-    json.name = name
-    json.password = password
-
-    let jsonString = generateJson(json)
-    let encodedToken = generateBase64Token(jsonString)
-
-    response.status(200).send(encodedToken)
+    admin.database().ref('/development/users')
+      .orderByChild('password').equalTo(password)
+      .once('value')
+      .then(snapshots => {
+        snapshots.forEach(function(snapshot) {
+          response.status(200).send(snapshot)
+        })
+      })
+      .catch(error => {
+        response.status(400).send({ error: 'You are not logged in' })
+      })
   }
 }
 
-function getUserAuth (request, response) {
-  response.status(200).send({ message: 'Request called' })
-}
-
 function checkAuth(request) {
-  const name = request.body.name
   const password = request.body.password
 
-  if (name == undefined || password == undefined) {
+  if (password === undefined) {
     return false
   } else {
     return true

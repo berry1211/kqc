@@ -10,6 +10,7 @@
 </template>
 
 <script>
+import Storage from '../../js/storage-manager'
 export default {
   name: 'hello',
   data () {
@@ -19,11 +20,31 @@ export default {
     }
   },
   created: function(){
-    document.title = 'KQC'
+    document.title = 'KQC',
+    this.checkLoginStatus()
   },
   mounted: function() {
     this.$refs.videoRef.src = "https://firebasestorage.googleapis.com/v0/b/kqc-web-staging.appspot.com/o/VID_20171209_150547.mp4?alt=media&token=fb2feb95-ff8c-45ea-8d9d-18794af45362"
     this.$refs.videoRef.play()
+  },
+  methods: {
+    checkLoginStatus: function(event) {
+      let password = Storage.getPassword()
+      if (password === undefined) {
+        return
+      }
+      let baseUrl = 'https://us-central1-kqc-web-staging.cloudfunctions.net'
+      let param = {
+        "password": password
+      }
+      axios.get(baseUrl + '/login')
+        .then(response => {
+
+        })
+        .catch(error => {
+
+        })
+    }
   }
 }
 </script>
