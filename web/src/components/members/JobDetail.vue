@@ -10,9 +10,16 @@
             <ul>
               <li v-for="job in jobList">
                 <h3>{{ job.title }}</h3>
-                <div class="delete-content-wrapper" v-on:click="deleteJob">
-                  <img src="../../assets/ic_delete_black_24dp.png" width="20" height="20" style="float: left;"/>
-                  <p class="delete-content">この投稿を削除</p>
+
+                <div class="menu-wrapper">
+                  <div class="edit-content-wrapper" v-on:click="editJob">
+                    <img src="../../assets/ic_mode_edit_black_24dp.png" width="20" height="20" style="float: left;"/>
+                    <p class="edit-content">編集</p>
+                  </div>
+                  <div class="delete-content-wrapper" v-on:click="deleteJob">
+                    <img src="../../assets/ic_delete_black_24dp.png" width="20" height="20" style="float: left;"/>
+                    <p class="delete-content">この投稿を削除</p>
+                  </div>
                 </div>
                 <div class="content-summary-wrapper">
                   <p v-html="compiledMarkdown(job.body)" style="font-size: 18px;"></p>
@@ -86,6 +93,17 @@ export default {
            alert('パスワードが間違っています')
          }
       }
+    },
+    editJob: function(event) {
+      let myPassWord = prompt("パスワードを入力してください","")
+      for(var elem in this.jobList) {
+        if (myPassWord === this.jobList[elem].password) {
+          let jobId = this.jobList[elem].id
+          this.$router.push({ path: `/members/job/${jobId}/edit` })
+        } else {
+          alert('パスワードが間違っています')
+        }
+     }
     },
     compiledMarkdown: function (text) {
       return marked(text, { sanitize: true })
@@ -262,6 +280,12 @@ export default {
     font-size: 16px;
   }
 
+  .menu-wrapper {
+    width: 200px;
+    display: flex;
+    margin-right: 8px;
+    margin-left: auto;
+  }
   .delete-content-wrapper {
     width: 104px;
     height: 20px;
@@ -279,6 +303,30 @@ export default {
     cursor: pointer;
   }
   .delete-content {
+    display: inline-block;
+    font-size: 12px;
+    line-height: 20px;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+  .edit-content-wrapper {
+    float: left;
+    width: 48px;
+    height: 20px;
+    margin-right: 32px;
+    margin-left: auto;
+    border-radius: 4px;
+    text-align: center;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 4px;
+    color: #424242;
+    font-weight: bold;
+  }
+  .edit-content-wrapper :hover {
+    cursor: pointer;
+  }
+  .edit-content {
     display: inline-block;
     font-size: 12px;
     line-height: 20px;

@@ -10,6 +10,7 @@ import KqcTimesList from '@/components/members/KqcTimesList'
 import KqcTimesDetail from '@/components/members/KqcTimesDetail'
 import JobList from '@/components/members/JobList'
 import JobDetail from '@/components/members/JobDetail'
+import JobEdit from '@/components/members/JobEditDetail'
 import CreateKqcTimes from '@/components/members/CreateKqcTimes'
 import CreateInformation from '@/components/members/CreateInformation'
 import RecordList from '@/components/members/RecordList'
@@ -165,6 +166,15 @@ export default new Router({
       name: 'JobDetail',
       components: {
         default: JobDetail,
+        footer: Footer,
+        header: HeaderForMembers
+      }
+    },
+    {
+      path: '/members/job/:id/edit',
+      name: 'JobEdit',
+      components: {
+        default: JobEdit,
         footer: Footer,
         header: HeaderForMembers
       }
