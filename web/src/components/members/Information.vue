@@ -19,7 +19,7 @@
                 <router-link :to="{ name: 'info-detail', params: { id: info.id }}" class="info-link"><h3>{{ info.title }}</h3></router-link>
                 <p>{{ info.publisher }}</p>
                 <div class="content-summary-wrapper">
-                  <p>{{ info.body }}</p>
+                  <p v-html="info.body.replace(/\n/g, '<br>')"></p>
                 </div>
               </div>
             </li>
