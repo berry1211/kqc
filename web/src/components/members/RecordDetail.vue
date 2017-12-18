@@ -10,6 +10,7 @@
                 <h3>{{ record.title }}</h3>
                 <div class="content-summary-wrapper">
                   <p v-html="record.body.replace(/\n/g, '<br>')" style="font-size: 18px;"></p>
+                  <router-link :to="{ name: 'EditRecord', params: { id: record.id } }">編集</router-link>
                 </div>
               </li>
             </ul>

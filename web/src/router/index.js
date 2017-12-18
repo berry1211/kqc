@@ -17,6 +17,7 @@ import CreateInformation from '@/components/members/CreateInformation'
 import EditInformation from '@/components/members/EditInformation'
 import RecordList from '@/components/members/RecordList'
 import RecordDetail from '@/components/members/RecordDetail'
+import EditRecord from '@/components/members/EditRecord'
 import CreateRecord from '@/components/members/CreateRecord'
 
 // デベロッパーページ
@@ -159,6 +160,15 @@ export default new Router({
       name: 'RecordDetail',
       components: {
         default: RecordDetail,
+        Footer: Footer,
+        header: HeaderForMembers
+      }
+    },
+    {
+      path: '/members/record/:id/edit',
+      name: 'EditRecord',
+      components: {
+        default: EditRecord,
         Footer: Footer,
         header: HeaderForMembers
       }
