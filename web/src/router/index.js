@@ -6,6 +6,7 @@ import Hello from '@/components/common/Hello'
 import Information from '@/components/members/Information'
 import InformationDetail from '@/components/members/InformationDetail'
 import Rules from '@/components/members/Rules'
+import EditRule from '@/components/members/EditRule'
 import KqcTimesList from '@/components/members/KqcTimesList'
 import KqcTimesDetail from '@/components/members/KqcTimesDetail'
 import JobList from '@/components/members/JobList'
@@ -104,6 +105,15 @@ export default new Router({
       name: 'Rules',
       components: {
         default: Rules,
+        footer: Footer,
+        header: HeaderForMembers
+      }
+    },
+    {
+      path: '/members/rules/edit',
+      name: 'EditRule',
+      components: {
+        default: EditRule,
         footer: Footer,
         header: HeaderForMembers
       }
