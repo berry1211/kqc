@@ -10,6 +10,18 @@
             <ul>
               <li v-for="information in informationList">
                 <h3>{{ information.title }}</h3>
+
+                <div class="menu-wrapper">
+                  <div class="edit-content-wrapper" v-on:click="editInformation">
+                    <img src="../../assets/ic_mode_edit_black_24dp.png" width="20" height="20" style="float: left;"/>
+                    <p class="edit-content">編集</p>
+                  </div>
+                  <div class="delete-content-wrapper" v-on:click="deleteInformation">
+                    <img src="../../assets/ic_delete_black_24dp.png" width="20" height="20" style="float: left;"/>
+                    <p class="delete-content">この投稿を削除</p>
+                  </div>
+                </div>
+
                 <div class="content-summary-wrapper">
                   <p v-html="information.body.replace(/\n/g, '<br>')"></p>
                 </div>
@@ -61,10 +73,32 @@ export default {
       let baseUrl = 'https://us-central1-kqc-web-staging.cloudfunctions.net'
       axios.get(baseUrl + '/information/' + id)
         .then(response => {
-          console.log(response)
           this.informationList = response.data
         })
-    }
+    },
+    deleteInformation: function(event) {
+       let myPassWord = prompt("本当にインフォーメーションを削除しますか？\nパスワードを入力してください","")
+       for(var elem in this.informationList) {
+         if (myPassWord === this.informationList[elem].password) {
+           let baseUrl = 'https://us-central1-kqc-web-staging.cloudfunctions.net'
+           axios.delete(baseUrl + '/information/' + this.informationList[elem].id)
+           this.$router.push({ path: '/members/information' })
+         } else {
+           alert('パスワードが間違っています')
+         }
+      }
+    },
+    editInformation: function(event) {
+      let myPassWord = prompt("パスワードを入力してください","")
+      for(var elem in this.informationList) {
+        if (myPassWord === this.informationList[elem].password) {
+          let infoId = this.informationList[elem].id
+          this.$router.push({ path: `/members/infomation/${infoId}/edit` })
+        } else {
+          alert('パスワードが間違っています')
+        }
+     }
+    },
   }
 }
 </script>
@@ -235,6 +269,60 @@ export default {
   }
   .sub-content-title{
     font-size: 16px;
+  }
+
+  .menu-wrapper {
+    width: 200px;
+    display: flex;
+    margin-right: 8px;
+    margin-left: auto;
+  }
+  .delete-content-wrapper {
+    width: 104px;
+    height: 20px;
+    margin-right: 8px;
+    margin-left: auto;
+    border-radius: 4px;
+    text-align: center;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 4px;
+    color: #424242;
+    font-weight: bold;
+  }
+  .delete-content-wrapper :hover {
+    cursor: pointer;
+  }
+  .delete-content {
+    display: inline-block;
+    font-size: 12px;
+    line-height: 20px;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+  .edit-content-wrapper {
+    float: left;
+    width: 48px;
+    height: 20px;
+    margin-right: 32px;
+    margin-left: auto;
+    border-radius: 4px;
+    text-align: center;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 4px;
+    color: #424242;
+    font-weight: bold;
+  }
+  .edit-content-wrapper :hover {
+    cursor: pointer;
+  }
+  .edit-content {
+    display: inline-block;
+    font-size: 12px;
+    line-height: 20px;
+    margin-top: auto;
+    margin-bottom: auto;
   }
 
   /*スペースのコンポーネント*/

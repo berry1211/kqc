@@ -114,7 +114,7 @@ exports.information = functions.https.onRequest((request, response) => {
     case 'OPTIONS':
       response.set('Access-Control-Allow-Origin', '*')
             .set('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
-            .set('Access-Control-Allow-Methods', 'GET, POST')
+            .set('Access-Control-Allow-Methods', 'GET, POST, PATCH, DELETE')
             .status(200).send('OK')
       break
     case 'GET':
@@ -125,6 +125,16 @@ exports.information = functions.https.onRequest((request, response) => {
     case 'POST':
       cors(request, response, function () {
         postInformation(request, response)
+      })
+      break
+    case 'PATCH':
+      cors(request, response, function () {
+        patchInformation(request, response)
+      })
+      break
+    case 'DELETE':
+      cors(request, response, function () {
+        deleteInformation(request, response)
       })
       break
     default:
@@ -179,6 +189,53 @@ function postInformation (request, response) {
       .catch(error => {
         response.status(418).send({ 'error': error })
       })
+  }
+}
+
+function patchInformation(request, response) {
+  if (request.params[0] === undefined) {
+    response.status(400).send({ error: 'No Resource' })
+  } else {
+    const body = request.body.body
+    admin.database().ref('/development/information')
+      .orderByChild('id').equalTo(request.params[0].slice(1))
+      .once('value')
+      .then(snapshots => {
+        snapshots.forEach(function(snapshot) {
+          let ref = snapshot.ref
+          let value = {
+            'body': body
+          }
+          ref.update(value, function(object) {
+            response.status(200).send({ message: 'Successfully updated' })
+          })
+        })
+      })
+      .catch(error => {
+        response.status(404).send({ error: 'Noooo Resource Found' })
+      })
+  }
+}
+
+function deleteInformation(request, response) {
+  if (request.params[0] !== "") {
+    // request parametar is exist
+    admin.database().ref('/development/information')
+      .orderByChild('id').equalTo(request.params[0].slice(1))
+      .once('value')
+      .then(snapshots => {
+        snapshots.forEach(function(snapshot) {
+          let ref = snapshot.ref
+          ref.remove(function(object) {
+            response.status(204).send({ message: 'Successfully deleted' })
+          })
+        })
+      })
+      .catch(error => {
+        response.status(404).send({ error: 'Not Resource Found' })
+      })
+  } else {
+    response.status(404).send({ error: 'Not Found' })
   }
 }
 
@@ -246,11 +303,8 @@ exports.login = functions.https.onRequest((request, response) => {
     case 'OPTIONS':
       response.set('Access-Control-Allow-Origin', '*')
               .set('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
-              .set('Access-Control-Allow-Methods', 'GET, POST')
+              .set('Access-Control-Allow-Methods', 'PATCH, POST')
               .status(200).send('OK')
-      break
-    case 'GET':
-      getUserAuth(request, response)
       break
     case 'POST':
       postUserAuth(request, response)
@@ -271,30 +325,28 @@ function patchUserAuth (request, response) {
 function postUserAuth(request, response) {
   if (checkAuth(request) === false) {
     response.status(400).send({ message: 'Bad Request' })
+    return
   } else {
-    const name = request.body.name
     const password = request.body.password
 
-    let json = {}
-    json.name = name
-    json.password = password
-
-    let jsonString = generateJson(json)
-    let encodedToken = generateBase64Token(jsonString)
-
-    response.status(200).send(encodedToken)
+    admin.database().ref('/development/users')
+      .orderByChild('password').equalTo(password)
+      .once('value')
+      .then(snapshots => {
+        snapshots.forEach(function(snapshot) {
+          response.status(200).send(snapshot)
+        })
+      })
+      .catch(error => {
+        response.status(400).send({ error: 'You are not logged in' })
+      })
   }
 }
 
-function getUserAuth (request, response) {
-  response.status(200).send({ message: 'Request called' })
-}
-
 function checkAuth(request) {
-  const name = request.body.name
   const password = request.body.password
 
-  if (name == undefined || password == undefined) {
+  if (password === undefined) {
     return false
   } else {
     return true

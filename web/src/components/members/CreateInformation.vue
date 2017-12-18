@@ -4,8 +4,8 @@
       <h1>{{ message }}</h1>
       <form accept-charset="UTF-8">
         <input type="text" name="title" id="title" placeholder="タイトル" class="title-input"/>
-        <input type="text" name="sub_title" id="sub_title" placeholder="サブタイトル" class="sub-title-input"/>
         <input type="text" name="publisher" id="publisher" placeholder="投稿者名" class="publisher-input"/>
+        <input type="password" name="password" id="password" placeholder="パスワード" class="publisher-input"/>
         <textarea name="content" id="content" class="content-textarea"></textarea>
       </form>
     </div>
@@ -30,29 +30,23 @@ export default {
   },
   methods: {
     submit: function (event){
-      var title = document.getElementById('title').value;
-      var sub_title = document.getElementById('sub_title').value;
-      var content = document.getElementById('content').value;
-      var date = new Date();
-      var year = date.getFullYear();
-      var month = date.getMonth() + 1;
-      var params = [
-        {
+      let title = document.getElementById('title').value;
+      let body = document.getElementById('content').value;
+      let password = document.getElementById('password').value;
+      let publisher = document.getElementById('publisher').value;
+      let params = {
           "title": title,
-          "sub_title": sub_title,
-          "content": content,
-          "year": year,
-          "month": month
-        }
-      ];
+          "body": body,
+          "password": password,
+          "publisher": publisher
+      }
       console.log(params);
-      axios({
-        method: 'post',
-        url: 'https://api-kqc.herokuapp.com/info',
-        data: params
-      }).then(function (response){
+      let baseUrl = "https://us-central1-kqc-web-staging.cloudfunctions.net"
+      axios.post(baseUrl + '/information', params)
+      .then(response => {
         console.log(response.data);
-      }).catch(function (error){
+        this.$router.push({ path: '/members/information' })
+      }).catch(error => {
         console.log(error.status);
       });
     }
