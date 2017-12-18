@@ -41,9 +41,13 @@ export default {
       let params = {
         "body": body
       }
+      console.log(params);
       axios.patch(baseUrl + '/rule')
         .then(response => {
           this.$router.push({ path: '/members/rules' })
+        })
+        .catch(error => {
+          console.log(error);
         })
     },
     cancel: function (event){
