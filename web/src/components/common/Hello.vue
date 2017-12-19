@@ -29,8 +29,9 @@ export default {
   },
   methods: {
     checkLoginStatus: function(event) {
+      this.$store.commit('resetAll')
       let password = Storage.getPassword()
-      password = "yosaki71"
+      password = 'yosaki71'
       if (password === undefined) {
         // ユーザーのログインステータスをFalseに。
         this.$store.commit('logout')
@@ -43,7 +44,7 @@ export default {
       }
       axios.post(baseUrl + '/login', param)
         .then(response => {
-          this.$store.commit('login')
+          this.$store.commit('login', response.data.password)
           this.$store.commit('setName', response.data.name)
         })
         .catch(error => {

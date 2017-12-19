@@ -24,6 +24,7 @@
 </template>
 
 <script>
+import Storage from '../../js/storage-manager'
 export default {
   name: 'header',
   data () {
@@ -32,13 +33,20 @@ export default {
   },
   methods: {
     checkCredential: function (event){
-      var password = prompt("Input Password", "")
-      console.log(password);
+      // ここでユーザーのチェック
+      let userName = this.$store.state.UserName
+      console.log(userName);
+      if (userName === 'common' || userName === 'naimu') {
+        this.$router.push({ path: '/members' })
+        return
+      }
+      let password = prompt("パスワードを入力してください", "")
       if (password == 'hogehoge') {
         this.$router.push({ path: '/members' })
-      }
-      else{
-        this.$router.push({ path: '/ooops'})
+      } else if (password == '') {
+        this.$router.push({ path:'/oops' })
+      } else{
+
       }
     }
   },
