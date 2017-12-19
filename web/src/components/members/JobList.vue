@@ -69,7 +69,6 @@ export default {
     let baseUrl = 'https://us-central1-kqc-web-staging.cloudfunctions.net'
     axios.get(baseUrl + '/jobs')
       .then(response => {
-        console.log(response);
         this.jobList = response.data
       })
   },

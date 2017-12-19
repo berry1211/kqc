@@ -1,6 +1,6 @@
 <template>
   <div id="rules">
-    <p v-html="compiledMarkdown"></p>
+    <p v-html="ourRule.replace(/\n/g, '<br>')"></p>
     <router-link to='/members/rules/edit'>編集</router-link>
   </div>
 </template>
@@ -12,7 +12,7 @@ export default {
     return {
       msg: 'Welcome to KQC',
       msg_sub: 'Rules',
-      ourRule: 'ほげほげ'
+      ourRule: ''
     }
   },
   created: function () {

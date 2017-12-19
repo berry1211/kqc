@@ -70,7 +70,6 @@ export default {
     let baseUrl = 'https://us-central1-kqc-web-staging.cloudfunctions.net'
     axios.get(baseUrl + '/kqctimes')
       .then(response => {
-        console.log(response);
         this.kqctimeslist = response.data
       })
   },
