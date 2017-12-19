@@ -30,19 +30,24 @@ export default {
   methods: {
     checkLoginStatus: function(event) {
       let password = Storage.getPassword()
+      password = "yosaki71"
       if (password === undefined) {
+        // ユーザーのログインステータスをFalseに。
+        this.$store.commit('logout')
+        console.log(this.$store.state.LoginStatus);
         return
       }
       let baseUrl = 'https://us-central1-kqc-web-staging.cloudfunctions.net'
       let param = {
         "password": password
       }
-      axios.get(baseUrl + '/login')
+      axios.post(baseUrl + '/login', param)
         .then(response => {
-
+          this.$store.commit('login')
+          this.$store.commit('setName', response.data.name)
         })
         .catch(error => {
-
+          console.log(error);
         })
     }
   }

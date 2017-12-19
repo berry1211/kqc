@@ -303,14 +303,18 @@ exports.login = functions.https.onRequest((request, response) => {
     case 'OPTIONS':
       response.set('Access-Control-Allow-Origin', '*')
               .set('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
-              .set('Access-Control-Allow-Methods', 'PATCH, POST')
+              .set('Access-Control-Allow-Methods', 'POST, PATCH')
               .status(200).send('OK')
       break
     case 'POST':
-      postUserAuth(request, response)
+      cors(request, response, function() {
+        postUserAuth(request, response)
+      })
       break
     case 'PATCH':
-      patchUserAuth(request, response)
+      cors(request, response, function() {
+        patchUserAuth(request, response)
+      })
       break
     default:
       response.status(400).send({ error: 'Something blew up!' })
