@@ -42,7 +42,7 @@ export default {
         "body": body
       }
       console.log(params);
-      axios.patch(baseUrl + '/rule')
+      axios.patch(baseUrl + '/rule', params)
         .then(response => {
           this.$router.push({ path: '/members/rules' })
         })

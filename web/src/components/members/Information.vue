@@ -69,7 +69,6 @@ export default {
     axios.get(baseUrl + '/information')
     .then(response => {
       this.information_list = response.data
-      console.log(response);
     })
     .catch(e => {
       this.errors.push(e)
