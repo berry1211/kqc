@@ -11,7 +11,7 @@
               <li v-for="kqctimes in kqctimesList">
                 <h3>{{ kqctimes.title }}</h3>
 
-                <div class="menu-wrapper">
+                <div class="menu-wrapper" v-if="isNaimu">
                   <div class="edit-content-wrapper" v-on:click="editKqctimes">
                     <img src="../../assets/ic_mode_edit_black_24dp.png" width="20" height="20" style="float: left;"/>
                     <p class="edit-content">編集</p>
@@ -59,11 +59,15 @@ export default {
       msg_sub: 'KQC Times',
       msg_sub1: '練習・合宿・コンパなどの情報をお伝えします',
       this_year: '2017年',
-      kqctimesList: []
+      kqctimesList: [],
+      isNaimu: false
     }
   },
   created: function () {
     this.getKqctimes()
+    if (this.$store.state.UserName === 'naimu') {
+      this.isNaimu = true
+    }
   },
   methods: {
     getKqctimes: function (event) {
@@ -90,7 +94,12 @@ export default {
       }
     },
     deleteKqctimes: function(event) {
+      let flag = confirm("本当にKQCTimesを削除しますか？")
+      if (flag) {
 
+      } else {
+        // do nothing
+      }
     }
   }
 }
