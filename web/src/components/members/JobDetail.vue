@@ -95,6 +95,13 @@ export default {
       }
     },
     editJob: function(event) {
+      if (this.$store.state.UserName === 'naimu') {
+        for(var elem in this.jobList) {
+          let id = this.jobList[elem].id
+          this.$router.push({ path: `/members/job/${id}/edit` })
+        }
+        return
+      }
       let myPassWord = prompt("パスワードを入力してください","")
       for(var elem in this.jobList) {
         if (myPassWord === this.jobList[elem].password) {

@@ -27,7 +27,7 @@
           </ul>
         </div>
 
-        <div class="post-kqctimes-wrapper">
+        <div class="post-kqctimes-wrapper" v-if="isNaimu">
           <router-link to="/members/create-kqctimes" class="button-post">KQC Timesを投稿<br />（Web担）</router-link>
         </div>
         <div class="sub-content-wrapper">
@@ -61,7 +61,8 @@ export default {
       msg_sub1: '練習・合宿・コンパなどの情報をお伝えします',
       this_year: '',
       kqctimeslist: [],
-      errors: []
+      errors: [],
+      isNaimu: false
     }
   },
   created: function () {
@@ -72,6 +73,9 @@ export default {
       .then(response => {
         this.kqctimeslist = response.data
       })
+    if (this.$store.state.UserName === 'naimu') {
+      this.isNaimu = true
+    }
   },
   methods: {
     limitContent: function (str) {

@@ -60,7 +60,8 @@ export default {
       msg_sub1: '練習・合宿・コンパなどの情報をお伝えします',
       this_year: '2017年',
       kqctimesList: [],
-      isNaimu: false
+      isNaimu: false,
+      id: ''
     }
   },
   created: function () {
@@ -68,6 +69,9 @@ export default {
     if (this.$store.state.UserName === 'naimu') {
       this.isNaimu = true
     }
+    let tmp = location.href.replace(/\?.*$/, '').split('/')
+    // その中で、最後にくる数字を取得。これがイベントID
+    this.id = tmp[tmp.length - 1]
   },
   methods: {
     getKqctimes: function (event) {
@@ -88,10 +92,7 @@ export default {
         alert('編集権限がありません')
         return
       }
-      for(let elem in this.kqctimesList) {
-        let id = this.kqctimesList[elem].id
-        this.$router.push({ path: `/members/kqc-times/${id}/edit` })
-      }
+      this.$router.push({ path: `/members/kqc-times/${this.id}/edit` })
     },
     deleteKqctimes: function(event) {
       let flag = confirm("本当にKQCTimesを削除しますか？")
