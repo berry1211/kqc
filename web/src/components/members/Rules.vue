@@ -1,6 +1,7 @@
 <template>
   <div id="rules">
     <p v-html="compiledMarkdown"></p>
+    <router-link to='/members/rules/edit'>編集</router-link>
   </div>
 </template>
 
