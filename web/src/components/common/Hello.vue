@@ -31,7 +31,7 @@ export default {
     checkLoginStatus: function(event) {
       this.$store.commit('resetAll')
       let password = Storage.getPassword()
-      password = 'yosaki71'
+      console.log('Password: ' + password);
       if (password === undefined) {
         // ユーザーのログインステータスをFalseに。
         this.$store.commit('logout')
@@ -46,6 +46,7 @@ export default {
         .then(response => {
           this.$store.commit('login', response.data.password)
           this.$store.commit('setName', response.data.name)
+          Storage.setPassword(response.data.password)
         })
         .catch(error => {
           console.log(error);

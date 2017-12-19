@@ -4,6 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import store from './js/vuex-manager'
+import storage from './js/storage-manager'
 
 Vue.config.productionTip = false
 
@@ -15,6 +16,7 @@ var app = new Vue({
     kqctimeslist: []
   },
   store,
+  storage,
   template: '<App/>',
   components: { App }
 })

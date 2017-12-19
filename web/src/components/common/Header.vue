@@ -41,13 +41,22 @@ export default {
         return
       }
       let password = prompt("パスワードを入力してください", "")
-      if (password == 'hogehoge') {
-        this.$router.push({ path: '/members' })
-      } else if (password == '') {
-        this.$router.push({ path:'/oops' })
-      } else{
-
+      let param = {
+        "password": password
       }
+      let baseUrl = 'https://us-central1-kqc-web-staging.cloudfunctions.net'
+      axios.post(baseUrl + '/login', param)
+        .then(response => {
+          console.log('Logged in');
+          this.$store.commit('login', response.data.password)
+          this.$store.commit('setName', response.data.name)
+          Storage.setPassword(response.data.password)
+          this.$router.push({ path: '/members' })
+        })
+        .catch(error => {
+          console.log('Reject Logged in');
+          this.$router.push({ path: '/oops' })
+        })
     }
   },
   created: function (){

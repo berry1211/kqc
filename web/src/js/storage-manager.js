@@ -1,6 +1,6 @@
 export default class Storage {
   static getPassword() {
-    localStorage.getItem('password')
+    window.localStorage.getItem('password')
   }
 
   static setPassword(password) {
