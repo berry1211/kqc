@@ -4,7 +4,6 @@
       <h1>{{ message }}</h1>
       <form accept-charset="UTF-8">
         <input type="text" name="title" id="title" placeholder="タイトル" class="title-input" :value="this.record.title" disabled="disabled"/>
-        <input type="text" name="publisher" id="publisher" placeholder="投稿者名" class="publisher-input" :value="this.record.publisher" disabled="disabled"/>
         <textarea name="content" id="body" class="content-textarea" :value="this.record.body"></textarea>
       </form>
     </div>
@@ -55,11 +54,9 @@ export default {
       let tmp = location.href.replace(/\?.*$/, '').split('/')
       // その中で、最後にくる数字を取得。これがイベントID
       var id = tmp[tmp.length - 2]
-      console.log(id)
       let baseUrl = 'https://us-central1-kqc-web-staging.cloudfunctions.net'
       axios.get(baseUrl + '/record/' + id)
         .then(response => {
-          console.log(response);
           let data = response.data
           for(let elem in data) {
             this.record = data[elem]
