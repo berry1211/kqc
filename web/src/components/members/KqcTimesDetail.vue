@@ -10,6 +10,18 @@
             <ul>
               <li v-for="kqctimes in kqctimesList">
                 <h3>{{ kqctimes.title }}</h3>
+
+                <div class="menu-wrapper">
+                  <div class="edit-content-wrapper" v-on:click="editKqctimes">
+                    <img src="../../assets/ic_mode_edit_black_24dp.png" width="20" height="20" style="float: left;"/>
+                    <p class="edit-content">編集</p>
+                  </div>
+                  <div class="delete-content-wrapper" v-on:click="deleteKqctimes">
+                    <img src="../../assets/ic_delete_black_24dp.png" width="20" height="20" style="float: left;"/>
+                    <p class="delete-content">この投稿を削除</p>
+                  </div>
+                </div>
+
                 <p class="sub-title">〜{{ kqctimes.sub_title }}〜</p>
                 <div class="content-summary-wrapper">
                   <p v-html="kqctimes.body.replace(/\n/g, '<br>')" style="font-size: 18px;"></p>
@@ -65,6 +77,20 @@ export default {
           console.log(response)
           this.kqctimesList = response.data
         })
+    },
+    editKqctimes: function(event) {
+      let userName = this.$store.state.UserName
+      if (userName !== 'naimu') {
+        alert('編集権限がありません')
+        return
+      }
+      for(let elem in this.kqctimesList) {
+        let id = this.kqctimesList[elem].id
+        this.$router.push({ path: `/members/kqc-times/${id}/edit` })
+      }
+    },
+    deleteKqctimes: function(event) {
+
     }
   }
 }
@@ -223,7 +249,7 @@ export default {
   }
 
   .sub-content-wrapper{
-    margin-left: 740px;
+    margin-left: 820px;
     margin-top: 32px;
     width: auto;
     height: 100px;
@@ -236,6 +262,60 @@ export default {
   }
   .sub-content-title{
     font-size: 16px;
+  }
+
+  .menu-wrapper {
+    width: 200px;
+    display: flex;
+    margin-right: 8px;
+    margin-left: auto;
+  }
+  .delete-content-wrapper {
+    width: 104px;
+    height: 20px;
+    margin-right: 8px;
+    margin-left: auto;
+    border-radius: 4px;
+    text-align: center;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 4px;
+    color: #424242;
+    font-weight: bold;
+  }
+  .delete-content-wrapper :hover {
+    cursor: pointer;
+  }
+  .delete-content {
+    display: inline-block;
+    font-size: 12px;
+    line-height: 20px;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+  .edit-content-wrapper {
+    float: left;
+    width: 48px;
+    height: 20px;
+    margin-right: 32px;
+    margin-left: auto;
+    border-radius: 4px;
+    text-align: center;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 4px;
+    color: #424242;
+    font-weight: bold;
+  }
+  .edit-content-wrapper :hover {
+    cursor: pointer;
+  }
+  .edit-content {
+    display: inline-block;
+    font-size: 12px;
+    line-height: 20px;
+    margin-top: auto;
+    margin-bottom: auto;
   }
 
   /*スペースのコンポーネント*/

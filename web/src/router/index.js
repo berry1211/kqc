@@ -9,6 +9,7 @@ import Rules from '@/components/members/Rules'
 import EditRule from '@/components/members/EditRule'
 import KqcTimesList from '@/components/members/KqcTimesList'
 import KqcTimesDetail from '@/components/members/KqcTimesDetail'
+import EditKqcTimes from '@/components/members/EditKqcTimes'
 import JobList from '@/components/members/JobList'
 import JobDetail from '@/components/members/JobDetail'
 import JobEdit from '@/components/members/JobEditDetail'
@@ -133,6 +134,15 @@ export default new Router({
       name: 'kqctimes-detail',
       components: {
         default: KqcTimesDetail,
+        footer: Footer,
+        header: HeaderForMembers
+      }
+    },
+    {
+      path: '/members/kqc-times/:id/edit',
+      name: 'EditKqcTimes',
+      components: {
+        default: EditKqcTimes,
         footer: Footer,
         header: HeaderForMembers
       }

@@ -9,7 +9,7 @@ exports.kqctimes = functions.https.onRequest((request, response) => {
     case 'OPTIONS':
       response.set('Access-Control-Allow-Origin', '*')
               .set('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
-              .set('Access-Control-Allow-Methods', 'GET, POST')
+              .set('Access-Control-Allow-Methods', 'GET, POST, PATCH')
               .status(200).send('OK')
       break
     case 'GET':
@@ -20,6 +20,11 @@ exports.kqctimes = functions.https.onRequest((request, response) => {
     case 'POST':
       cors(request, response, function() {
         postKqctimes(request, response)
+      })
+      break
+    case 'PATCH':
+      cors(request, response, function() {
+        patchKqctimes(request, response)
       })
       break
     default:
@@ -52,6 +57,31 @@ function postKqctimes (request, response) {
       })
       .catch(error => {
         response.status(418).send({ 'error': error })
+      })
+  }
+}
+
+function patchKqctimes (request, response) {
+  if (request.params[0] === undefined) {
+    response.status(400).send({ error: 'No Resource' })
+  } else {
+    const body = request.body.body
+    admin.database().ref('/development/kqctimes')
+      .orderByChild('id').equalTo(request.params[0].slice(1))
+      .once('value')
+      .then(snapshots => {
+        snapshots.forEach(function(snapshot) {
+          let ref = snapshot.ref
+          let value = {
+            'body': body
+          }
+          ref.update(value, function(object) {
+            response.status(200).send({ message: 'Successfully updated' })
+          })
+        })
+      })
+      .catch(error => {
+        response.status(404).send({ error: 'Noooo Resource Found' })
       })
   }
 }
