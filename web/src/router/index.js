@@ -21,6 +21,9 @@ import RecordDetail from '@/components/members/RecordDetail'
 import EditRecord from '@/components/members/EditRecord'
 import CreateRecord from '@/components/members/CreateRecord'
 
+// 内務ページ
+import Naimu from '@/components/members/ForNaimu'
+
 // デベロッパーページ
 import Developer from '@/components/developer/ForDeveloper'
 
@@ -259,11 +262,21 @@ export default new Router({
         footer: Footer,
         header: Header
       }
-    },{
+    },
+    {
       path: '/developer',
       name: 'ForDeveloper',
       components: {
         default: Developer,
+        footer: Footer,
+        header: HeaderForMembers
+      }
+    },
+    {
+      path: '/naimu',
+      name: 'Naimu',
+      components: {
+        default: Naimu,
         footer: Footer,
         header: HeaderForMembers
       }

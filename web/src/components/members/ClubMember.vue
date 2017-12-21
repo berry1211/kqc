@@ -27,6 +27,9 @@
             <li>
               <router-link to='/members/rules' class="member-link">同好会規則</router-link>
             </li>
+            <li v-if="isNaimu">
+              <router-link to='/naimu' class="member-link">内務管理ページ</router-link>
+            </li>
             <li>
               <router-link to='/developer' class="member-link">開発担当よりお知らせ</router-link>
             </li>
@@ -51,11 +54,15 @@ export default {
     return {
       msg: 'Welcome to KQC',
       msg_sub: 'For KQC Members',
-      msg_sub1: 'KQC会員専用ページです'
+      msg_sub1: 'KQC会員専用ページです',
+      isNaimu: false
     }
   },
   created: function(){
     document.title = '会員用 | KQC'
+    if (this.$store.state.UserName === 'naimu') {
+      this.isNaimu = true
+    }
   }
 }
 </script>
