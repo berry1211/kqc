@@ -357,7 +357,7 @@ exports.login = functions.https.onRequest((request, response) => {
 })
 
 function getUserAuth (request, response) {
-  if (request.query !== undefined) {
+  if (request.params[0] !== '') {
     response.status(400).send({ error: 'This endpoint is not allowed request parameters' })
   } else {
     admin.database().ref('/development/users')

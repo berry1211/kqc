@@ -8,23 +8,19 @@
 
           <div class="setting-wrapper">
             <div class="setting-content">
-              <p>内務パスワード</p>
-              <input type="text" name="title" id="title" placeholder="パスワード"/>
+              <p class="setting-title">内務パスワード</p>
+              <input type="text" name="title" id="title" placeholder="パスワード" :value="naimu_password"/>
+              <div class="save-button" v-on:click="submitNaimuPassword">
+                <p class="button-content">保存</p>
+              </div>
             </div>
 
             <div class="setting-content">
-              <p>一般会員パスワード</p>
-              <input type="text" name="title" id="title" placeholder="パスワード"/>
-            </div>
-          </div>
-
-          <div class="btn-wrapper">
-            <div class="cancel-information" v-on:click="cancel">
-              <p class="submit-value">キャンセル</p>
-            </div>
-
-            <div class="submit-information" v-on:click="submit">
-              <p class="submit-value">保存</p>
+              <p class="setting-title">一般会員パスワード</p>
+              <input type="text" name="title" id="title" placeholder="パスワード" :value="common_password"/>
+              <div class="save-button" v-on:click="submitCommonPassword">
+                <p class="button-content">保存</p>
+              </div>
             </div>
           </div>
 
@@ -45,15 +41,40 @@ export default {
     return {
       msg_sub: 'な・い・む',
       msg_sub1: '内務管理ページ',
-      this_year: '2017年'
+      this_year: '2017年',
+      common_password: '',
+      naimu_password: ''
     }
   },
   created: function(){
     document.title = 'Dear KQC members | KQC会員用'
+    this.getAuth()
   },
-  computed: {
-    introduction: function () {
-      return marked(this.introductionStr, { sanitize: true })
+  methods: {
+    getAuth: function (event) {
+      let baseUrl = 'https://us-central1-kqc-web-staging.cloudfunctions.net'
+      axios.get(baseUrl + '/login')
+        .then(response => {
+          let data = response.data
+          for (var elem in data) {
+            if (data[elem].name === 'common') {
+              this.common_password = data[elem].password
+            } else if (data[elem].name === 'naimu') {
+              this.naimu_password = data[elem].password
+            } else {
+              // do nothing
+            }
+          }
+        })
+        .catch(error => {
+
+        })
+    },
+    submitNaimuPassword: function(event) {
+      alert('内務')
+    },
+    submitCommonPassword: function(event) {
+      alert('一般')
     }
   }
 }
@@ -251,7 +272,7 @@ export default {
     margin-top: 16px;
     margin-bottom: 16px;
   }
-  .setting-content p {
+  .setting-title {
     display: inline-block;
     margin-right: 16px;
     line-height: 32px;
@@ -307,6 +328,22 @@ export default {
   .submit-value{
     text-align: center;
     line-height: 48px;
+  }
+  .save-button {
+    display: block;
+    width: 80px;
+    height: 32px;
+    margin-left: 16px;
+    background: #2196F3;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+  }
+  .button-content {
+    line-height: 32px;
   }
   /*スペースのコンポーネント*/
   #space{
