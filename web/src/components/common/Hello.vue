@@ -20,38 +20,11 @@ export default {
     }
   },
   created: function(){
-    document.title = 'KQC',
-    this.checkLoginStatus()
+    document.title = 'KQC'
   },
   mounted: function() {
     this.$refs.videoRef.src = "https://firebasestorage.googleapis.com/v0/b/kqc-web-staging.appspot.com/o/VID_20171209_150547.mp4?alt=media&token=fb2feb95-ff8c-45ea-8d9d-18794af45362"
     this.$refs.videoRef.play()
-  },
-  methods: {
-    checkLoginStatus: function(event) {
-      this.$store.commit('resetAll')
-      let password = Storage.getPassword()
-      console.log('Password: ' + password);
-      if (password === undefined) {
-        // ユーザーのログインステータスをFalseに。
-        this.$store.commit('logout')
-        console.log(this.$store.state.LoginStatus);
-        return
-      }
-      let baseUrl = 'https://us-central1-kqc-web-staging.cloudfunctions.net'
-      let param = {
-        "password": password
-      }
-      axios.post(baseUrl + '/login', param)
-        .then(response => {
-          this.$store.commit('login', response.data.password)
-          this.$store.commit('setName', response.data.name)
-          Storage.setPassword(response.data.password)
-        })
-        .catch(error => {
-          console.log(error);
-        })
-    }
   }
 }
 </script>

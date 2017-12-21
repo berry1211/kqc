@@ -31,6 +31,9 @@ export default {
     return {
     }
   },
+  beforeMount: function() {
+    this.checkLoginStatus()
+  },
   methods: {
     checkCredential: function (event){
       // ここでユーザーのチェック
@@ -56,6 +59,30 @@ export default {
         .catch(error => {
           console.log('Reject Logged in');
           this.$router.push({ path: '/oops' })
+        })
+    },
+    checkLoginStatus: function(event) {
+      this.$store.commit('resetAll')
+      let password = Storage.getPassword()
+      console.log('Password: ' + password);
+      if (password === undefined) {
+        // ユーザーのログインステータスをFalseに。
+        this.$store.commit('logout')
+        console.log(this.$store.state.LoginStatus);
+        return
+      }
+      let baseUrl = 'https://us-central1-kqc-web-staging.cloudfunctions.net'
+      let param = {
+        "password": password
+      }
+      axios.post(baseUrl + '/login', param)
+        .then(response => {
+          this.$store.commit('login', response.data.password)
+          this.$store.commit('setName', response.data.name)
+          Storage.setPassword(response.data.password)
+        })
+        .catch(error => {
+          console.log(error);
         })
     }
   },
