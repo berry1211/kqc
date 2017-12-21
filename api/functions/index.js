@@ -372,7 +372,27 @@ function getUserAuth (request, response) {
 }
 
 function patchUserAuth (request, response) {
-
+  if (request.params[0] !== '') {
+    let userName = request.params[0].slice(1)
+    let password = request.body.password
+    let updatedObject = {
+      'password': password
+    }
+    admin.database().ref('/development/users')
+      .orderByChild('name').equalTo(userName)
+      .once('value')
+      .then(snapshots => {
+        snapshots.forEach(function (snapshot) {
+          let ref = snapshot.ref
+          ref.update(updatedObject, function (object) {
+            response.status(200).send({ message: 'Successfully updated' })
+          })
+        })
+      })
+      .catch(error => {
+        response.status(404).send({ error: 'Noooo Resource Found' })
+      })
+  }
 }
 
 function postUserAuth (request, response) {

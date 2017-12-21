@@ -9,7 +9,7 @@
           <div class="setting-wrapper">
             <div class="setting-content">
               <p class="setting-title">内務パスワード</p>
-              <input type="text" name="title" id="title" placeholder="パスワード" :value="naimu_password"/>
+              <input type="text" name="title" id="password_naimu" placeholder="パスワード" :value="naimu_password"/>
               <div class="save-button" v-on:click="submitNaimuPassword">
                 <p class="button-content">保存</p>
               </div>
@@ -17,7 +17,7 @@
 
             <div class="setting-content">
               <p class="setting-title">一般会員パスワード</p>
-              <input type="text" name="title" id="title" placeholder="パスワード" :value="common_password"/>
+              <input type="text" name="title" id="password_common" placeholder="パスワード" :value="common_password"/>
               <div class="save-button" v-on:click="submitCommonPassword">
                 <p class="button-content">保存</p>
               </div>
@@ -30,6 +30,11 @@
 
         </div>
       </div>
+
+      <div class="pop-up" v-if="isUpdated">
+        <p>Password Updated</p>
+      </div>
+
     </div>
   </div>
 </template>
@@ -43,7 +48,9 @@ export default {
       msg_sub1: '内務管理ページ',
       this_year: '2017年',
       common_password: '',
-      naimu_password: ''
+      naimu_password: '',
+      isUpdated: false,
+      baseUrl: 'https://us-central1-kqc-web-staging.cloudfunctions.net'
     }
   },
   created: function(){
@@ -52,8 +59,7 @@ export default {
   },
   methods: {
     getAuth: function (event) {
-      let baseUrl = 'https://us-central1-kqc-web-staging.cloudfunctions.net'
-      axios.get(baseUrl + '/login')
+      axios.get(this.baseUrl + '/login')
         .then(response => {
           let data = response.data
           for (var elem in data) {
@@ -71,10 +77,40 @@ export default {
         })
     },
     submitNaimuPassword: function(event) {
-      alert('内務')
+      let password = document.getElementById('password_naimu').value
+      if (!password) {
+        alert('パスワードが空欄です')
+        return
+      }
+      let params = {
+        "password": password
+      }
+      axios.patch(this.baseUrl + '/login/naimu', params)
+        .then(response =>   {
+          console.log('success');
+          this.isUpdated = true
+        })
+        .catch(error => {
+          console.log('error');
+        })
     },
     submitCommonPassword: function(event) {
-      alert('一般')
+      let password = document.getElementById('password_common').value
+      if (!password) {
+        alert('パスワードが空欄です')
+        return
+      }
+      let params = {
+        "password": password
+      }
+      axios.patch(this.baseUrl + '/login/common', params)
+        .then(response => {
+          console.log('success');
+          this.isUpdated = true
+        })
+        .catch(error => {
+          console.log('error');
+        })
     }
   }
 }
@@ -189,7 +225,7 @@ export default {
   .content-wrapper{
     position: relative;
     height: 100%;
-    min-height: 800px;
+    min-height: 720px;
     width: 764px;
     margin-left: auto;
     margin-right: auto;
@@ -344,6 +380,22 @@ export default {
   }
   .button-content {
     line-height: 32px;
+  }
+  .pop-up {
+    position: fixed;
+    bottom: 120px;
+    left: 48px;
+    width: 180px;
+    height: 48px;
+    background: #55d10c;
+    border-radius: 4px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 18px;
+    text-align: center;
+    padding-left: 16px;
+    padding-right: 16px;
+    line-height: 48px;
   }
   /*スペースのコンポーネント*/
   #space{
