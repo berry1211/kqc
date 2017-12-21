@@ -332,8 +332,13 @@ exports.login = functions.https.onRequest((request, response) => {
     case 'OPTIONS':
       response.set('Access-Control-Allow-Origin', '*')
               .set('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
-              .set('Access-Control-Allow-Methods', 'POST, PATCH')
+              .set('Access-Control-Allow-Methods', 'POST, PATCH, GET')
               .status(200).send('OK')
+      break
+    case 'GET':
+      cors(request, response, function () {
+        getUserAuth(request, response)
+      })
       break
     case 'POST':
       cors(request, response, function () {
@@ -350,6 +355,21 @@ exports.login = functions.https.onRequest((request, response) => {
       break
   }
 })
+
+function getUserAuth (request, response) {
+  if (request.query !== undefined) {
+    response.status(400).send({ error: 'This endpoint is not allowed request parameters' })
+  } else {
+    admin.database().ref('/development/users')
+      .once('value')
+      .then(snapshots => {
+        response.status(200).send(snapshots)
+      })
+      .catch(error => {
+        response.status(400).send({ error: 'You are not logged in' })
+      })
+  }
+}
 
 function patchUserAuth (request, response) {
 

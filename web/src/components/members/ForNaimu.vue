@@ -184,7 +184,7 @@ export default {
     border-bottom: solid 2px #E0E0E0;
     border-left: solid 1px #E0E0E0;
     border-right: solid 1px #E0E0E0;
-    padding-bottom: 48px;
+    padding-bottom: 24px;
   }
   .developer-wrapper{
     height: 100%;
