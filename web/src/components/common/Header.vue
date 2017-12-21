@@ -24,22 +24,66 @@
 </template>
 
 <script>
+import Storage from '../../js/storage-manager'
 export default {
   name: 'header',
   data () {
     return {
     }
   },
+  beforeMount: function() {
+    this.checkLoginStatus()
+  },
   methods: {
     checkCredential: function (event){
-      var password = prompt("Input Password", "")
-      console.log(password);
-      if (password == 'hogehoge') {
+      // ここでユーザーのチェック
+      let userName = this.$store.state.UserName
+      console.log(userName);
+      if (userName === 'common' || userName === 'naimu') {
         this.$router.push({ path: '/members' })
+        return
       }
-      else{
-        this.$router.push({ path: '/ooops'})
+      let password = prompt("パスワードを入力してください", "")
+      let param = {
+        "password": password
       }
+      let baseUrl = 'https://us-central1-kqc-web-staging.cloudfunctions.net'
+      axios.post(baseUrl + '/login', param)
+        .then(response => {
+          console.log('Logged in');
+          this.$store.commit('login', response.data.password)
+          this.$store.commit('setName', response.data.name)
+          Storage.setPassword(response.data.password)
+          this.$router.push({ path: '/members' })
+        })
+        .catch(error => {
+          console.log('Reject Logged in');
+          this.$router.push({ path: '/oops' })
+        })
+    },
+    checkLoginStatus: function(event) {
+      this.$store.commit('resetAll')
+      let password = Storage.getPassword()
+      console.log('Password: ' + password);
+      if (password === undefined) {
+        // ユーザーのログインステータスをFalseに。
+        this.$store.commit('logout')
+        console.log(this.$store.state.LoginStatus);
+        return
+      }
+      let baseUrl = 'https://us-central1-kqc-web-staging.cloudfunctions.net'
+      let param = {
+        "password": password
+      }
+      axios.post(baseUrl + '/login', param)
+        .then(response => {
+          this.$store.commit('login', response.data.password)
+          this.$store.commit('setName', response.data.name)
+          Storage.setPassword(response.data.password)
+        })
+        .catch(error => {
+          console.log(error);
+        })
     }
   },
   created: function (){

@@ -89,6 +89,13 @@ export default {
       }
     },
     editInformation: function(event) {
+      if (this.$store.state.UserName === 'naimu') {
+        for(var elem in this.informationList) {
+          let infoId = this.informationList[elem].id
+          this.$router.push({ path: `/members/infomation/${infoId}/edit` })
+        }
+        return
+      }
       let myPassWord = prompt("パスワードを入力してください","")
       for(var elem in this.informationList) {
         if (myPassWord === this.informationList[elem].password) {
@@ -97,7 +104,7 @@ export default {
         } else {
           alert('パスワードが間違っています')
         }
-     }
+      }
     },
   }
 }

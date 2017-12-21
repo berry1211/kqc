@@ -32,9 +32,36 @@ export default {
     return {
     }
   },
+  Mounted: function() {
+    this.checkLoginStatus()
+  },
   methods: {
     toMembersTop: function (event){
       this.$router.push({ path: '/members' })
+    },
+    checkLoginStatus: function(event) {
+      this.$store.commit('resetAll')
+      let password = Storage.getPassword()
+      console.log('Password: ' + password);
+      if (password === undefined) {
+        // ユーザーのログインステータスをFalseに。
+        this.$store.commit('logout')
+        console.log(this.$store.state.LoginStatus);
+        return
+      }
+      let baseUrl = 'https://us-central1-kqc-web-staging.cloudfunctions.net'
+      let param = {
+        "password": password
+      }
+      axios.post(baseUrl + '/login', param)
+        .then(response => {
+          this.$store.commit('login', response.data.password)
+          this.$store.commit('setName', response.data.name)
+          Storage.setPassword(response.data.password)
+        })
+        .catch(error => {
+          console.log(error);
+        })
     }
   }
 }
@@ -128,6 +155,9 @@ h1, h2 {
     height: 60px;
     margin-left: auto;
     line-height: 60px;
+  }
+  .login-button-wrapper:hover {
+    cursor: pointer;
   }
   .credential-container p{
     display: inline-block;

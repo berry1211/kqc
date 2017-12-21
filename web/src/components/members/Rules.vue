@@ -1,7 +1,7 @@
 <template>
   <div id="rules">
     <p v-html="ourRule.replace(/\n/g, '<br>')"></p>
-    <router-link to='/members/rules/edit'>編集</router-link>
+    <p v-on:click="editRule">編集</p>
   </div>
 </template>
 
@@ -28,6 +28,15 @@ export default {
     compiledMarkdown: function () {
       return marked(this.ourRule, { sanitize: true })
     }
+  },
+  methods: {
+    editRule: function(event) {
+      if (this.$store.state.UserName === 'naimu') {
+        this.$router.push({ path: '/members/rules/edit' })
+      } else {
+        alert('編集権限がありません')
+      }
+    }
   }
 }
 </script>
@@ -40,6 +49,12 @@ h1, h2 {
 
 #rules{
   height: 800px;
+}
+p {
+  display: inline-block;
+}
+p:hover {
+  cursor: pointer;
 }
 a {
   color: #42b983;

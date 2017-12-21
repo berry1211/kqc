@@ -8,9 +8,20 @@
             <ul>
               <li v-for="record in recordList">
                 <h3>{{ record.title }}</h3>
+
+                <div class="menu-wrapper" v-if="isNaimu">
+                  <div class="edit-content-wrapper" v-on:click="editRecord">
+                    <img src="../../assets/ic_mode_edit_black_24dp.png" width="20" height="20" style="float: left;"/>
+                    <p class="edit-content">編集</p>
+                  </div>
+                  <div class="delete-content-wrapper" v-on:click="deleteRecord">
+                    <img src="../../assets/ic_delete_black_24dp.png" width="20" height="20" style="float: left;"/>
+                    <p class="delete-content">この投稿を削除</p>
+                  </div>
+                </div>
+
                 <div class="content-summary-wrapper">
                   <p v-html="record.body.replace(/\n/g, '<br>')" style="font-size: 18px;"></p>
-                  <router-link :to="{ name: 'EditRecord', params: { id: record.id } }">編集</router-link>
                 </div>
               </li>
             </ul>
@@ -45,11 +56,18 @@ export default {
       msg_sub: 'KQC Times',
       msg_sub1: '練習・合宿・コンパなどの情報をお伝えします',
       this_year: '2017年',
-      recordList: []
+      recordList: [],
+      isNaimu: false,
+      id: ''
     }
   },
   created: function () {
     this.getKqctimes()
+    if (this.$store.state.UserName === 'naimu') {
+      this.isNaimu = true
+    }
+    let tmp = location.href.replace(/\?.*$/, '').split('/')
+    this.id = tmp[tmp.length - 1]
   },
   methods: {
     getKqctimes: function (event) {
@@ -63,6 +81,24 @@ export default {
           console.log(response)
           this.recordList = response.data
         })
+    },
+    editRecord: function(event) {
+      let tmp = location.href.replace(/\?.*$/, '').split('/')
+      var id = tmp[tmp.length - 1]
+      this.$router.push({ path : `/members/record/${id}/edit` })
+    },
+    deleteRecord: function(event) {
+      let flag = confirm('本当に削除しますか')
+      if (flag === true) {
+        let baseUrl = 'https://us-central1-kqc-web-staging.cloudfunctions.net'
+        axios.delete(baseUrl + '/record/' + this.id)
+          .then(response => {
+            console.log(response)
+            this.$router.push({ path: '/members/record' })
+          })
+      } else {
+        // do nothing
+      }
     }
   }
 }
@@ -221,7 +257,7 @@ export default {
   }
 
   .sub-content-wrapper{
-    margin-left: 740px;
+    margin-left: 820px;
     margin-top: 32px;
     width: auto;
     height: 100px;
@@ -234,6 +270,60 @@ export default {
   }
   .sub-content-title{
     font-size: 16px;
+  }
+
+  .menu-wrapper {
+    width: 200px;
+    display: flex;
+    margin-right: 8px;
+    margin-left: auto;
+  }
+  .delete-content-wrapper {
+    width: 104px;
+    height: 20px;
+    margin-right: 8px;
+    margin-left: auto;
+    border-radius: 4px;
+    text-align: center;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 4px;
+    color: #424242;
+    font-weight: bold;
+  }
+  .delete-content-wrapper :hover {
+    cursor: pointer;
+  }
+  .delete-content {
+    display: inline-block;
+    font-size: 12px;
+    line-height: 20px;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+  .edit-content-wrapper {
+    float: left;
+    width: 48px;
+    height: 20px;
+    margin-right: 32px;
+    margin-left: auto;
+    border-radius: 4px;
+    text-align: center;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 4px;
+    color: #424242;
+    font-weight: bold;
+  }
+  .edit-content-wrapper :hover {
+    cursor: pointer;
+  }
+  .edit-content {
+    display: inline-block;
+    font-size: 12px;
+    line-height: 20px;
+    margin-top: auto;
+    margin-bottom: auto;
   }
 
   /*スペースのコンポーネント*/

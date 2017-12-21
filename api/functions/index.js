@@ -1,7 +1,6 @@
 const functions = require('firebase-functions')
 const admin = require('firebase-admin')
-const cors = require('cors')({origin: true});
-const Base64 = require('js-base64').Base64
+const cors = require('cors')({origin: true})
 admin.initializeApp(functions.config().firebase)
 
 exports.kqctimes = functions.https.onRequest((request, response) => {
@@ -9,17 +8,22 @@ exports.kqctimes = functions.https.onRequest((request, response) => {
     case 'OPTIONS':
       response.set('Access-Control-Allow-Origin', '*')
               .set('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
-              .set('Access-Control-Allow-Methods', 'GET, POST')
+              .set('Access-Control-Allow-Methods', 'GET, POST, PATCH')
               .status(200).send('OK')
       break
     case 'GET':
-      cors(request, response, function() {
+      cors(request, response, function () {
         getKqctimes(request, response)
       })
       break
     case 'POST':
-      cors(request, response, function() {
+      cors(request, response, function () {
         postKqctimes(request, response)
+      })
+      break
+    case 'PATCH':
+      cors(request, response, function () {
+        patchKqctimes(request, response)
       })
       break
     default:
@@ -56,6 +60,31 @@ function postKqctimes (request, response) {
   }
 }
 
+function patchKqctimes (request, response) {
+  if (request.params[0] === undefined) {
+    response.status(400).send({ error: 'No Resource' })
+  } else {
+    const body = request.body.body
+    admin.database().ref('/development/kqctimes')
+      .orderByChild('id').equalTo(request.params[0].slice(1))
+      .once('value')
+      .then(snapshots => {
+        snapshots.forEach(function (snapshot) {
+          let ref = snapshot.ref
+          let value = {
+            'body': body
+          }
+          ref.update(value, function (object) {
+            response.status(200).send({ message: 'Successfully updated' })
+          })
+        })
+      })
+      .catch(error => {
+        response.status(404).send({ error: 'Noooo Resource Found' })
+      })
+  }
+}
+
 function checkKqctimes (request) {
   const title = request.body.title
   const subTitle = request.body.sub_title
@@ -80,14 +109,14 @@ function getKqctimes (request, response) {
     // if query has contained, search data matched to query
     admin.database().ref('/development/kqctimes')
       .orderByChild('year').equalTo(parseInt(request.query.year, 10))
-      .once('value', function(data) {
+      .once('value', function (data) {
         response.status(200).send(data)
       }, {
-        function(errorObject) {
+        function (errorObject) {
           response.status(404).send({ message: 'Not Found' })
         }
       })
-  } else if (request.params[0] !== "") {
+  } else if (request.params[0] !== '') {
     admin.database().ref('/development/kqctimes')
       .orderByChild('id').equalTo(request.params[0].slice(1))
       .once('value')
@@ -99,10 +128,10 @@ function getKqctimes (request, response) {
       })
   } else {
     admin.database().ref('/development/kqctimes')
-      .once('value', function(data) {
+      .once('value', function (data) {
         response.status(200).send(data)
       }, {
-        function(errorObject) {
+        function (errorObject) {
           response.status(404).send({ message: 'Not Found' })
         }
       })
@@ -118,7 +147,7 @@ exports.information = functions.https.onRequest((request, response) => {
             .status(200).send('OK')
       break
     case 'GET':
-      cors(request, response, function() {
+      cors(request, response, function () {
         getInformation(request, response)
       })
       break
@@ -145,7 +174,7 @@ exports.information = functions.https.onRequest((request, response) => {
 
 function getInformation (request, response) {
     // return values of Information. The number of Information return is 10
-  if (request.params[0] !== "") {
+  if (request.params[0] !== '') {
     // request parametar is exist
     admin.database().ref('/development/information')
       .orderByChild('id').equalTo(request.params[0].slice(1))
@@ -158,9 +187,9 @@ function getInformation (request, response) {
       })
   } else {
     admin.database().ref('/development/information')
-      .once('value', function(data) {
+      .once('value', function (data) {
         response.status(200).send(data)
-      }, function(errorObject) {
+      }, function (errorObject) {
         response.status(404).send({ message: 'Not Found' })
       })
   }
@@ -192,7 +221,7 @@ function postInformation (request, response) {
   }
 }
 
-function patchInformation(request, response) {
+function patchInformation (request, response) {
   if (request.params[0] === undefined) {
     response.status(400).send({ error: 'No Resource' })
   } else {
@@ -201,12 +230,12 @@ function patchInformation(request, response) {
       .orderByChild('id').equalTo(request.params[0].slice(1))
       .once('value')
       .then(snapshots => {
-        snapshots.forEach(function(snapshot) {
+        snapshots.forEach(function (snapshot) {
           let ref = snapshot.ref
           let value = {
             'body': body
           }
-          ref.update(value, function(object) {
+          ref.update(value, function (object) {
             response.status(200).send({ message: 'Successfully updated' })
           })
         })
@@ -217,16 +246,16 @@ function patchInformation(request, response) {
   }
 }
 
-function deleteInformation(request, response) {
-  if (request.params[0] !== "") {
+function deleteInformation (request, response) {
+  if (request.params[0] !== '') {
     // request parametar is exist
     admin.database().ref('/development/information')
       .orderByChild('id').equalTo(request.params[0].slice(1))
       .once('value')
       .then(snapshots => {
-        snapshots.forEach(function(snapshot) {
+        snapshots.forEach(function (snapshot) {
           let ref = snapshot.ref
-          ref.remove(function(object) {
+          ref.remove(function (object) {
             response.status(204).send({ message: 'Successfully deleted' })
           })
         })
@@ -245,7 +274,7 @@ function checkInformation (request) {
   const body = request.body.body
   const password = request.body.password
 
-  if (title === undefined || publisher === undefined || body === undefined || password == undefined) {
+  if (title === undefined || publisher === undefined || body === undefined || password === undefined) {
     return false
   } else {
     return true
@@ -262,7 +291,7 @@ function genKqctimesId () {
   return id + 'kqct'
 }
 
-function genJobsId() {
+function genJobsId () {
   let id = getUniqueId()
   return id + 'jobs'
 }
@@ -303,14 +332,18 @@ exports.login = functions.https.onRequest((request, response) => {
     case 'OPTIONS':
       response.set('Access-Control-Allow-Origin', '*')
               .set('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
-              .set('Access-Control-Allow-Methods', 'PATCH, POST')
+              .set('Access-Control-Allow-Methods', 'POST, PATCH')
               .status(200).send('OK')
       break
     case 'POST':
-      postUserAuth(request, response)
+      cors(request, response, function () {
+        postUserAuth(request, response)
+      })
       break
     case 'PATCH':
-      patchUserAuth(request, response)
+      cors(request, response, function () {
+        patchUserAuth(request, response)
+      })
       break
     default:
       response.status(400).send({ error: 'Something blew up!' })
@@ -322,10 +355,9 @@ function patchUserAuth (request, response) {
 
 }
 
-function postUserAuth(request, response) {
+function postUserAuth (request, response) {
   if (checkAuth(request) === false) {
     response.status(400).send({ message: 'Bad Request' })
-    return
   } else {
     const password = request.body.password
 
@@ -333,7 +365,7 @@ function postUserAuth(request, response) {
       .orderByChild('password').equalTo(password)
       .once('value')
       .then(snapshots => {
-        snapshots.forEach(function(snapshot) {
+        snapshots.forEach(function (snapshot) {
           response.status(200).send(snapshot)
         })
       })
@@ -343,7 +375,7 @@ function postUserAuth(request, response) {
   }
 }
 
-function checkAuth(request) {
+function checkAuth (request) {
   const password = request.body.password
 
   if (password === undefined) {
@@ -351,14 +383,6 @@ function checkAuth(request) {
   } else {
     return true
   }
-}
-
-function generateJson(string) {
-  return JSON.stringify(string)
-}
-
-function generateBase64Token(json) {
-  return Base64.encode(json)
 }
 
 exports.jobs = functions.https.onRequest((request, response) => {
@@ -370,22 +394,22 @@ exports.jobs = functions.https.onRequest((request, response) => {
               .status(200).send('OK')
       break
     case 'GET':
-      cors(request, response, function() {
+      cors(request, response, function () {
         getJobs(request, response)
       })
       break
     case 'POST':
-      cors(request, response, function() {
+      cors(request, response, function () {
         postJobs(request, response)
       })
       break
     case 'PATCH':
-      cors(request, response, function() {
+      cors(request, response, function () {
         updateJobs(request, response)
       })
       break
     case 'DELETE':
-      cors(request, response, function() {
+      cors(request, response, function () {
         removeJobs(request, response)
       })
       break
@@ -395,19 +419,19 @@ exports.jobs = functions.https.onRequest((request, response) => {
   }
 })
 
-function getJobs(request, response) {
+function getJobs (request, response) {
   if (request.query.grade !== undefined) {
     // if query has contained, search data matched to query
     admin.database().ref('/development/jobs')
       .orderByChild('grade').equalTo(parseInt(request.query.grade, 10))
-      .once('value', function(data) {
+      .once('value', function (data) {
         response.status(200).send(data)
       }, {
-        function(errorObject) {
+        function (errorObject) {
           response.status(404).send({ message: 'Not Found' })
         }
       })
-  } else if (request.params[0] !== "") {
+  } else if (request.params[0] !== '') {
     // request parametar is exist
     admin.database().ref('/development/jobs')
       .orderByChild('id').equalTo(request.params[0].slice(1))
@@ -420,15 +444,15 @@ function getJobs(request, response) {
       })
   } else {
     admin.database().ref('/development/jobs')
-      .once('value', function(data) {
+      .once('value', function (data) {
         response.status(200).send(data)
-      }, function(errorObject) {
+      }, function (errorObject) {
         response.status(404).send({ message: 'Not Found' })
       })
   }
 }
 
-function postJobs(request, response) {
+function postJobs (request, response) {
   if (checkPOSTJobs(request) === false) {
     response.status(400).send({ error: 'Bad Request' })
   } else {
@@ -456,20 +480,20 @@ function postJobs(request, response) {
   }
 }
 
-function updateJobs(request, response) {
-  if (request.params[0] !== "") {
+function updateJobs (request, response) {
+  if (request.params[0] !== '') {
     // request parametar is exist
     const body = request.body.body
     admin.database().ref('/development/jobs')
       .orderByChild('id').equalTo(request.params[0].slice(1))
       .once('value')
       .then(snapshots => {
-        snapshots.forEach(function(snapshot) {
+        snapshots.forEach(function (snapshot) {
           let ref = snapshot.ref
           let value = {
             'body': body
           }
-          ref.update(value, function(object) {
+          ref.update(value, function (object) {
             response.status(200).send({ message: 'Successfully updated' })
           })
         })
@@ -482,16 +506,16 @@ function updateJobs(request, response) {
   }
 }
 
-function removeJobs(request, response) {
-  if (request.params[0] !== "") {
+function removeJobs (request, response) {
+  if (request.params[0] !== '') {
     // request parametar is exist
     admin.database().ref('/development/jobs')
       .orderByChild('id').equalTo(request.params[0].slice(1))
       .once('value')
       .then(snapshots => {
-        snapshots.forEach(function(snapshot) {
+        snapshots.forEach(function (snapshot) {
           let ref = snapshot.ref
-          ref.remove(function(object) {
+          ref.remove(function (object) {
             response.status(204).send({ message: 'Successfully deleted' })
           })
         })
@@ -504,14 +528,14 @@ function removeJobs(request, response) {
   }
 }
 
-function checkPOSTJobs(request) {
+function checkPOSTJobs (request) {
   const title = request.body.title
   const publisher = request.body.publisher
   const body = request.body.body
   const password = request.body.password
   const grade = request.body.grade
 
-  if (title == undefined || publisher == undefined || body == undefined || password == undefined || grade == undefined) {
+  if (title === undefined || publisher === undefined || body === undefined || password === undefined || grade === undefined) {
     return false
   } else {
     return true
@@ -527,22 +551,22 @@ exports.record = functions.https.onRequest((request, response) => {
               .status(200).send('OK')
       break
     case 'GET':
-      cors(request, response, function() {
+      cors(request, response, function () {
         getRecord(request, response)
       })
       break
     case 'POST':
-      cors(request, response, function() {
+      cors(request, response, function () {
         postRecord(request, response)
       })
       break
     case 'PATCH':
-      cors(request, response, function() {
+      cors(request, response, function () {
         updateRecord(request, response)
       })
       break
     case 'DELETE':
-      cors(request, response, function() {
+      cors(request, response, function () {
         removeRecord(request, response)
       })
       break
@@ -552,19 +576,19 @@ exports.record = functions.https.onRequest((request, response) => {
   }
 })
 
-function getRecord(request, response) {
+function getRecord (request, response) {
   if (request.query.year !== undefined) {
     // if query has contained, search data matched to query
     admin.database().ref('/development/record')
       .orderByChild('year').equalTo(parseInt(request.query.year, 10))
-      .once('value', function(data) {
+      .once('value', function (data) {
         response.status(200).send(data)
       }, {
-        function(errorObject) {
+        function (errorObject) {
           response.status(404).send({ message: 'Not Found' })
         }
       })
-  } else if (request.params[0] !== "") {
+  } else if (request.params[0] !== '') {
     // request parametar is exist
     admin.database().ref('/development/record')
       .orderByChild('id').equalTo(request.params[0].slice(1))
@@ -577,15 +601,15 @@ function getRecord(request, response) {
       })
   } else {
     admin.database().ref('/development/record')
-      .once('value', function(data) {
+      .once('value', function (data) {
         response.status(200).send(data)
-      }, function(errorObject) {
+      }, function (errorObject) {
         response.status(404).send({ message: 'Not Found' })
       })
   }
 }
 
-function postRecord(request, response) {
+function postRecord (request, response) {
   if (checkPOSTRecord(request) === false) {
     response.status(400).send({ error: 'Bad Request' })
   } else {
@@ -613,20 +637,20 @@ function postRecord(request, response) {
   }
 }
 
-function updateRecord(request, response) {
-  if (request.params[0] !== "") {
+function updateRecord (request, response) {
+  if (request.params[0] !== '') {
     // request parametar is exist
     const body = request.body.body
     admin.database().ref('/development/record')
       .orderByChild('id').equalTo(request.params[0].slice(1))
       .once('value')
       .then(snapshots => {
-        snapshots.forEach(function(snapshot) {
+        snapshots.forEach(function (snapshot) {
           let ref = snapshot.ref
           let value = {
             'body': body
           }
-          ref.update(value, function(object) {
+          ref.update(value, function (object) {
             response.status(200).send({ message: 'Successfully updated' })
           })
         })
@@ -639,16 +663,16 @@ function updateRecord(request, response) {
   }
 }
 
-function removeRecord(request, response) {
-  if (request.params[0] !== "") {
+function removeRecord (request, response) {
+  if (request.params[0] !== '') {
     // request parametar is exist
     admin.database().ref('/development/record')
       .orderByChild('id').equalTo(request.params[0].slice(1))
       .once('value')
       .then(snapshots => {
-        snapshots.forEach(function(snapshot) {
+        snapshots.forEach(function (snapshot) {
           let ref = snapshot.ref
-          ref.remove(function(object) {
+          ref.remove(function (object) {
             response.status(204).send({ message: 'Successfully deleted' })
           })
         })
@@ -661,19 +685,19 @@ function removeRecord(request, response) {
   }
 }
 
-function geneRecordId(){
+function geneRecordId () {
   let id = getUniqueId()
   return id + 'reco'
 }
 
-function checkPOSTRecord(request) {
+function checkPOSTRecord (request) {
   const title = request.body.title
   const year = request.body.year
   const month = request.body.month
   const day = request.body.day
   const body = request.body.body
 
-  if (title == undefined || year == undefined || month == undefined || day == undefined || body == undefined) {
+  if (title === undefined || year === undefined || month === undefined || day === undefined || body === undefined) {
     return false
   } else {
     return true
@@ -689,12 +713,12 @@ exports.rule = functions.https.onRequest((request, response) => {
               .status(200).send('OK')
       break
     case 'GET':
-      cors(request, response, function() {
+      cors(request, response, function () {
         getRule(request, response)
       })
       break
     case 'PATCH':
-      cors(request, response, function() {
+      cors(request, response, function () {
         updateRule(request, response)
       })
       break
@@ -704,16 +728,16 @@ exports.rule = functions.https.onRequest((request, response) => {
   }
 })
 
-function getRule(request, response) {
+function getRule (request, response) {
   admin.database().ref('/development/rule')
-    .once('value', function(data) {
+    .once('value', function (data) {
       response.status(200).send(data)
-    }, function(errorObject) {
+    }, function (errorObject) {
       response.status(404).send({ message: 'Not Found' })
     })
 }
 
-function updateRule(request, response) {
+function updateRule (request, response) {
     // request parametar is exist
   const body = request.body.body
   admin.database().ref('/development/rule')
@@ -723,7 +747,7 @@ function updateRule(request, response) {
       let value = {
         'body': body
       }
-      ref.update(value, function(object) {
+      ref.update(value, function (object) {
         response.status(200).send({ message: 'Successfully updated' })
       })
     })
